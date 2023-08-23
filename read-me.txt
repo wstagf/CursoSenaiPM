@@ -9,4 +9,5 @@ Repositio do curso
 https://github.com/wstagf/CursoSenaiPM
 
 
-TESTES DE COMANDO
+Links de mais detalhes 
+https://www.w3schools.com/html/
