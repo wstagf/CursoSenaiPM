@@ -1,0 +1,63 @@
+<!--
+      consumo de rest https://run.mocky.io/
+-->
+
+<html>
+<body>
+    <script>
+        function function1(  nomeTarefa) {
+        var ul = document.getElementById("list");
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(nomeTarefa));
+        ul.appendChild(li);
+        }
+
+        fetch('https://run.mocky.io/v3/e8363dbc-222d-460a-9cd1-2ce2759aebe8').then(function (response) {
+            // The API call was successful!
+            return response.json();
+        }).then(function (data) {
+            // This is the JSON from our response
+            
+            data.tarefas.map((item)=> {
+                console.log(item.nomeTarefa)
+                function1(item.nomeTarefa)
+            })
+
+
+        }).catch(function (err) {
+            // There was an error
+            console.warn('Something went wrong.', err);
+        });
+    </script>
+
+    <ul id="list">
+        
+    </ul>
+</body> 
+</html>
+
+
+
+<!--
+
+TUDO que escrever aqui não será interpretado
+
+
+localhost:5500/index.html
+
+
+http://127.0.0.1:5500/index.html
+
+
+
+
+https://pt.wikipedia.org/wiki/UTF-8
+
+&nbsp  = "ESPACO que não é ignorado"
+
+    
+-->
+
+
+
+
