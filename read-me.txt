@@ -22,6 +22,10 @@ https://www.w3schools.com/css/default.asp
 
 https://medium.com/jaguaribetech/efeito-cascata-no-css-c55bda0a2ed4
 
+Tamanhos de telas 
+https://gadgetfaculty.com/best-display-aspect-ratio-smartphone/
+
+
 
 
 AULA 03... GRID-LAYOUT X FLEXBOX
