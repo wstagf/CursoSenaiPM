@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif; 
+            background-color: #f0f0f0; 
+            padding: 0px; 
+            margin: 0;
+        }
+
+        table {
+            border-collapse: collapse; 
+            margin-top: 20px;
+        }
+
+        td {
+            padding: 60px;
+        }
+
+        #celulaBotao {
+            padding: 10px;
+        }
+
+        .celula {  
+            padding: 15px;  
+        }
+
+        .linha {
+            font-size: 14px; color: #555;
+        }
+
+        .titulo {
+            font-size: 16px; color: #333;
+        }
+    </style>
+</head>
+<body >
+
+<table 
+    align="center" 
+    border="0" 
+    cellpadding="0"
+    cellspacing="0"
+    width="600">
+    <tr>
+        <td  class="celula" align="center" bgcolor="#007bff" >
+            <h1 style="color: #ffffff;">Curso Especial! - INCORPORADO</h1>
+        </td>
+    </tr>
+    <tr>
+        <td  class="celula"  >
+            <p class="titulo">Olá PM</p>
+            <p class="linha">Estamos animados com o curso</p>
+            <p class="linha">Já vimos estas matérias:</p>
+            <p class="linha">Banco de dados</p>
+            <p class="linha">Java</p>
+            <p class="linha">Html</p>
+        </tr>
+    </tr>
+    <tr>
+        <td id="celulaBotao" align="center" bgcolor="#007bff" >
+          <a href="https://www.pm.go.gov.br/" target="_blank" style="display: inline-block; background-color: #ffffff; color: #007bff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Visite nosso site</a>
+        </td>
+      </tr>
+</table>
+
+    
+</body>
+</html>
+
+
+<!--
+
+    neste arquivo foi utilizado o  Estilo incorporado (<style>definido na seção head do documento).
+
+
+
+
+
+    Hierarquia CSS
+
+    1° Declarações com !important do usuário.
+    2° Declarações com !important do desenvolvedor ( da qual vai ser melhor explicada quando entrarmos no tópico de especificidade).
+    3° Folha de estilo do desenvolvedor:
+    a. Estilo inline (dentro de um elemento HTML,um atibuto).
+    b. Estilo incorporado (<style>definido na seção head do documento).
+    c. Estilo externo (importado ou linkado).
+    4° Folha de estilo do usuário (do qual pode vincular ao browser).
+    5° Folha de estilo do navegador.
+
+
+-->

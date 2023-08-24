@@ -1,0 +1,31 @@
+body {
+    font-family: 'Times New Roman', Times, serif; 
+    background-color: #a0a0a0; 
+    padding: 0px; 
+    margin: 0;
+}
+
+table {
+    border-collapse: collapse; 
+    margin-top: 20px;
+}
+
+td {
+    padding: 60px;
+}
+
+#celulaBotao {
+    padding: 10px;
+}
+
+.celula {  
+    padding: 15px;  
+}
+
+.linha {
+    font-size: 14px; color: #555;
+}
+
+.titulo {
+    font-size: 16px; color: #333;
+}
