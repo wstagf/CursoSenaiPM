@@ -25,10 +25,14 @@ https://medium.com/jaguaribetech/efeito-cascata-no-css-c55bda0a2ed4
 Tamanhos de telas 
 https://gadgetfaculty.com/best-display-aspect-ratio-smartphone/
 
+tableless
+https://www.devmedia.com.br/tableless-criando-um-site-dentro-dos-padroes/30502
 
 
 
 AULA 03... GRID-LAYOUT X FLEXBOX
 
 https://www.origamid.com/projetos/wildbeast/#  - FLEXBOX
+
+
 
