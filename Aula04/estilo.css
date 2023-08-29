@@ -1,0 +1,32 @@
+body { 
+    font:   'Open Sans', sans-serif;
+    font-size: 14px;
+}
+.todo {
+    display: flex;  /*  configura o lyout para flex-box */
+    width: 50vw; /* configura a div tenho 50% da largura da tela  */
+    flex-direction: column; /*  configura a posição dos filhos como coluna */
+    align-items: center; /* alunha no eixo secundario no centro  */
+    margin: 0 auto; /*  define a margem externa sendo 0 no eixo y, e centralizado no eixo x  */
+    gap: 15px; /* define a distancia entre cada item  */ 
+}
+
+
+.todo_list {
+    display: flex; /* define o posicionamento como flex-box  */ 
+    width: 100%; /*  largura 100% do pai  */
+    flex-direction: column; /*  configura a posição dos filhos como coluna */
+    gap: 10px; /* define a distancia entre cada item  */ 
+}
+
+
+.todo_item{ 
+    display: flex; /* define o posicionamento como flex-box  */ 
+    width: 100%;  /*  largura 100% do pai  */
+    height: 60px; /*  altura definida de 60pixels*/
+    flex-direction: row; /*  configura a posição dos filhos como linha */
+    justify-content: space-between;  /*  criterio de posicionamento entre os filhos no eixo principal*/
+    align-items: center;   /*  criterio de posicionamento entre os filhos  no eixo secundario*/
+    padding: 5px; /*  margem interna */
+    box-shadow: 1px 1px 5px #000000; /*  sombra descolada a 1px a direita, 1px a baixo 5px de enevoado da cor #000000 (preta) */
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="todo">
+        <div class="todo_title" onclick="criarItem('PM', 'GO')">
+            Lista de Tarefas
+        </div> 
+        <div class="todo_list" id='todoList'> 
+            
+        </div>
+        <div class="todo_new_item" id="novo_item">
+            <br/>
+            
+            <input type="text" 
+                placeholder="Digite e pressione enter para adicionar a tarefa"
+                onkeypress="inserirItem(event)" />
+            <br/>
+        </div>
+    </div> 
+    <script src="app.js"></script>
+</body>
+</html>
