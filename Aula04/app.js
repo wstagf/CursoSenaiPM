@@ -4,9 +4,27 @@
 const criarItem = (tarefa, status, indice) => {
     const item = document.createElement( 'label');
     item.classList.add('todo_item');
-    item.innerHTML = '<input type="checkbox"> <div> ' + tarefa +' </div> <input type="button" value="x">'
+    item.innerHTML = 
+        '<input type="checkbox">'
+        + '<div> '  + tarefa + ' </div>'
+        + '<input onclick="excluirItem(event)" type="button" value="x" data-indice="' + indice + '">'
     document.getElementById("todoList").appendChild(item);
 } 
+
+const inserirItem = (evento) => {
+    const todoList = document.getElementById("todoList");
+
+    if(evento.key === "Enter") {
+        criarItem(evento.target.value, null, todoList.children.length);
+        evento.target.value = "";
+    }
+}
+
+const excluirItem = (evento) => {
+    const numeroDoItem = evento.target.dataset.indice; 
+    const todoList = document.getElementById("todoList");
+    todoList.removeChild(todoList.children[numeroDoItem]);
+}
 
 
 const limpaTarefas = () => {
@@ -16,12 +34,9 @@ const limpaTarefas = () => {
     }
 }
 
-const inserirItem = (evento) => {
-    if(evento.key === "Enter") {
-        criarItem(evento.target.value, null, null);
-        evento.target.value = "";
-    }
-}
+
+
+
 
 
 
