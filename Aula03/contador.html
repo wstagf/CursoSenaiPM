@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <title>Contador</title>
+        <style>
+            * {
+                font-family: sans-serif;
+            }
+
+            body {
+               line-height: 1.5;
+               font-size: 12px;  
+            }
+
+            .principal {
+                min-height: 100vh;
+                display: grid;
+                place-items: center;
+            }
+
+            .conteudo {
+                text-align: center; 
+            }
+
+            h1 {
+                font-size: 48px;
+                text-transform: capitalize;
+                
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            button {
+                text-transform: capitalize;
+                background-color: transparent;
+                padding: 24px;
+                margin: 12px;
+                letter-spacing: 2px;
+                font-size: 24px; 
+                border: 2px solid #707070;
+                border-radius: 10px;
+                cursor: pointer;
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 0.8); 
+            }
+
+
+            button:hover {
+                border-color: #0000d2
+            }
+
+            p {
+                font-size: 36px;
+            }
+
+            #qtd {
+                border: 1px solid black;
+                font-size: 36px;
+            }
+ 
+        </style>
+
+    </head>
+    <body>
+        
+        <div class="principal">
+            <div class="conteudo">
+                <h1>quantidade</h1>
+                <h2 id="destino">0</h2> 
+                <div>
+                    <button id="diminuir"  >diminuir</button>
+                    <button id="recomecar"  >recomeçar</button>
+                    <button id="aumentar">aumentar</button>
+                </div>
+
+                <br><br>
+                <p>Quantidade que será utilzada</p>
+                <input id="qtd" type="number"   />
+               
+            </div>
+        </div>
+        <script>
+        
+            let quant = 0;
+
+            const destino = document.getElementById('destino');
+
+            
+            let qtd = 0;
+            const minhaVariavel1 = document.getElementById('diminuir');
+            const recomecar = document.getElementById('recomecar');
+            const aumentar = document.getElementById('aumentar');
+
+            diminuir.addEventListener("click", function (e) {
+                qtd = document.getElementById('qtd').value;  
+                console.log('Clicou no diminuir');
+                quant = quant - parseInt(qtd);
+                //  quant--;
+                destino.textContent = quant;
+            });
+
+            recomecar.addEventListener('click', function (e) { 
+                console.log('Clicou no recomecar');
+                quant = 0;
+                destino.textContent = quant;
+            });
+
+            aumentar.addEventListener('click', function (e) {
+                qtd = document.getElementById('qtd').value;
+                console.log('Clicou no aumentar')
+                quant = quant + parseInt(qtd);
+                //  quant++;
+                destino.textContent = quant;
+            })
+
+        </script>
+    </body>
+</html>
+
+
+
+
+<!-- 
+
+
+    ENQUETE: 
+
+    https://forms.gle/yCp4Qb4bJFZ9xHG57
+
+
+    
+
+-->

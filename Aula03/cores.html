@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>Contador</title>
+        <style>
+            * {
+                font-family: sans-serif;
+            }
+
+            body {
+               line-height: 1.5;
+               font-size: 12px;  
+            }
+
+            .principal {
+                min-height: 100vh;
+                display: grid;
+                place-items: center;
+            }
+
+            .conteudo {
+                text-align: center; 
+            } 
+
+            button {
+                text-transform: capitalize;
+                background-color: transparent;
+                padding: 24px;
+                margin: 12px;
+                letter-spacing: 2px;
+                font-size: 24px; 
+                border: 2px solid #707070;
+                border-radius: 10px;
+                cursor: pointer;
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 0.8); 
+            }
+
+
+            button:hover {
+                border-color: #0000d2
+            }
+
+            p {
+                font-size: 36px;
+            }
+
+            input {
+                height: 150px;
+                width: 150px;
+            }
+
+            #destino {
+                font-size: 36px;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        
+        <div class="principal">
+            <div class="conteudo"> 
+                <div id="destino">
+                    destino
+                </div>
+                <div class="layout"> 
+                    <p>Cor Interna</p>
+                    <input id="cor_interna" type="color" />
+                    <br>
+                    <p>Cor Externa</p>
+                    <input id="cor_externa" type="color" />
+                    <br>
+                    <button id="alterar">Alterar Layout</button>
+                </div>
+               
+            </div>
+        </div>
+
+       
+        <script>
+         
+
+            const destino = document.getElementById('destino'); 
+
+            const alterar = document.getElementById('alterar');
+            
+            const corInterna = document.getElementById('cor_interna');
+            const corExterna = document.getElementById('cor_externa');
+            
+            alterar.addEventListener('click', function (e) {
+                destino.style.backgroundColor = corInterna.value;
+                console.log("10px solid ");
+                console.log(corExterna.value);
+                console.log("10px solid " + corExterna.value);
+                destino.style.border = "10px solid " + corExterna.value; 
+            });
+
+        </script>
+    </body>
+</html>
+
+
+
+
+<!-- 
+
+
+    ENQUETE: 
+
+    https://forms.gle/yCp4Qb4bJFZ9xHG57
+
+
+    
+
+-->
