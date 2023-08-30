@@ -30,3 +30,13 @@ body {
     padding: 5px; /*  margem interna */
     box-shadow: 1px 1px 5px #000000; /*  sombra descolada a 1px a direita, 1px a baixo 5px de enevoado da cor #000000 (preta) */
 }
+
+.todo_item.completa {
+    color: #575757;
+    background-color: #909090;
+}
+
+.todo_item.completa .titulo { 
+    text-decoration: line-through; 
+}
+ 

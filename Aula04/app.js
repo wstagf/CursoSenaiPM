@@ -1,15 +1,28 @@
 
 
-// Estilo de escrita arrowfunction
 const criarItem = (tarefa, status, indice) => {
     const item = document.createElement( 'label');
     item.classList.add('todo_item');
     item.innerHTML = 
-        '<input type="checkbox">'
-        + '<div> '  + tarefa + ' </div>'
+        '<input onclick="completarTarefa(event)"  type="checkbox" data-indice="' + indice +'">'
+        + '<div class="titulo"> '  + tarefa + ' </div>'
         + '<input onclick="excluirItem(event)" type="button" value="x" data-indice="' + indice + '">'
     document.getElementById("todoList").appendChild(item);
 } 
+
+const completarTarefa = (evento) => {
+    const novoValor = evento.target.checked; 
+    const numeroDoItem = evento.target.dataset.indice;  
+    const todoList = document.getElementById("todoList");
+    const itemAlterado = todoList.children[numeroDoItem];
+   
+    if(novoValor) {
+        itemAlterado.classList.add('completa');
+    } else {
+        itemAlterado.classList.remove('completa');
+    }
+}
+
 
 const inserirItem = (evento) => {
     const todoList = document.getElementById("todoList");
@@ -33,6 +46,8 @@ const limpaTarefas = () => {
         todoList.removeChild(todoList.lastChild);
     }
 }
+
+
 
 
 
