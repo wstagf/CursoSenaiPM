@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+    <script>
+           let n= 1; 
+           let pares = [];
+           let impares = [];
+           let todos = [];
+
+            while (n>0){
+                n = parseFloat(prompt("Digite um numero"));
+                if(n > 0) {
+                    if (  (n % 2 ) === 0 ){ // testa se é par
+                    pares.push(n);
+                    todos.push(n);
+                    } else {
+                        impares.push(n);
+                        todos.push(n);
+                    }
+                } 
+            }
+
+            console.log("pares", pares);
+            console.log("impares", impares);
+            console.log("todos", todos);
+
+          
+    </script>
+</head>
+<body>
+    <h1>Impares e Pares</h1>
+    <p> Faça um algoritmo estruturado que leia 
+        uma quantidade não determinada de números positivos. 
+        
+        Calcule a quantidade de números pares e ímpares,
+        a média de valores pares
+        e a média geral dos números lidos.
+        
+        O número que encerrará a leitura será zero.
+    </p>
+</body>
+</html>
