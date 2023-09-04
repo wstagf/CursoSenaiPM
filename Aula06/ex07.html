@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estutura de Repetição - Universo Desconhecido</title>
+    <script> 
+
+        let n = 0;
+        let maior = 0;
+
+        while (n>0){
+            n = parseFloat(prompt("digite um número ou 0 para sair"));
+            if (n > maior){
+                maior = n;
+            }
+        }
+
+        alert("maior numero: "+maior)
+    </script>
+</head>
+<body>
+    <h1>Valor Maior</h1>
+    <p>
+        Desenvolver um algoritmo que leia 
+        um número não determinado de valores 
+        e mostre o maior valor já listado.
+    </p>
+</body>
+</html>

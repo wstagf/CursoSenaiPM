@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estutura de Repetição - Universo Conhecido</title>
+    <script>
+        const n = prompt("Digite o numero");
+
+        var index = 0;
+
+        while (index <= 10) {
+            console.log(n + " X " + index + " = " + n * index + ",");
+            index++;
+        }
+
+        console.log(index);
+        // essa linha apresentará o valor pois o INDEX ainda persiste na memoria 
+        // apesar de solucionar o problema, não é a melhor abordagem
+        // pois não precisaremos mais dele;
+
+        
+
+        for (let i = 0; i <= 10; i++) {
+            console.log(i);
+        }
+        console.log(i); 
+        // essa linha apresentará um erro pois o I foi limpo da memoria 
+        // sendo a melhor abordagem pois não precisaremos mais dele
+
+
+    </script>
+</head>
+<body>
+    <h1> Tabuada </h1>
+
+    <p>Escrever um algoritmo que
+         leia um valor para uma variável N de 1 a 10 
+         e calcule a tabuada de N. 
+         
+         Mostre a tabuada na forma: 
+         
+         0 x N = 0, 
+         1 x N = 1N, 
+         2 x N = 2N, 
+         ..., 
+         10 x N = 10N.
+    </p>
+</body>
+</html>
