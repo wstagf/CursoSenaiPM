@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios de Lista</title>
+    <script>
+        var lista = [];
+
+        console.log("quantidade da lista ", lista.length);
+        
+        for (let index = 0; index < 15; index++) {
+            var altura = prompt('Digite a altura do indíduo: ');
+            lista.push(parseFloat(altura));
+        }
+
+        var maxAlt = 0;
+        var minAlt = 0;
+
+        minAlt = lista[0];
+
+        lista.map((alt) => {
+            console.log("a alutra autal é : " + alt)
+
+            if(alt > maxAlt) {
+                maxAlt = alt;
+            };
+
+            if(alt < minAlt) {
+                minAlt = alt;
+            }
+        });
+        
+    </script>
+</head>
+<body>
+    <h1>Lista</h1>
+    <p>
+         Desenvolver um algoritmo que leia a altura de 15 pessoas. 
+         <br>
+         Este programa deverá calcular e mostrar :
+    </p>
+    <ul>
+        <oil>
+            a. A menor altura do grupo;
+        </ol>
+        <ol>
+            b. A maior altura do grupo;
+        </ol>
+    </ul>
+</body>
+</html>
