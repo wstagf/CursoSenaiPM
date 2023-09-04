@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios de Lista</title>
+    <script>
+        var lista = [];
+        
+        var opcao = -1
+
+        while (opcao != 0) {
+            var nome = prompt("digite o nome");
+            var email = prompt("digite o email");
+            var celular = prompt("digite o celular");
+            var cidade = prompt("digite o cidade");
+
+            var contato = {
+                "nome": nome,
+                "email": email,
+                "celular": celular,
+                "cidade" : cidade 
+            }  
+
+            lista.push(contato);
+
+            opcao = prompt("digite 0 para sair e qualquer coisa para continuar");
+        } 
+
+
+       var exibirItens = () => {
+            lista.forEach((item, i, arry ) => {
+                console.log("item", item);
+                console.log("i", i);
+                console.log("arry", arry);
+            })
+        }
+        
+    </script>
+</head>
+<body>
+    <h1>Lista de Contatos </h1>
+         Desenvolver um algoritmo que armazene os contatos em uma lista. 
+         <br>
+         Digite 0 para sair
+    </p>
+
+    <button onclick="exibirItens()">Mostrar todos os itens</button>
+    
+</body>
+</html>
