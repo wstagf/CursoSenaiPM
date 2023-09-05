@@ -1,0 +1,40 @@
+
+
+Lista com as tags do html
+
+https://web.stanford.edu/group/csp/cs21/htmlcheatsheet.pdf
+
+
+Repositio do curso
+https://github.com/wstagf/CursoSenaiPM
+
+
+Links de mais detalhes 
+https://www.w3schools.com/html/
+
+
+
+
+
+Aula 2...
+https://www.w3schools.com/tags/tag_div.ASP
+https://www.w3schools.com/css/default.asp
+
+https://medium.com/jaguaribetech/efeito-cascata-no-css-c55bda0a2ed4
+
+Tamanhos de telas 
+https://gadgetfaculty.com/best-display-aspect-ratio-smartphone/
+
+tableless
+https://www.devmedia.com.br/tableless-criando-um-site-dentro-dos-padroes/30502
+
+
+
+AULA 03... GRID-LAYOUT X FLEXBOX
+
+https://www.origamid.com/projetos/wildbeast/#  - FLEXBOX
+
+
+
+email para dúvidas e para envio das gravações
+thiago@aguiarobo.com
