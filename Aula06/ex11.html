@@ -7,12 +7,20 @@
 </head>
 <body>
     <h1>Request para o VIA CEP</h1>
-    <ul id="dados">
-        
-    </ul>
+    <p>Digite um CEP e click no botão buscar</p>
+    <input id="cep" type="number"/>
+    <button onclick="manipulador()">Carregar</button>
+    <ul id="dados"></ul>
+
     <script>
 
+        var manipulador = () => {
+            var cep = document.getElementById('cep').value;
+            carregarDados(cep);
+        }
+
         var carregarDados = async (dadoPersonalizado)  =>  {
+           try {
             var resp = await fetch('https://viacep.com.br/ws/' + dadoPersonalizado + '/json/');
             var dados = await resp.json();
             console.log(dados)
@@ -44,13 +52,11 @@
             const localidade = document.createElement( 'li');
             localidade.textContent = "Cidade: " +  dados.localidade;
             destino.appendChild(localidade);
-
-            
             
             const uf = document.createElement( 'li');
-            uf.textContent = "Estado" + dados.uf;
+            uf.textContent = "Estado: " + dados.uf;
             destino.appendChild(uf);
- 
+
 
             const ibge = document.createElement( 'li');
             ibge.textContent = "Numero IBGE: " + dados.ibge;
@@ -59,10 +65,11 @@
 
             const vazio = document.createElement( 'li');
             destino.appendChild(vazio);
+           } catch (error) {
+            console.log('erro', error);
+            alert("deu erro")
+           }
         }
-    
-        carregarDados('74255060');
-
          
     </script>
 </body>
