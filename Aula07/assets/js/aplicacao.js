@@ -44,14 +44,29 @@ const produtos = [
 
 ]
 
-const criaProduto = (nome, alt, preco, imagemURL, elemento) => {
+const carrinho = [];
 
+const adicionarCarrinho = (numeroItem) => {
+    carrinho.push(produtos[numeroItem]);
+
+    mostrarQuantidadeItensCarrinho();
+}
+
+const mostrarQuantidadeItensCarrinho = () => { 
+    document.getElementById('link_carrinho').textContent 
+           = "Mostrar carrinho (" + carrinho.length + ")";
+}
+
+
+const criaProduto = (nome, alt, preco, imagemURL, elemento, index) => {
     elemento.innerHTML = elemento.innerHTML 
     +  "<div class='produto'>"
     + " <img src='"+imagemURL+"' alt='"+alt+"'/>"
     + "<h2>"+ nome + "</h2>"
     + "<p>R$ " + preco+ "</p>"
-    + "<button class='adicionarCarrinho'> Adicionar ao Carrinho</button>"
+    + "<button class='adicionarCarrinho' "
+       + "onclick='adicionarCarrinho("+ index +")'> "
+    + "Adicionar ao Carrinho</button>"
     + "</div>";
 }
 
@@ -59,7 +74,7 @@ const buscarProdutos = () => {
 
     // é aqui que iriamos no banco de dados ou  na api.. buscar os produtos... 
     const lista = produtos;
-    lista.forEach((item) => {
+    lista.forEach((item, index) => {
         let elemento = ""
         if(item.tipo === "capacete" ) {
             elemento  = document.getElementById('capacetes');
@@ -67,8 +82,11 @@ const buscarProdutos = () => {
             elemento  = document.getElementById('blusas');
         }
         
-        criaProduto(item.nome, item.alt,  item.preco, item.imagemURL, elemento);
+        criaProduto(item.nome, item.alt,  item.preco, item.imagemURL, elemento, index);
     })
 
 
 }
+
+
+mostrarQuantidadeItensCarrinho();
