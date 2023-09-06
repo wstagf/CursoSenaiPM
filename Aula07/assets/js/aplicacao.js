@@ -90,3 +90,4 @@ const buscarProdutos = () => {
 
 
 mostrarQuantidadeItensCarrinho();
+buscarProdutos();
