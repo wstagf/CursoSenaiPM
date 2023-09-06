@@ -100,3 +100,50 @@ FLEX LAYOUT  - FLEXBOX
 
 
 
+
+
+
+backend   - lado de traz... java..php..node...etc
+Comunica? - API REST.... 
+frontend - lado da frente.... html/css/js....react...angular...etc
+
+
+
+
+
+API... 
+
+Aplication Programming Interfaces
+
+
+
+REST....
+
+// restfull = cominado de comunicacao rest... 
+
+Representational State Transfer, 
+get... obter
+put...  
+post... adicionar
+patch.. atualizar
+delete.. deletar...
+
+
+der caerto .. 200
+der erro .... 
+
+  400.. lado servidor... 
+  500.. erro generico 
+
+
+
+
+
+
+
+
+
+
+
+
+
