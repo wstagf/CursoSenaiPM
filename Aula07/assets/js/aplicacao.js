@@ -1,49 +1,4 @@
-const produtos = [
-    {
-        tipo: "capacete",
-        nome: "Capacete 1",
-        alt: "Isto é um capacete, modelo 1",
-        preco: 50,
-        imagemURL: 'assets/images/capacete01.png'
-    },
-    {
-        tipo: "capacete",
-        nome: "Capacete 2",
-        alt: "Isto é um capacete, modelo 2",
-        preco: 25,
-        imagemURL: 'assets/images/capacete02.png'
-    },
-    {
-        tipo: "capacete",
-        nome: "Capacete 3",
-        alt: "Isto é um capacete, modelo 3",
-        preco: 70,
-        imagemURL: 'assets/images/capacete03.png'
-    },
-    {
-        tipo: "blusa",
-        nome: "Blusão 1",
-        alt: "Isto é um Blusão, modelo 1",
-        preco: 50,
-        imagemURL: 'assets/images/blusa01.png'
-    },
-    {
-        tipo: "blusa",
-        nome: "Blusão 2",
-        alt: "Isto é um Blusão, modelo 2",
-        preco: 25,
-        imagemURL: 'assets/images/blusa02.png'
-    },
-    {
-        tipo: "blusa",
-        nome: "Blusão 3",
-        alt: "Isto é um Blusão, modelo 3",
-        preco: 70,
-        imagemURL: 'assets/images/blusa03.png'
-    }
-
-]
-
+ 
 const carrinho = [];
 
 const adicionarCarrinho = (numeroItem) => {
@@ -70,10 +25,15 @@ const criaProduto = (nome, alt, preco, imagemURL, elemento, index) => {
     + "</div>";
 }
 
-const buscarProdutos = () => {
+const buscarProdutos = async () => {
 
     // é aqui que iriamos no banco de dados ou  na api.. buscar os produtos... 
-    const lista = produtos;
+
+
+    const resp = await fetch('https://run.mocky.io/v3/68cfd34d-3fb3-41c6-9725-39dba34c667d');
+
+    const lista = await resp.json(); 
+
     lista.forEach((item, index) => {
         let elemento = ""
         if(item.tipo === "capacete" ) {
