@@ -83,7 +83,7 @@ section {
     min-height: 100px;
 }
 
-.busca {
+.texto {
     display: flex;
 }
 
@@ -94,6 +94,19 @@ section {
 }
 
 #botaoBuscar {
+    flex: 1;
+}
+
+
+.valores {
+    display: flex;
+}
+
+.valorMinimo {
+    flex: 1; 
+}
+
+.valorMaximo { 
     flex: 1;
 }
 

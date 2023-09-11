@@ -167,6 +167,28 @@ const buscarPorTexto = () =>  {
 }
 
 
+const alterarValorRange = (element, MinOuMax) => {
+    console.log(MinOuMax);
+
+    const valor = element.target.value;
+    console.log(valor);
+    if(MinOuMax === "min") {
+        const elementoValorMinimo = document.getElementById("valorMinimo");
+        elementoValorMinimo.textContent = valor;
+    }
+
+    if(MinOuMax === "max") {
+        const elementoValorMaximo = document.getElementById("valorMaximo");
+        elementoValorMaximo.textContent = valor;
+    }
+
+
+
+
+
+}
+
+
 
 mostrarQuantidadeItensCarrinho();
 buscarProdutos();
