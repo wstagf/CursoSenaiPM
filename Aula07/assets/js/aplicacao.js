@@ -1,5 +1,6 @@
  
 const carrinho = [];
+const produtos = [];
 
 const adicionarCarrinho = (numeroItem) => {
     carrinho.push(produtos[numeroItem]);
@@ -41,13 +42,13 @@ const buscarProdutos = async () => {
         } else {
             elemento  = document.getElementById('blusas');
         }
+        produtos.push(item);
         
         criaProduto(item.nome, item.alt,  item.preco, item.imagemURL, elemento, index);
     })
 
 
 }
-
 
 mostrarQuantidadeItensCarrinho();
 buscarProdutos();
