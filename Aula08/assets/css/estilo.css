@@ -1,0 +1,67 @@
+* {  /*    estiliza todas as TAGS, CLASSES, IDS, TUDO...*/
+    font-family: Arial, Helvetica, sans-serif;  /*   estilo das letras */
+    /*    color: #f00;   cor do texto temporaria */
+}
+ 
+
+/* estilizando a tag toda*/
+header {
+    background-color:  #333;  /* cor de fundo... atalho das cores... #33333 == #333 */
+    color: #fff; /* cor do texto */
+    text-align: center; /* alinhamento ao centro na horizontal */
+    padding: 20px; /* margem interna*/
+}
+
+/* Estilizando qualquer tag que contenha o ID = link_carrinho */
+#link_carrinho  {
+    color: #fff; /* cor do texto*/
+    cursor: pointer;  /* ponteiro do mouse... o browser já faz, mas vamos forçar... */
+}
+
+/* Estilizando a tag que contenha o ID = link_carrinho  porém quando o mouse estiver em cima do conteudo*/
+#link_carrinho:hover  {
+    font-weight: bold;
+}
+
+main {
+    max-width: 800px;
+    margin: 0px auto;
+}
+
+
+section {
+    margin: 50px; 
+    display: flex; /* condfigura a regra de poscionamento como FLEXBOX */
+    gap: 20px; /* Define a distancia entre os objetos */ 
+    flex-direction: row;  /*  -- Quando não especificado um valor... o flex direction será row.. */
+    justify-content: space-evenly; /* alinho eixo princial  (horizontal) */
+    flex-wrap: wrap;
+}
+
+/* Estilizando qualquer tag que contenha a classe produto */
+
+.produto {
+    padding: 10px;
+    border: 1px solid #b4b4b4;
+    border-radius: 15px;
+    text-align: center;
+    flex: calc(25%);
+}
+
+/* Estilizando tags IMG que são descendentes de tags com a classe  produto */
+
+.produto img { 
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+}
+
+
+
+
+
+
+
