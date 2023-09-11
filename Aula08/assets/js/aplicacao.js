@@ -55,16 +55,39 @@ const buscarProdutos = async () => {
 
 // assinatura da funcão... 
 // <modificador_de_acesso> = const
-// <nome> filtrarProdutos
+// <nome> filtrarProdutosPorCategoria
 // <async> ou não.. para fazer await == esperar a solicitação de recurso
 // funcao... 
     // (a, b, c, etc..) = Parametros... zero ou mais itens podem ser recebidos como parametros
     // corpo da função = tudo dentro dos {}... ou no caso linha so,  tudo em frente a "=>" 
-const filtrarProdutos = (categoria) => {
+const filtrarProdutosPorCategoria = (categoria) => {
     produtos = [];
    if(categoria !== "todos" ) {
     produtos = produtosBKP.filter((produto) => {
         return produto.tipo === categoria;
+    }); 
+   } else {
+    produtos = produtosBKP;
+   }
+
+
+    produtos.forEach((item, index) => {
+        let elemento = ""
+        if(item.tipo === "capacete" ) {
+            elemento  = document.getElementById('capacetes');
+        } else {
+            elemento  = document.getElementById('blusas');
+        }
+        criaProduto(item.nome, item.alt,  item.preco, item.imagemURL, elemento, index);
+    })
+}
+
+
+const filtrarProdutosPorNome = (nome) => {
+    produtos = [];
+   if(nome !== "" ) {
+    produtos = produtosBKP.filter((produto) => {
+        return produto.nome === nome;
     }); 
    } else {
     produtos = produtosBKP;
@@ -100,7 +123,9 @@ const configuraEventListners = () => {
     botaoCapacetes.addEventListener("click", (ev) => {
         console.log('botaoCapacetes');
         limpaTela();
-        filtrarProdutos("capacete");
+        filtrarProdutosPorCategoria("capacete");
+        // limpando o valor que estava no texto buscar se clicar em uma cateria
+        document.getElementById("textoBuscar").value = "";
     });
 
 
@@ -111,7 +136,11 @@ const configuraEventListners = () => {
     botaoBlusas.addEventListener("click", (ev) => {
         console.log('botaoBlusas');
         limpaTela();
-        filtrarProdutos("blusa");
+        filtrarProdutosPorCategoria("blusa");
+
+        // limpando o valor que estava no texto buscar se clicar em uma cateria
+        document.getElementById("textoBuscar").value = "";
+
     })
 
 
@@ -122,12 +151,20 @@ const configuraEventListners = () => {
     botaoTodos.addEventListener("click", (ev) => {
         console.log('botaoTodos');
         limpaTela();
-        filtrarProdutos("todos");
+        filtrarProdutosPorCategoria("todos");
+        // limpando o valor que estava no texto buscar se clicar em uma cateria
+        document.getElementById("textoBuscar").value = "";
     })
 
     
 }
 
+const buscarPorTexto = () =>  {
+    const termo = document.getElementById("textoBuscar").value;
+    console.log(termo);
+    limpaTela();
+    filtrarProdutosPorNome(termo);
+}
 
 
 
