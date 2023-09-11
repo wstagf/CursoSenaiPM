@@ -62,9 +62,24 @@ const buscarProdutos = async () => {
     // corpo da função = tudo dentro dos {}... ou no caso linha so,  tudo em frente a "=>" 
 const filtrarProdutos = (categoria) => {
     produtos = [];
+   if(categoria !== "todos" ) {
     produtos = produtosBKP.filter((produto) => {
         return produto.tipo === categoria;
     }); 
+   } else {
+    produtos = produtosBKP;
+   }
+
+
+    produtos.forEach((item, index) => {
+        let elemento = ""
+        if(item.tipo === "capacete" ) {
+            elemento  = document.getElementById('capacetes');
+        } else {
+            elemento  = document.getElementById('blusas');
+        }
+        criaProduto(item.nome, item.alt,  item.preco, item.imagemURL, elemento, index);
+    })
 }
 
 
@@ -76,11 +91,49 @@ const limpaTela = () => {
     capacetesElement.innerHTML = "";
 }
 
+const configuraEventListners = () => {
+    
+    // obtem o elemento atravez do ID
+    const botaoCapacetes = document.getElementById("link_filtrar_capacetes");
+
+    // cadastra o listner do tipo click
+    botaoCapacetes.addEventListener("click", (ev) => {
+        console.log('botaoCapacetes');
+        limpaTela();
+        filtrarProdutos("capacete");
+    });
+
+
+    // obtem o elemento atravez do ID
+    const botaoBlusas = document.getElementById("link_filtrar_blusas");
+
+    // cadastra o listner do tipo click
+    botaoBlusas.addEventListener("click", (ev) => {
+        console.log('botaoBlusas');
+        limpaTela();
+        filtrarProdutos("blusa");
+    })
+
+
+    // obtem o elemento atravez do ID
+    const botaoTodos = document.getElementById("link_filtrar_todos");
+
+    // cadastra o listner do tipo click
+    botaoTodos.addEventListener("click", (ev) => {
+        console.log('botaoTodos');
+        limpaTela();
+        filtrarProdutos("todos");
+    })
+
+    
+}
+
 
 
 
 mostrarQuantidadeItensCarrinho();
 buscarProdutos();
+configuraEventListners();
 
 
 

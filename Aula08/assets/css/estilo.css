@@ -23,6 +23,30 @@ header {
     font-weight: bold;
 }
 
+
+/* Estilizando qualquer tag que contenha o ID = link_filtrar_capacetes ou link_filtrar_blusas */
+#link_filtrar_capacetes, #link_filtrar_blusas,   #link_filtrar_todos  {
+    color: #fff; /* cor do texto*/
+    cursor: pointer;  /* ponteiro do mouse... o browser já faz, mas vamos forçar... */
+}
+
+/* Estilizando a tag que contenha o ID = link_filtrar_capacetes ou link_filtrar_blusas porém quando o mouse estiver em cima do conteudo*/
+#link_filtrar_capacetes:hover, #link_filtrar_blusas:hover,  #link_filtrar_todos:hover  {
+    font-weight: bold;
+}
+
+.acoes {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+/*  estilizar todos os elementos <a> que são descentes de
+     elementos que contenham   class=acoes*/
+.acoes a {
+    flex: 1;
+}
+
 main {
     max-width: 800px;
     margin: 0px auto;
