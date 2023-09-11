@@ -87,7 +87,7 @@ const filtrarProdutosPorNome = (nome) => {
     produtos = [];
    if(nome !== "" ) {
     produtos = produtosBKP.filter((produto) => {
-        return produto.nome === nome;
+        return produto.nome.includes(nome);
     }); 
    } else {
     produtos = produtosBKP;
