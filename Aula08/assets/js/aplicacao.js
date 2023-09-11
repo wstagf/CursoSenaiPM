@@ -1,6 +1,7 @@
  
 const carrinho = [];
-const produtos = [];
+let produtos = [];
+const produtosBKP = [];
 
 const adicionarCarrinho = (numeroItem) => {
     carrinho.push(produtos[numeroItem]);
@@ -43,6 +44,7 @@ const buscarProdutos = async () => {
             elemento  = document.getElementById('blusas');
         }
         produtos.push(item);
+        produtosBKP.push(item);
         
         criaProduto(item.nome, item.alt,  item.preco, item.imagemURL, elemento, index);
     })
@@ -50,5 +52,40 @@ const buscarProdutos = async () => {
 
 }
 
+
+// assinatura da funcão... 
+// <modificador_de_acesso> = const
+// <nome> filtrarProdutos
+// <async> ou não.. para fazer await == esperar a solicitação de recurso
+// funcao... 
+    // (a, b, c, etc..) = Parametros... zero ou mais itens podem ser recebidos como parametros
+    // corpo da função = tudo dentro dos {}... ou no caso linha so,  tudo em frente a "=>" 
+const filtrarProdutos = (categoria) => {
+    produtos = [];
+    produtos = produtosBKP.filter((produto) => {
+        return produto.tipo === categoria;
+    }); 
+}
+
+
+const limpaTela = () => {
+    const blusasElement = document.getElementById("blusas");
+    blusasElement.innerHTML = "";
+
+    const capacetesElement = document.getElementById("capacetes");
+    capacetesElement.innerHTML = "";
+}
+
+
+
+
 mostrarQuantidadeItensCarrinho();
 buscarProdutos();
+
+
+
+
+
+
+
+
