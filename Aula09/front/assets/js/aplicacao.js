@@ -65,7 +65,11 @@ const buscarProdutos = async () => {
     // é aqui que iriamos no banco de dados ou  na api.. buscar os produtos... 
 
 
-    const resp = await fetch('https://run.mocky.io/v3/68cfd34d-3fb3-41c6-9725-39dba34c667d');
+    // backend antigo
+    //const resp = await fetch('https://run.mocky.io/v3/68cfd34d-3fb3-41c6-9725-39dba34c667d');
+
+    const resp = await fetch('http://localhost:3000/products');
+    
 
     const lista = await resp.json(); 
 
