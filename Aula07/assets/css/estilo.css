@@ -23,30 +23,6 @@ header {
     font-weight: bold;
 }
 
-
-/* Estilizando qualquer tag que contenha o ID = link_filtrar_capacetes ou link_filtrar_blusas */
-#link_filtrar_capacetes, #link_filtrar_blusas,   #link_filtrar_todos  {
-    color: #fff; /* cor do texto*/
-    cursor: pointer;  /* ponteiro do mouse... o browser já faz, mas vamos forçar... */
-}
-
-/* Estilizando a tag que contenha o ID = link_filtrar_capacetes ou link_filtrar_blusas porém quando o mouse estiver em cima do conteudo*/
-#link_filtrar_capacetes:hover, #link_filtrar_blusas:hover,  #link_filtrar_todos:hover  {
-    font-weight: bold;
-}
-
-.acoes {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-/*  estilizar todos os elementos <a> que são descentes de
-     elementos que contenham   class=acoes*/
-.acoes a {
-    flex: 1;
-}
-
 main {
     max-width: 800px;
     margin: 0px auto;
@@ -83,75 +59,9 @@ section {
     min-height: 100px;
 }
 
-.texto {
-    display: flex;
-}
-
-
-#textoBuscar {
-    flex: 2;
-    margin-right: 25px;
-}
-
-#botaoBuscar {
-    flex: 1;
-}
-
-
-.valores {
-    display: flex;
-}
-
-.valorMinimo {
-    flex: 1; 
-}
-
-.valorMaximo { 
-    flex: 1;
-}
 
 
 
 
 
-.carrinho {
 
-    /* define a margem para todos os lados */
-    margin: 0px;
-
-    /* define posicao absoluta com base na distancia definida por top,
-         right, left, bottom  */
-    position: absolute;
-    padding: 20px;
-    top: 0;
-    right: 0;
-    width: 200px;
-    height: 100vh;
-    overflow: scroll;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.none {
-    display: none;
-}
-
-.block {
-    display: block;
-}
-
-
-.tituloCarrinho {
-    display: flex;
-    justify-content: space-between;
-    height: 100px;
-    width: 200px;
-    align-items: start;
-
-}
-
-.tituloCarrinho * { 
-    margin: 0px;
-    color: black;
-    text-decoration: none;
-}
