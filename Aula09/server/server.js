@@ -17,6 +17,7 @@ app.listen(3000, function () {
 
 const produtos = [
     {
+        "id": 1,
         "tipo": "capacete",
         "nome": "Capacete 1",
         "alt": "Isto é um capacete, modelo 1",
@@ -24,6 +25,7 @@ const produtos = [
         "imagemURL": "assets/images/capacete01.png"
     },
     {
+        "id": 2,
         "tipo": "capacete",
         "nome": "Capacete 2",
         "alt": "Isto é um capacete, modelo 2",
@@ -31,6 +33,7 @@ const produtos = [
         "imagemURL": "assets/images/capacete02.png"
     },
     {
+        "id": 3,
         "tipo": "capacete",
         "nome": "Capacete 3",
         "alt": "Isto é um capacete, modelo 3",
@@ -38,6 +41,7 @@ const produtos = [
         "imagemURL": "assets/images/capacete03.png"
     },
     {
+        "id": 4,
         "tipo": "blusa",
         "nome": "Blusão 1",
         "alt": "Isto é um Blusão, modelo 1",
@@ -45,6 +49,7 @@ const produtos = [
         "imagemURL": "assets/images/blusa01.png"
     },
     {
+        "id": 5,
         "tipo": "blusa",
         "nome": "Blusão 2",
         "alt": "Isto é um Blusão, modelo 2",
@@ -52,6 +57,7 @@ const produtos = [
         "imagemURL": "assets/images/blusa02.png"
     },
     {
+        "id": 6,
         "tipo": "blusa",
         "nome": "Blusão 3",
         "alt": "Isto é um Blusão, modelo 3",
