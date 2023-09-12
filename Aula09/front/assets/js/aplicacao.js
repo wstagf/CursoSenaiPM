@@ -9,11 +9,30 @@ let valorMax = 100;
 let valorCarrinho = 0;
 
 const adicionarCarrinho = (numeroItem) => {
-    carrinho.push({"produto": produtos[numeroItem], quantidade: 1});
-    valorCarrinho = valorCarrinho + produtos[numeroItem].preco;
+    const produtoSendoInserido = produtos[numeroItem];
+    console.log("itema");
+    const itemsComMatch = carrinho.filter((item) => {
+        console.log(item);
+        return  item.produto.id ===  produtoSendoInserido.id 
+    })
+
+    if(itemsComMatch.length === 0) {
+        carrinho.push({"produto": produtoSendoInserido, quantidade: 1});
+        atualizaCarrinho({produto: produtoSendoInserido, quantidade: 1});
+    } else {
+        let novaQuantidade = 0;
+        carrinho.forEach((item) => {
+            if( item.produto.id ===  produtoSendoInserido.id ) {
+                item.quantidade = item.quantidade + 1;
+                novaQuantidade = item.quantidade + 1;
+            }
+        });
+        atualizaCarrinho({produto: produtoSendoInserido, quantidade: itemsComMatch.length + 1});
+    }
+    valorCarrinho = valorCarrinho + produtoSendoInserido.preco;
 
     mostrarQuantidadeItensCarrinho();
-    atualizaCarrinho({produto: produtos[numeroItem], quantidade: 1});
+    
 }
 
 const mostrarQuantidadeItensCarrinho = () => { 
@@ -44,6 +63,7 @@ const atualizaCarrinho= (item) => {
                     "<div class='detalhesCarrinho'>"+
                     "<p>" + item.produto.nome+  "</p>"+
                     "<p>R$ " + item.produto.preco +  "</p>"+
+                    "<p>Quantidade " + item.quantidade +  "</p>"+
                     "</div>"+
                     "<div class='acoesCarrinho'>"+
                     "<a href='#'>"+
