@@ -2,6 +2,8 @@
 const carrinho = [];
 let produtos = [];
 const produtosBKP = [];
+let valorMin = 0;
+let valorMax = 100;
 
 const adicionarCarrinho = (numeroItem) => {
     carrinho.push(produtos[numeroItem]);
@@ -106,6 +108,32 @@ const filtrarProdutosPorNome = (nome) => {
 }
 
 
+
+const filtrarProdutosPorValor = (valorMin, valorMax) => {
+    // console.log(valorMin); 
+    // console.log(valorMax);
+     produtos = [];
+
+    
+    produtos = produtosBKP.filter((produto) => {
+        return produto.preco > valorMin && produto.preco < valorMax  
+    }); 
+    
+
+
+    produtos.forEach((item, index) => {
+        let elemento = ""
+        if(item.tipo === "capacete" ) {
+            elemento  = document.getElementById('capacetes');
+        } else {
+            elemento  = document.getElementById('blusas');
+        }
+        criaProduto(item.nome, item.alt,  item.preco, item.imagemURL, elemento, index);
+    })
+}
+
+
+
 const limpaTela = () => {
     const blusasElement = document.getElementById("blusas");
     blusasElement.innerHTML = "";
@@ -168,23 +196,24 @@ const buscarPorTexto = () =>  {
 
 
 const alterarValorRange = (element, MinOuMax) => {
-    console.log(MinOuMax);
+
+    // console.log(MinOuMax);
 
     const valor = element.target.value;
     console.log(valor);
     if(MinOuMax === "min") {
         const elementoValorMinimo = document.getElementById("valorMinimo");
         elementoValorMinimo.textContent = valor;
+        valorMin = parseInt(valor);
     }
 
     if(MinOuMax === "max") {
         const elementoValorMaximo = document.getElementById("valorMaximo");
         elementoValorMaximo.textContent = valor;
+        valorMax = parseInt(valor);
     }
-
-
-
-
+    limpaTela();
+    filtrarProdutosPorValor(valorMin, valorMax);
 
 }
 
