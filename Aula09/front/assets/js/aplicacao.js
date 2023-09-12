@@ -9,11 +9,11 @@ let valorMax = 100;
 let valorCarrinho = 0;
 
 const adicionarCarrinho = (numeroItem) => {
-    carrinho.push(produtos[numeroItem]);
+    carrinho.push({"produto": produtos[numeroItem], quantidade: 1});
     valorCarrinho = valorCarrinho + produtos[numeroItem].preco;
 
     mostrarQuantidadeItensCarrinho();
-    atualizaCarrinho(produtos[numeroItem]);
+    atualizaCarrinho({produto: produtos[numeroItem], quantidade: 1});
 }
 
 const mostrarQuantidadeItensCarrinho = () => { 
@@ -21,7 +21,7 @@ const mostrarQuantidadeItensCarrinho = () => {
            = "Mostrar carrinho (" + carrinho.length + ")";
 }
 
-const atualizaCarrinho= (produto) => {
+const atualizaCarrinho= (item) => {
 
 
 
@@ -42,12 +42,12 @@ const atualizaCarrinho= (produto) => {
     itemDaLista.innerHTML =   
                     "<div class='itemCarrinho'>" +
                     "<div class='detalhesCarrinho'>"+
-                    "<p>" + produto.nome+  "</p>"+
-                    "<p>R$ " + produto.preco +  "</p>"+
+                    "<p>" + item.produto.nome+  "</p>"+
+                    "<p>R$ " + item.produto.preco +  "</p>"+
                     "</div>"+
                     "<div class='acoesCarrinho'>"+
                     "<a href='#'>"+
-                    "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho("+produto.id +")'></i>"+
+                    "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho("+item.produto.id +")'></i>"+
                     "</a>"+
                     "</div>"+
                     "</div>";
@@ -61,10 +61,10 @@ excluirItemNoCarrinho = (id) => {
   console.log('vamos excluir o id ' + id)
 
   carrinho = carrinho.filter((item) => {
-    if(item.id === id) {
-        valorCarrinho = valorCarrinho - item.preco;
+    if(item.produto.id === id) {
+        valorCarrinho = valorCarrinho - item.produto.preco;
     }
-    return item.id != id;
+    return item.produto.id != id;
   });
 
    // captura o elemento pai "UL"
