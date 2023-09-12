@@ -217,6 +217,20 @@ const alterarValorRange = (element, MinOuMax) => {
 
 }
 
+const fecharCarrinho = () => {
+    console.log('aaa');
+    const carrinhoElement = document.getElementsByClassName('carrinho');
+    carrinhoElement[0].classList.remove('block');
+    carrinhoElement[0].classList.add('none');
+}
+
+
+const abrirCarrinho = () => {
+    const carrinhoElement = document.getElementsByClassName('carrinho');
+    carrinhoElement[0].classList.remove('none');
+    carrinhoElement[0].classList.add('block');
+}
+
 
 
 mostrarQuantidadeItensCarrinho();

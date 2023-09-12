@@ -112,3 +112,45 @@ section {
 
 
 
+
+
+.carrinho {
+
+    /* define a margem para todos os lados */
+    margin: 0px;
+
+    /* define posicao absoluta com base na distancia definida por top,
+         right, left, bottom  */
+    position: absolute;
+    padding: 20px;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+
+.tituloCarrinho {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    width: 200px;
+    align-items: start;
+
+}
+
+.tituloCarrinho * { 
+    margin: 0px;
+    color: black;
+    text-decoration: none;
+}
