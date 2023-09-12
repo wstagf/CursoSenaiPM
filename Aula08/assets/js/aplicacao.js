@@ -9,11 +9,33 @@ const adicionarCarrinho = (numeroItem) => {
     carrinho.push(produtos[numeroItem]);
 
     mostrarQuantidadeItensCarrinho();
+    atualizaCarrinho(produtos[numeroItem]);
 }
 
 const mostrarQuantidadeItensCarrinho = () => { 
     document.getElementById('link_carrinho').textContent 
            = "Mostrar carrinho (" + carrinho.length + ")";
+}
+
+const atualizaCarrinho= (produto) => {
+
+    // captura o elemento pai "UL"
+    const itensCarrinhoElement = document.getElementById("itensCarrinho");
+
+    // // limpa o conteudo html
+    // itensCarrinhoElement.innerHTML = "";
+    
+
+    // cria um elemento filho
+    const itemDaLista = document.createElement('li');
+
+    // atribui o conteudo dele no formato html
+    itemDaLista.innerHTML = "<p>" + produto.nome+  "</p>"
+    itemDaLista.innerHTML =  itemDaLista.innerHTML + 
+                            "<p>R$ " + produto.preco +  "</p>"
+
+    // adiciona o item filho na lista "pai"
+    itensCarrinhoElement.appendChild(itemDaLista)
 }
 
 
