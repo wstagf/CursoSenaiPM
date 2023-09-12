@@ -5,8 +5,12 @@ const produtosBKP = [];
 let valorMin = 0;
 let valorMax = 100;
 
+
+let valorCarrinho = 0;
+
 const adicionarCarrinho = (numeroItem) => {
     carrinho.push(produtos[numeroItem]);
+    valorCarrinho = valorCarrinho + produtos[numeroItem].preco;
 
     mostrarQuantidadeItensCarrinho();
     atualizaCarrinho(produtos[numeroItem]);
@@ -18,6 +22,11 @@ const mostrarQuantidadeItensCarrinho = () => {
 }
 
 const atualizaCarrinho= (produto) => {
+
+
+
+    const valorTotalCarrinhoElement = document.getElementById('valorTotalCarrinho');
+    valorTotalCarrinhoElement.textContent = valorCarrinho;
 
     // captura o elemento pai "UL"
     const itensCarrinhoElement = document.getElementById("itensCarrinho");
