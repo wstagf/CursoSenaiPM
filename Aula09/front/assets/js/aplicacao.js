@@ -1,5 +1,5 @@
  
-const carrinho = [];
+let carrinho = [];
 let produtos = [];
 const produtosBKP = [];
 let valorMin = 0;
@@ -39,12 +39,43 @@ const atualizaCarrinho= (produto) => {
     const itemDaLista = document.createElement('li');
 
     // atribui o conteudo dele no formato html
-    itemDaLista.innerHTML = "<p>" + produto.nome+  "</p>"
-    itemDaLista.innerHTML =  itemDaLista.innerHTML + 
-                            "<p>R$ " + produto.preco +  "</p>"
+    itemDaLista.innerHTML =   
+                    "<div class='itemCarrinho'>" +
+                    "<div class='detalhesCarrinho'>"+
+                    "<p>" + produto.nome+  "</p>"+
+                    "<p>R$ " + produto.preco +  "</p>"+
+                    "</div>"+
+                    "<div class='acoesCarrinho'>"+
+                    "<a href='#'>"+
+                    "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho("+produto.id +")'></i>"+
+                    "</a>"+
+                    "</div>"+
+                    "</div>";
 
     // adiciona o item filho na lista "pai"
     itensCarrinhoElement.appendChild(itemDaLista)
+}
+
+excluirItemNoCarrinho = (id) => {
+    
+  console.log('vamos excluir o id ' + id)
+
+  carrinho = carrinho.filter((item) => {
+    if(item.id === id) {
+        valorCarrinho = valorCarrinho - item.preco;
+    }
+    return item.id != id;
+  });
+
+   // captura o elemento pai "UL"
+   const itensCarrinhoElement = document.getElementById("itensCarrinho");
+
+  // // limpa o conteudo html
+  itensCarrinhoElement.innerHTML = "";
+
+  carrinho.map((item) => {
+    atualizaCarrinho(item);
+  });
 }
 
 
@@ -63,7 +94,6 @@ const criaProduto = (nome, alt, preco, imagemURL, elemento, index) => {
 const buscarProdutos = async () => {
 
     // é aqui que iriamos no banco de dados ou  na api.. buscar os produtos... 
-
 
     // backend antigo
     //const resp = await fetch('https://run.mocky.io/v3/68cfd34d-3fb3-41c6-9725-39dba34c667d');
