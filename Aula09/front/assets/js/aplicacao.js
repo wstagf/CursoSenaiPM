@@ -109,22 +109,73 @@ excluirItemNoCarrinho = (id) => {
     
   console.log('vamos excluir o id ' + id)
 
-  carrinho = carrinho.filter((item) => {
-    if(item.produto.id === id) {
-        valorCarrinho = valorCarrinho - item.produto.preco;
-    }
-    return item.produto.id != id;
-  });
-
-   // captura o elemento pai "UL"
-   const itensCarrinhoElement = document.getElementById("itensCarrinho");
-
-  // // limpa o conteudo html
-  itensCarrinhoElement.innerHTML = "";
+  let itemExcluir;
 
   carrinho.map((item) => {
-    atualizaCarrinho(item, true);
-  });
+    if(item.produto.id === id) {
+        itemExcluir = item;
+    }
+  })
+
+  if(itemExcluir.quantidade === 1) {
+    carrinho = carrinho.filter((item) => {
+        if(item.produto.id === id) {
+            valorCarrinho = valorCarrinho - item.produto.preco;
+        }
+        return item.produto.id != id;
+    });
+
+    // captura o elemento pai "UL"
+    const itensCarrinhoElement = document.getElementById("itensCarrinho");
+
+    // // limpa o conteudo html
+    itensCarrinhoElement.innerHTML = "";
+
+    carrinho.map((item) => {
+        atualizaCarrinho(item, true);
+    });
+ 
+
+    const valorTotalCarrinhoElement = document.getElementById('valorTotalCarrinho');
+    valorTotalCarrinhoElement.textContent = valorCarrinho;
+
+
+  } else {
+    carrinho.forEach((item) => {
+        if( item.produto.id ===  itemExcluir.produto.id ) {
+            item.quantidade = item.quantidade - 1; 
+        }
+    });
+
+    const elementoQueVaiSerAlterado = document.getElementById("produto"+ itemExcluir.produto.id);
+
+    elementoQueVaiSerAlterado.innerHTML =   
+    "<div class='itemCarrinho' id='produto"+ itemExcluir.produto.id +"'>" +
+    "<div class='detalhesCarrinho'>"+
+    "<p>" + itemExcluir.produto.nome+  "</p>"+
+    "<p>R$ " + itemExcluir.produto.preco +  "</p>"+
+    "<p>Quantidade " + itemExcluir.quantidade +  "</p>"+
+    "</div>"+
+    "<div class='acoesCarrinho'>"+
+    "<a href='#'>"+
+    "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho("+itemExcluir.produto.id +")'></i>"+
+    "</a>"+
+    "</div>"+
+    "</div>";
+
+
+    valorCarrinho = valorCarrinho - itemExcluir.produto.preco;
+
+    const valorTotalCarrinhoElement = document.getElementById('valorTotalCarrinho');
+    valorTotalCarrinhoElement.textContent = valorCarrinho;
+
+
+  }
+
+  
+  mostrarQuantidadeItensCarrinho();
+    
+
 }
 
 
