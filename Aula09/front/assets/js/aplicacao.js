@@ -18,16 +18,16 @@ const adicionarCarrinho = (numeroItem) => {
 
     if(itemsComMatch.length === 0) {
         carrinho.push({"produto": produtoSendoInserido, quantidade: 1});
-        atualizaCarrinho({produto: produtoSendoInserido, quantidade: 1});
+        atualizaCarrinho({produto: produtoSendoInserido, quantidade: 1}, true);
     } else {
         let novaQuantidade = 0;
         carrinho.forEach((item) => {
             if( item.produto.id ===  produtoSendoInserido.id ) {
                 item.quantidade = item.quantidade + 1;
-                novaQuantidade = item.quantidade + 1;
+                novaQuantidade = item.quantidade;
             }
         });
-        atualizaCarrinho({produto: produtoSendoInserido, quantidade: itemsComMatch.length + 1});
+        atualizaCarrinho({produto: produtoSendoInserido, quantidade: novaQuantidade}, false);
     }
     valorCarrinho = valorCarrinho + produtoSendoInserido.preco;
 
@@ -40,40 +40,67 @@ const mostrarQuantidadeItensCarrinho = () => {
            = "Mostrar carrinho (" + carrinho.length + ")";
 }
 
-const atualizaCarrinho= (item) => {
-
-
-
+const atualizaCarrinho= (item, inserir) => {
     const valorTotalCarrinhoElement = document.getElementById('valorTotalCarrinho');
     valorTotalCarrinhoElement.textContent = valorCarrinho;
 
-    // captura o elemento pai "UL"
-    const itensCarrinhoElement = document.getElementById("itensCarrinho");
 
-    // // limpa o conteudo html
-    // itensCarrinhoElement.innerHTML = "";
-    
+    if(inserir) {
+        // criar novo item
+        console.log(inserir);
 
-    // cria um elemento filho
-    const itemDaLista = document.createElement('li');
+         // captura o elemento pai "UL"
+            const itensCarrinhoElement = document.getElementById("itensCarrinho");
 
-    // atribui o conteudo dele no formato html
-    itemDaLista.innerHTML =   
-                    "<div class='itemCarrinho'>" +
-                    "<div class='detalhesCarrinho'>"+
-                    "<p>" + item.produto.nome+  "</p>"+
-                    "<p>R$ " + item.produto.preco +  "</p>"+
-                    "<p>Quantidade " + item.quantidade +  "</p>"+
-                    "</div>"+
-                    "<div class='acoesCarrinho'>"+
-                    "<a href='#'>"+
-                    "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho("+item.produto.id +")'></i>"+
-                    "</a>"+
-                    "</div>"+
-                    "</div>";
+            // // limpa o conteudo html
+            // itensCarrinhoElement.innerHTML = "";
+            
 
-    // adiciona o item filho na lista "pai"
-    itensCarrinhoElement.appendChild(itemDaLista)
+            // cria um elemento filho
+            const itemDaLista = document.createElement('li');
+
+            // atribui o conteudo dele no formato html
+            itemDaLista.innerHTML =   
+                            "<div class='itemCarrinho' id='produto"+ item.produto.id +"'>" +
+                            "<div class='detalhesCarrinho'>"+
+                            "<p>" + item.produto.nome+  "</p>"+
+                            "<p>R$ " + item.produto.preco +  "</p>"+
+                            "<p>Quantidade " + item.quantidade +  "</p>"+
+                            "</div>"+
+                            "<div class='acoesCarrinho'>"+
+                            "<a href='#'>"+
+                            "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho("+item.produto.id +")'></i>"+
+                            "</a>"+
+                            "</div>"+
+                            "</div>";
+
+            // adiciona o item filho na lista "pai"
+            itensCarrinhoElement.appendChild(itemDaLista)
+            
+    } else {
+        //editar item existemte
+        console.log(inserir)
+        const elementoQueVaiSerAlterado = document.getElementById("produto"+ item.produto.id);
+
+        elementoQueVaiSerAlterado.innerHTML =   
+        "<div class='itemCarrinho' id='produto"+ item.produto.id +"'>" +
+        "<div class='detalhesCarrinho'>"+
+        "<p>" + item.produto.nome+  "</p>"+
+        "<p>R$ " + item.produto.preco +  "</p>"+
+        "<p>Quantidade " + item.quantidade +  "</p>"+
+        "</div>"+
+        "<div class='acoesCarrinho'>"+
+        "<a href='#'>"+
+        "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho("+item.produto.id +")'></i>"+
+        "</a>"+
+        "</div>"+
+        "</div>";
+
+    }
+
+
+
+   
 }
 
 excluirItemNoCarrinho = (id) => {
@@ -94,7 +121,7 @@ excluirItemNoCarrinho = (id) => {
   itensCarrinhoElement.innerHTML = "";
 
   carrinho.map((item) => {
-    atualizaCarrinho(item);
+    atualizaCarrinho(item, true);
   });
 }
 
