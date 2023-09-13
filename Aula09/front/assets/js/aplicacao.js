@@ -16,6 +16,8 @@ const adicionarCarrinho = (numeroItem) => {
         return  item.produto.id ===  produtoSendoInserido.id 
     })
 
+    valorCarrinho = valorCarrinho + produtoSendoInserido.preco;
+
     if(itemsComMatch.length === 0) {
         carrinho.push({"produto": produtoSendoInserido, quantidade: 1});
         atualizaCarrinho({produto: produtoSendoInserido, quantidade: 1}, true);
@@ -29,7 +31,7 @@ const adicionarCarrinho = (numeroItem) => {
         });
         atualizaCarrinho({produto: produtoSendoInserido, quantidade: novaQuantidade}, false);
     }
-    valorCarrinho = valorCarrinho + produtoSendoInserido.preco;
+   
 
     mostrarQuantidadeItensCarrinho();
     
