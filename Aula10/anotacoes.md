@@ -66,3 +66,110 @@ ou seja, faz com que ela sobreponha todas as outras
 
 
 leia mais: https://medium.com/jaguaribetech/efeito-cascata-no-css-c55bda0a2ed4
+
+
+
+
+7. JSON.stringify
+ converte um objeto em json
+
+ const dado = {
+    nome: "thiago",
+    cargo: "professor"
+ }
+
+
+const dadoConvertido = JSON.stringify(dado);
+
+// dadoConvertido == {"nome": "thiago","cargo": "professor"}
+
+
+8. JSON.parse 
+   converte um uma string json em objeto.. 
+
+    const string =  '{"nome": "thiago","cargo": "professor"}'
+
+    const stringConvertida = JSON.parse(string)
+
+    console.log(stringConvertida)
+    o objeto que sera impresso é igual a 
+    {
+        nome: "thiago",
+        cargo: "professor"
+    }
+
+
+
+
+
+9. envio dos dados por post
+   
+    fetch('URL', {   // envia informacoes para URL
+        method: "POST", // atraez do metodo POS
+        body: JSON.stringify(_data), // envia o objeto como corpo da requisicao formatando como json.
+        headers: {"Content-type": "application/json; charset=UTF-8"} // configura o cabeçalho da requisição
+    })
+
+
+
+10. fetch 
+
+a api fetch é um grupo de algoritmos que o javascript tem por padrão 
+e que utilizamos para buscar recursos na rede.
+
+https://developer.mozilla.org/pt-BR/docs/Web/API/fetch
+
+o fetch retorna uma Promisse<Response> por isto devemos sempre utilizar ou o await ou o .then
+
+
+
+11. o metodo fetch e o objeto RESPONSE.... 
+
+ fetch().
+ then((response) => {
+    // este objeto response possui o formato RESPONSE...
+    
+    console.log(response); 
+    
+    
+    // para acessarmos os dados devemos utilizar response.body
+    console.log(response.body);
+
+    // porem o response.body é do tipo "ReadableStream", 
+    // para converter em texto utilzamos a função .json();
+
+
+
+leia mais: 
+
+https://developer.mozilla.org/pt-BR/docs/Web/API/Response
+
+
+
+11. criptografia chave-privada / chave publica
+
+a = 1 * 4;
+i = 2 * 4;
+
+thiago...
+
+th84g0
+
+ leia mais 
+ https://www.totvs.com/blog/gestao-para-assinatura-de-documentos/chave-publica-e-privada/#:~:text=Uma%20chave%20p%C3%BAblica%20%C3%A9%20uma,e%20nunca%20revelada%20a%20ningu%C3%A9m.
+
+
+12. jwt
+
+formato mais utilizado para autenticação. 
+com ele temos a criptografia da informação do usuario 
+
+
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.   // HEADER:ALGORITHM & TOKEN TYPE
+ eyJpZCI6Mywi......sdfsdfsdfsdfyNDV9. // PAYLOAD:DATA - dado enviado
+ gvcKIHNxIMHzXWFk8_nq2UvE3Ml51_6uit1Obus4Bnw' // VERIFY SIGNATURE
+
+
+leia mais: https://jwt.io/
+
+
