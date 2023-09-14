@@ -12,9 +12,18 @@
 </head>
 <body>
     <div class="page">
-        <form class="formLogin">
-           conteudo
+        <form class="formLogin"> 
+            <h1>Login</h1>
+            <p>Digite os seus dados de acesso no campo abaixo.</p>
+            <label for="email">E-mail</label>
+            <input id="email" type="email" placeholder="Digite seu e-mail" autofocus="true" />
+            <label for="password">Senha</label>
+            <input id="password" type="password" placeholder="Digite seu e-mail" />
+            <a href="#">Esqueci minha senha</a>
+            <input value="Acessar" class="btn" onclick="login()"/>
         </form>
     </div>
+
+    <script src="login.js"></script>
 </body>
 </html>

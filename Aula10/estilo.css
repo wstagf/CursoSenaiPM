@@ -2,11 +2,105 @@
 /* fazemos o import do css da fonte diretamente do google font */ 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-body {
-    color: #023047;
-    font-size: 80px;
+
+/*  isto declara variaveis para serem utilizadas em outras regras css com o uso da funcao var()*/
+:root {
+    --azulescuro: #023047;
+    --azulclaro: #480ca8; 
+    --azulbotoes: #00104b;
+}
+
+body {  
 
     /* o bowser tenta utilizar da esquerda para a direita no caso de não houver a primeira opção */ 
     /* o ultimo termo sempre é o TIPO DE FONTE para que o browser consiga trocar por alguma que não especificamos mas é muito parecida*/
     font-family: 'Inter', Arial, sans-serif;   
+}
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--azulescuro);
+}
+
+ .formLogin {
+    display: flex;
+    flex-direction: column;
+    background-color: #c4c1c1;
+    border-radius: 7px;
+    padding: 40px;
+    box-shadow:  10px 10px 40px rgba(0, 0, 0, 0.4);
+    gap: 5px 
+ }
+ 
+ /* estilizando as tags h1 que são descentens de qualquer elemento que contenha a classe formLogin*/
+ .formLogin h1 {
+    /*largura da font */
+    font-weight: 500; 
+    font-size: 24px;
+}
+
+.formLogin p {
+    display: inline-block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+
+.formLogin input {
+    padding: 15px; /* margem interna*/
+    font-size: 14px;
+    border: 2px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: all linear 560ms;
+    outline: none;
+}
+
+.formLogin input:focus {
+    border: 2px solid  var(--azulbotoes); 
+}
+
+.formLogin label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.formLogin a {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #555;
+}
+
+.formLogin a:hover {
+    color:  var(--azulbotoes);
+}
+
+
+
+.btn {
+    background-color:  var(--azulbotoes);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none !important;
+    transition: all linear 160ms;
+    cursor: pointer;
+    margin: 0 !important;
+    text-align: center;
+
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color:  var(--azulbotoes);
 }
