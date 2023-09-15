@@ -221,3 +221,30 @@ OAuth(2)
 
 traz mais segurança 
 leia mais https://oauth.net/2/
+
+
+
+16. Cliente REST..
+
+
+sempre que vamos consumir uma api,(deveriamos) recebemos uma documentação da api..
+
+o principal metodo de documentaçao é o SWAGGER... 
+mas as vezes recebemos "colection postmam", "colection insomina"
+ou o comando CURL
+
+
+
+
+curl --location 'localhost:1337/api/auth/local' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "identifier":  "teste@senai.com.br",
+  "password": "123456"
+}'
+
+
+CURL é uma ferramenta client http no terminal (prompt de comando)
+
+
+curl --location --request GET 'https://www.globo.com/'
