@@ -248,3 +248,21 @@ CURL é uma ferramenta client http no terminal (prompt de comando)
 
 
 curl --location --request GET 'https://www.globo.com/'
+
+
+
+
+
+
+17. Backend desta aula
+
+
+Plataform LowCode em Node.JS
+strapi.io
+
+
+
+comando para criar um backend
+npx create-strapi-app@latest my-project
+
+
