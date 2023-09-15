@@ -5,8 +5,8 @@ const login = () => {
     const password = document.getElementById('password').value;
 
     const dados =  {
-        identifier: "teste@senai.com.br",
-        password: "123456",
+        identifier: email,
+        password: password,
     }; 
 
     console.log("email", email);
@@ -27,7 +27,7 @@ const login = () => {
         window.localStorage.setItem("jwt", resp2.jwt);
         window.localStorage.setItem("user", JSON.stringify(resp2.user));
         if (resp2.jwt  != undefined) {
-            window.location.href = "https://www.pm.go.gov.br/";
+            window.location.href = "acessorestrito/restrito.html";
         }
     })
     .catch((erro) => {
