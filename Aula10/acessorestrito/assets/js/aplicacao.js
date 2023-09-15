@@ -397,11 +397,24 @@ const abrirCarrinho = () => {
 }
 
 
+const buscarDadosUsuario = () =>  {
+    console.log('aaa')
+    var user = JSON.parse(window.localStorage.getItem("user"));
+    const nomeUsuarioElement = document.getElementById('nomeUsuario');
+
+    nomeUsuarioElement.textContent = user.email;
+    
+
+}
+
 
 mostrarQuantidadeItensCarrinho();
 buscarProdutos();
 configuraEventListners();
 
+
+
+buscarDadosUsuario();
 
 
 
