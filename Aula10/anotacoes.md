@@ -148,7 +148,7 @@ https://developer.mozilla.org/pt-BR/docs/Web/API/Response
 
 11. criptografia chave-privada / chave publica
 
-a = 1 * 4;
+a = 1 * 13;
 i = 2 * 4;
 
 thiago...
@@ -173,3 +173,51 @@ com ele temos a criptografia da informação do usuario
 leia mais: https://jwt.io/
 
 
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+2018-01-18T01:30:22.000Z
+
+
+
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3OsadjkhahskjdhkjastZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+2018-01-19T01:30:22.000Z
+
+
+
+
+
+13. HS256 ou md5
+
+md5 mais rapido, menos seguro
+hs256 mais lento e mais seguro
+Leia mais 
+https://infosecscout.com/md5-vs-sha256/
+
+
+
+14. JWT  é 100 % seguro
+não... 
+adiciona mais camadas de segurança
+
+ex. refreh token.. 
+
+https://auth0.com/blog/pt-refresh-tokens-what-are-they-and-when-to-use-them/
+
+
+ex. Sig.in-Sign.out
+
+mantem somente uma sessão para o usuario
+
+
+15. OAuth2
+JWT e Md5 = OAuth(1)
+OAuth(2)
+
+
+traz mais segurança 
+leia mais https://oauth.net/2/
