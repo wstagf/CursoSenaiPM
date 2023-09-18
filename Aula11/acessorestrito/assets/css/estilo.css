@@ -177,3 +177,18 @@ section {
     font-size: 18px;
     color: white;
 }
+
+
+.barra {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+/* Estilizando os elemento <a> que são descententes de elementos com classe .barra */
+.barra a {
+    color: white; /*  Cor do texto */
+    font-size: 24px; /*  Tamanho  do texto */
+    text-decoration: none;/*  Desliga o efeito sublinhado que existe nos links */
+}

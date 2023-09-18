@@ -431,6 +431,11 @@ const buscarDadosUsuario = () =>  {
 
 }
 
+const sairDoSistema = () =>  {
+    window.localStorage.removeItem("jwt");
+    window.location.href = "../index.html";
+}
+
 
 mostrarQuantidadeItensCarrinho();
 buscarProdutos();
