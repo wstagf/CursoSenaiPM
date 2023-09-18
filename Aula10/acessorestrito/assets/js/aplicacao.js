@@ -400,12 +400,10 @@ const abrirCarrinho = () => {
 const buscarDadosUsuario = () =>  {
     console.log('aaa')
     var user = JSON.parse(window.localStorage.getItem("user"));
-    if(user != null) {
-        const nomeUsuarioElement = document.getElementById('nomeUsuario');
-        nomeUsuarioElement.textContent = user.email;
-    } else {
-        window.location.href = "../sem-acesso.html";
-    }
+    
+    const nomeUsuarioElement = document.getElementById('nomeUsuario');
+    nomeUsuarioElement.textContent = user.email;
+   
 }
 
 
