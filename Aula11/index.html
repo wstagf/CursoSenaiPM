@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- declaramos o arquivo css com algumas regras para limpar os estilos padroes dos navegadores  -->
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="estilo.css" />
+
+</head>
+<body>
+    <div class="page">
+        <form class="formLogin"> 
+            <h1>Login</h1>
+            <p>Digite os seus dados de acesso no campo abaixo.</p>
+            <label for="email">E-mail</label>
+            <input id="email" type="email" placeholder="Digite seu e-mail" autofocus="true" value="teste@senai.com.br"/>
+            <label for="password">Senha</label>
+            <input id="password" type="password" placeholder="Digite sua senha" value="123456"/>
+            <a href="#">Esqueci minha senha</a>
+            <input value="Acessar" class="btn" onclick="login()"/>
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
