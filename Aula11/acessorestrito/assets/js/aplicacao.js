@@ -437,6 +437,9 @@ const sairDoSistema = () =>  {
 }
 
 
+
+
+
 mostrarQuantidadeItensCarrinho();
 buscarProdutos();
 configuraEventListners();
