@@ -423,6 +423,8 @@ const buscarDadosUsuario = () =>  {
             user = resp2;
             const nomeUsuarioElement = document.getElementById('nomeUsuario');
             nomeUsuarioElement.textContent = user.email;
+
+            buscarProdutos();
         })
         .catch((erro) => {
             console.log("deu erro", erro)
@@ -438,14 +440,8 @@ const sairDoSistema = () =>  {
 
 
 
-
-
 mostrarQuantidadeItensCarrinho();
-buscarProdutos();
 configuraEventListners();
-
-
-
 buscarDadosUsuario();
 
 
