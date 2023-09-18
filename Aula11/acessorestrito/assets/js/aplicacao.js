@@ -193,29 +193,54 @@ const criaProduto = (nome, alt, preco, imagemURL, elemento, index) => {
 }
 
 const buscarProdutos = async () => {
+    console.log('buscarProdutos')
+    var jwt = window.localStorage.getItem("jwt");
+    fetch('http://localhost:1337/api/produtos', {
+        method: "GET",
+        headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Authorization": "bearer " + jwt
+            }
+        })
+        .then((resp1) => {
+            if(resp1.status == 401) {
+                window.location.href = "../sem-acesso.html";
+            } else {
+                return resp1.json();
+            }  
+        })
+        .then(  (resp2) => { 
 
-    // é aqui que iriamos no banco de dados ou  na api.. buscar os produtos... 
+            resp2.data.forEach((itemDaAPI, index) => {
+                let elemento = ""
 
-    // backend antigo
-    const resp = await fetch('https://run.mocky.io/v3/68cfd34d-3fb3-41c6-9725-39dba34c667d');
+                const cadaItemConvertido = {
+                    "id": itemDaAPI.id,
+                    "tipo": itemDaAPI.attributes.tipo,
+                    "nome" : itemDaAPI.attributes.nome,
+                    "alt" : itemDaAPI.attributes.alt,
+                    "preco" : itemDaAPI.attributes.preco,
+                    "imagemURL" : itemDaAPI.attributes.imagemURL,
+                    "preco" : itemDaAPI.attributes.preco
+                }
 
-    //const resp = await fetch('http://localhost:3000/products');
+                if(cadaItemConvertido.tipo === "capacete" ) {
+                    elemento  = document.getElementById('capacetes');
+                } else {
+                    elemento  = document.getElementById('blusas');
+                }
+                produtos.push(cadaItemConvertido);
+                produtosBKP.push(cadaItemConvertido);
+                
+                criaProduto(cadaItemConvertido.nome, cadaItemConvertido.alt,  
+                    cadaItemConvertido.preco, cadaItemConvertido.imagemURL, elemento, index);
+            })
+        })
+        .catch((erro) => {
+            console.log("deu erro", erro)
+        })
+
     
-
-    const lista = await resp.json(); 
-
-    lista.forEach((item, index) => {
-        let elemento = ""
-        if(item.tipo === "capacete" ) {
-            elemento  = document.getElementById('capacetes');
-        } else {
-            elemento  = document.getElementById('blusas');
-        }
-        produtos.push(item);
-        produtosBKP.push(item);
-        
-        criaProduto(item.nome, item.alt,  item.preco, item.imagemURL, elemento, index);
-    })
 
 
 }
@@ -228,7 +253,7 @@ const buscarProdutos = async () => {
 // funcao... 
     // (a, b, c, etc..) = Parametros... zero ou mais itens podem ser recebidos como parametros
     // corpo da função = tudo dentro dos {}... ou no caso linha so,  tudo em frente a "=>" 
-const filtrarProdutosPorCategoria = (categoria) => {
+const filtrarProdutosPorCategoria = (categoria) => { 
     produtos = [];
    if(categoria !== "todos" ) {
     produtos = produtosBKP.filter((produto) => {
