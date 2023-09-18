@@ -4,6 +4,7 @@ let produtos = [];
 const produtosBKP = [];
 let valorMin = 0;
 let valorMax = 100;
+let user = {};
 
 
 let valorCarrinho = 0;
@@ -399,13 +400,35 @@ const abrirCarrinho = () => {
 
 const buscarDadosUsuario = () =>  {
     console.log('aaa')
-    var user = JSON.parse(window.localStorage.getItem("user"));
-    if(user != null) {
-        const nomeUsuarioElement = document.getElementById('nomeUsuario');
-        nomeUsuarioElement.textContent = user.email;
-    } else {
+    
+    var jwt = window.localStorage.getItem("jwt");
+    if(jwt == null || jwt == undefined) {
         window.location.href = "../sem-acesso.html";
+    } else {
+        fetch('http://localhost:1337/api/users/me', {
+        method: "GET",
+        headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "Authorization": "bearer " + jwt
+            }
+        })
+        .then((resp1) => {
+            if(resp1.status == 401) {
+                window.location.href = "../sem-acesso.html";
+            } else {
+                return resp1.json();
+            }  
+        })
+        .then((resp2) => {
+            user = resp2;
+            const nomeUsuarioElement = document.getElementById('nomeUsuario');
+            nomeUsuarioElement.textContent = user.email;
+        })
+        .catch((erro) => {
+            console.log("deu erro", erro)
+        })
     }
+
 }
 
 

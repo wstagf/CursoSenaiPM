@@ -25,7 +25,6 @@ const login = () => {
     .then((resp2) => {
         console.log('converteu o objeto', resp2);
         window.localStorage.setItem("jwt", resp2.jwt);
-        window.localStorage.setItem("user", JSON.stringify(resp2.user));
         if (resp2.jwt  != undefined) {
             window.location.href = "acessorestrito/restrito.html";
         }
