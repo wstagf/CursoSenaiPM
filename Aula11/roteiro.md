@@ -63,10 +63,31 @@ quando a tela é criada,
 
 
 # Metodo C.R.U.D. = DELETE  .... excluirItem(1)
-1. O java script chama a api com o methodo DELETE e o ID na url 
+1. O java script chama a api com o metodo DELETE e o ID na url 
 
 fetch('http://localhost:1337/api/produtos/' + id, {
         method: "DELETE",
 
 2. Se der certo a requisição, o javascript limpa a tela
 3. o java scrpit recarrega os item (Chama o metodo buscarProdutos )
+
+
+
+
+
+# Metodo C.R.U.D. = CREATE ALL .... 
+
+1. A tela recebe os dados nos elementos input 
+2. O javascript faz a leitura dos valores dos elementos atravez da função getElementByID('')
+3. Efetua a chamada para a api com o metodo POST e o BODY do objeto convertido em JSON
+
+fetch('http://localhost:1337/api/produtos', {
+    method: "POST",
+    body: JSON.stringify(novoProduto),
+    headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": "bearer " + window.localStorage.getItem("jwt")
+        }
+    })
+
+4. caso acontece sucesso, exibe um alerta e recarrega os itens  (Chama o metodo buscarProdutos )

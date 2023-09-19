@@ -114,4 +114,43 @@ const excluirItem = (id) => {
         })
 }
 
+const adicionarProduto  = () => {
+    const novoProduto = {
+        "data": {
+            "tipo": document.getElementById("tipo").value,
+            "nome":  document.getElementById("nome").value, 
+            "preco":  document.getElementById("preco").value,
+            "imagemURL":  document.getElementById("imagemURL").value
+          }
+    }
+    console.log(novoProduto);
+
+
+
+
+ fetch('http://localhost:1337/api/produtos', {
+    method: "POST",
+    body: JSON.stringify(novoProduto),
+    headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": "bearer " + window.localStorage.getItem("jwt")
+        }
+    })
+    .then((resp1) => {
+        if(resp1.status == 401) {
+            window.location.href = "../sem-acesso.html";
+        } else {
+            return resp1.json();
+        }  
+    })
+    .then(  (resp2) => { 
+        console.log(resp2)
+        alert('Sucesso');
+        buscarProdutos();
+    })
+    .catch((erro) => {
+        console.log("deu erro", erro)
+    })
+}
+
 buscarProdutos();
