@@ -1,4 +1,5 @@
 let produtos = [];
+let IdDoProdutoQueEstamosEditando = 0;
 
 
 const buscarProdutos = async () => {
@@ -69,10 +70,12 @@ const criaProduto = (nome, id, preco, imagemURL, tipo,  index) => {
         "<a href='#'>"+
           "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItem("+id +")'></i>"+
          "</a>"+
+         "<a href='#'>"+
+         "<i class='fa fa-edit' aria-hidden='true' onclick='editarItem("+index +")'></i>"+
+        "</a>"+
       "</td>" ;
     elemento.appendChild(item);
-
-         
+ 
 
 
     // elemento.innerHTML = elemento.innerHTML 
@@ -114,7 +117,7 @@ const excluirItem = (id) => {
         })
 }
 
-const adicionarProduto  = () => {
+const adicionarProduto  = () => { 
     const novoProduto = {
         "data": {
             "tipo": document.getElementById("tipo").value,
@@ -150,7 +153,68 @@ const adicionarProduto  = () => {
     })
     .catch((erro) => {
         console.log("deu erro", erro)
-    })
+    }) 
 }
+
+
+
+const editarItem = (index) => {
+    const produtoQueSeraEditado = produtos[index];
+
+    console.log(produtoQueSeraEditado);
+
+    document.getElementById("tipo").value = produtoQueSeraEditado.tipo;
+    document.getElementById("nome").value = produtoQueSeraEditado.nome;
+    document.getElementById("preco").value = produtoQueSeraEditado.preco;
+    document.getElementById("imagemURL").value = produtoQueSeraEditado.imagemURL;
+    IdDoProdutoQueEstamosEditando = produtos[index].id;
+
+}
+
+
+
+const salvarProduto  = ( ) => { 
+    const novoProduto = {
+        "data": {
+            "tipo": document.getElementById("tipo").value,
+            "nome":  document.getElementById("nome").value, 
+            "preco":  document.getElementById("preco").value,
+            "imagemURL":  document.getElementById("imagemURL").value
+          }
+    }
+    console.log(novoProduto);
+
+
+ fetch('http://localhost:1337/api/produtos/' + IdDoProdutoQueEstamosEditando, {
+    method: "PUT",
+    body: JSON.stringify(novoProduto),
+    headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": "bearer " + window.localStorage.getItem("jwt")
+        }
+    })
+    .then((resp1) => {
+        if(resp1.status == 401) {
+            window.location.href = "../sem-acesso.html";
+        } else {
+            return resp1.json();
+        }  
+    })
+    .then(  (resp2) => { 
+        console.log(resp2)
+        alert('Sucesso');
+        buscarProdutos();
+        document.getElementById("tipo").value = "",
+        document.getElementById("nome").value = "", 
+        document.getElementById("preco").value = "",
+        document.getElementById("imagemURL").value = ""
+
+
+    })
+    .catch((erro) => {
+        console.log("deu erro", erro)
+    }) 
+}
+
 
 buscarProdutos();

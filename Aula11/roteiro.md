@@ -75,7 +75,7 @@ fetch('http://localhost:1337/api/produtos/' + id, {
 
 
 
-# Metodo C.R.U.D. = CREATE ALL .... 
+# Metodo C.R.U.D. = CREATE  .... 
 
 1. A tela recebe os dados nos elementos input 
 2. O javascript faz a leitura dos valores dos elementos atravez da função getElementByID('')
@@ -89,5 +89,23 @@ fetch('http://localhost:1337/api/produtos', {
             "Authorization": "bearer " + window.localStorage.getItem("jwt")
         }
     })
+
+4. caso acontece sucesso, exibe um alerta e recarrega os itens  (Chama o metodo buscarProdutos )
+
+
+
+
+# Metodo C.R.U.D. = UPDATE  .... 
+
+
+1. A tela recebe o click em um item 
+2. A tela repassa os dados do item para dentro do formulario
+3. o javascript envia para a api com o metodo PUT e o ID na URL e o BODY com o objeto alterado
+
+
+ fetch('http://localhost:1337/api/produtos/' + IdDoProdutoQueEstamosEditando, {
+    method: "PUT",
+    body: JSON.stringify(novoProduto),
+
 
 4. caso acontece sucesso, exibe um alerta e recarrega os itens  (Chama o metodo buscarProdutos )
