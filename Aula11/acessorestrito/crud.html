@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Loja Online</title>
+    <link href="assets/css/estilo.css" rel="stylesheet">
+
+    <!-- este link carrega a biblioteca de fontes que foi baixada previamente  -->
+    <link rel="stylesheet" href="./assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body> 
+    <header>
+        <div class="barra">
+            <h1>Minha Loja Online</h1>
+            <p class="wellcome">Bem vindo <span id="nomeUsuario">Nome do usuario</span> </p>
+            <a href="#" onclick="sairDoSistema()">Sair</a>
+        </div>
+    </header>
+    <table>
+        <thead>
+            <td>
+                ID
+            </td>
+            <td>
+                Tipo
+            </td>
+            <td>
+                Nome
+            </td>
+            <td>
+                Preço
+            </td>
+            <td>
+                Imagem
+            </td>
+            <td>
+                Acoes
+            </td>
+        </thead>
+        <tbody id="criarprodutos">
+             
+        </tbody>
+    </table>
+
+    <script src="assets/js/crud.js"></script>
+</body>
+</html>
