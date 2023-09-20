@@ -39,6 +39,10 @@ $lista = array('a', 'b', 0, 190, true, false, null);
 echo('<br/>');
 echo(sizeof($lista));
 
-echo('<br/>');
+echo('<br/>' ); 
 echo($lista[3])
+
+
+1 == "1"  => true
+1 === "1"  => false
 ?>
