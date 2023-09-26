@@ -40,9 +40,9 @@ echo('<br/>');
 echo(sizeof($lista));
 
 echo('<br/>' ); 
-echo($lista[3])
+echo($lista[3]);
 
 
-1 == "1"  => true
-1 === "1"  => false
+// 1 == "1"  => true;
+// 1 === "1"  => false;
 ?>
