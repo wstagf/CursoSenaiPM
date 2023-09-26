@@ -1,12 +1,13 @@
 <div class="acoes">
     <a href="#" id="link_carrinho" onclick="abrirCarrinho()">Mostrar carrinho ()</a>
-    <span>
+    <div>
         <span>Filtrar: </span>
         <a href="#" id="link_filtrar_todos">Todos</a>
         <a href="#" id="link_filtrar_capacetes">Capacetes</a>
         <a href="#" id="link_filtrar_blusas">Blusas</a>
-    </span> 
+    </div>  
     <a href="contato.php" id="link_filtrar_blusas">Contato</a>
+    <a href="crud.php" id="link_filtrar_blusas">CRUD</a>
 </div>
 <br><br> 
 <div class="busca"> 
