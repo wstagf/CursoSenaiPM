@@ -9,10 +9,13 @@
     <!-- este link carrega a biblioteca de fontes que foi baixada previamente  -->
     <link rel="stylesheet" href="./assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
-<body> 
-    <?php include 'view/menu_superior.php' ?>
+<body>  
+    <header>
+        <?php include 'view/menu_superior.php' ?>
+        <?php include 'view/filtros.php' ?>
+    </header>
     <?php include 'view/produtos.php' ?>
     <?php include 'view/carrinho.php' ?>
-    <script src="assets/js/carrinho.js"></script>
+    <script src="assets/js/aplicacao.js"></script>
 </body>
 </html>
