@@ -1,0 +1,38 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Interno - Launch built-in server and debug",
+      "type": "php",
+      "request": "launch",
+      "runtimeArgs": [
+        "-S",
+        "localhost:8000",
+        "-t",
+        "."
+      ],
+      "port": 9003,
+      "serverReadyAction": {
+        "action": "openExternally"
+      }
+    },
+    {
+      "name": "Console - Debug current script in console",
+      "type": "php",
+      "request": "launch",
+      "program": "${file}",
+      "cwd": "${fileDirname}",
+      "externalConsole": false,
+      "port": 9003
+    },
+    {
+      "name": "XAMP - Listen for Xdebug",
+      "type": "php",
+      "request": "launch",
+      "port": 9003
+    }
+  ]
+}
