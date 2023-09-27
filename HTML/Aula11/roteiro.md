@@ -132,3 +132,7 @@ Para rodar o servidor strapi, deve-se:
     - password: 123456 
 
 
+
+Depois de que o strapi estiver rodando, é possivel rodar o projeto AULA11 no live server normalmente. 
+
+
