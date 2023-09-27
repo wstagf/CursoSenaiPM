@@ -1,4 +1,4 @@
- 
+
 let carrinho = [];
 let produtos = [];
 const produtosBKP = [];
@@ -14,182 +14,182 @@ const adicionarCarrinho = (numeroItem) => {
     console.log("itema");
     const itemsComMatch = carrinho.filter((item) => {
         console.log(item);
-        return  item.produto.id ===  produtoSendoInserido.id 
+        return item.produto.id === produtoSendoInserido.id
     })
 
     valorCarrinho = valorCarrinho + produtoSendoInserido.preco;
 
-    if(itemsComMatch.length === 0) {
-        carrinho.push({"produto": produtoSendoInserido, quantidade: 1});
-        atualizaCarrinho({produto: produtoSendoInserido, quantidade: 1}, true);
+    if (itemsComMatch.length === 0) {
+        carrinho.push({ "produto": produtoSendoInserido, quantidade: 1 });
+        atualizaCarrinho({ produto: produtoSendoInserido, quantidade: 1 }, true);
     } else {
         let novaQuantidade = 0;
         carrinho.forEach((item) => {
-            if( item.produto.id ===  produtoSendoInserido.id ) {
+            if (item.produto.id === produtoSendoInserido.id) {
                 item.quantidade = item.quantidade + 1;
                 novaQuantidade = item.quantidade;
             }
         });
-        atualizaCarrinho({produto: produtoSendoInserido, quantidade: novaQuantidade}, false);
+        atualizaCarrinho({ produto: produtoSendoInserido, quantidade: novaQuantidade }, false);
     }
-   
+
 
     mostrarQuantidadeItensCarrinho();
-    
+
 }
 
-const mostrarQuantidadeItensCarrinho = () => { 
-    document.getElementById('link_carrinho').textContent 
-           = "Mostrar carrinho (" + carrinho.length + ")";
+const mostrarQuantidadeItensCarrinho = () => {
+    document.getElementById('link_carrinho').textContent
+        = "Mostrar carrinho (" + carrinho.length + ")";
 }
 
-const atualizaCarrinho= (item, inserir) => {
+const atualizaCarrinho = (item, inserir) => {
     const valorTotalCarrinhoElement = document.getElementById('valorTotalCarrinho');
     valorTotalCarrinhoElement.textContent = valorCarrinho;
 
 
-    if(inserir) {
+    if (inserir) {
         // criar novo item
         console.log(inserir);
 
-         // captura o elemento pai "UL"
-            const itensCarrinhoElement = document.getElementById("itensCarrinho");
+        // captura o elemento pai "UL"
+        const itensCarrinhoElement = document.getElementById("itensCarrinho");
 
-            // // limpa o conteudo html
-            // itensCarrinhoElement.innerHTML = "";
-            
+        // // limpa o conteudo html
+        // itensCarrinhoElement.innerHTML = "";
 
-            // cria um elemento filho
-            const itemDaLista = document.createElement('li');
 
-            // atribui o conteudo dele no formato html
-            itemDaLista.innerHTML =   
-                            "<div class='itemCarrinho' id='produto"+ item.produto.id +"'>" +
-                            "<div class='detalhesCarrinho'>"+
-                            "<p>" + item.produto.nome+  "</p>"+
-                            "<p>R$ " + item.produto.preco +  "</p>"+
-                            "<p>Quantidade " + item.quantidade +  "</p>"+
-                            "</div>"+
-                            "<div class='acoesCarrinho'>"+
-                            "<a href='#'>"+
-                            "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho("+item.produto.id +")'></i>"+
-                            "</a>"+
-                            "</div>"+
-                            "</div>";
+        // cria um elemento filho
+        const itemDaLista = document.createElement('li');
 
-            // adiciona o item filho na lista "pai"
-            itensCarrinhoElement.appendChild(itemDaLista)
-            
+        // atribui o conteudo dele no formato html
+        itemDaLista.innerHTML =
+            "<div class='itemCarrinho' id='produto" + item.produto.id + "'>" +
+            "<div class='detalhesCarrinho'>" +
+            "<p>" + item.produto.nome + "</p>" +
+            "<p>R$ " + item.produto.preco + "</p>" +
+            "<p>Quantidade " + item.quantidade + "</p>" +
+            "</div>" +
+            "<div class='acoesCarrinho'>" +
+            "<a href='#'>" +
+            "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho(" + item.produto.id + ")'></i>" +
+            "</a>" +
+            "</div>" +
+            "</div>";
+
+        // adiciona o item filho na lista "pai"
+        itensCarrinhoElement.appendChild(itemDaLista)
+
     } else {
         //editar item existemte
         console.log(inserir)
-        const elementoQueVaiSerAlterado = document.getElementById("produto"+ item.produto.id);
+        const elementoQueVaiSerAlterado = document.getElementById("produto" + item.produto.id);
 
-        elementoQueVaiSerAlterado.innerHTML =   
-        "<div class='itemCarrinho' id='produto"+ item.produto.id +"'>" +
-        "<div class='detalhesCarrinho'>"+
-        "<p>" + item.produto.nome+  "</p>"+
-        "<p>R$ " + item.produto.preco +  "</p>"+
-        "<p>Quantidade " + item.quantidade +  "</p>"+
-        "</div>"+
-        "<div class='acoesCarrinho'>"+
-        "<a href='#'>"+
-        "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho("+item.produto.id +")'></i>"+
-        "</a>"+
-        "</div>"+
-        "</div>";
+        elementoQueVaiSerAlterado.innerHTML =
+            "<div class='itemCarrinho' id='produto" + item.produto.id + "'>" +
+            "<div class='detalhesCarrinho'>" +
+            "<p>" + item.produto.nome + "</p>" +
+            "<p>R$ " + item.produto.preco + "</p>" +
+            "<p>Quantidade " + item.quantidade + "</p>" +
+            "</div>" +
+            "<div class='acoesCarrinho'>" +
+            "<a href='#'>" +
+            "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho(" + item.produto.id + ")'></i>" +
+            "</a>" +
+            "</div>" +
+            "</div>";
 
     }
 
 
 
-   
+
 }
 
 excluirItemNoCarrinho = (id) => {
-    
-  console.log('vamos excluir o id ' + id)
 
-  let itemExcluir;
+    console.log('vamos excluir o id ' + id)
 
-  carrinho.map((item) => {
-    if(item.produto.id === id) {
-        itemExcluir = item;
-    }
-  })
-
-  if(itemExcluir.quantidade === 1) {
-    carrinho = carrinho.filter((item) => {
-        if(item.produto.id === id) {
-            valorCarrinho = valorCarrinho - item.produto.preco;
-        }
-        return item.produto.id != id;
-    });
-
-    // captura o elemento pai "UL"
-    const itensCarrinhoElement = document.getElementById("itensCarrinho");
-
-    // // limpa o conteudo html
-    itensCarrinhoElement.innerHTML = "";
+    let itemExcluir;
 
     carrinho.map((item) => {
-        atualizaCarrinho(item, true);
-    });
- 
-
-    const valorTotalCarrinhoElement = document.getElementById('valorTotalCarrinho');
-    valorTotalCarrinhoElement.textContent = valorCarrinho;
-
-
-  } else {
-    carrinho.forEach((item) => {
-        if( item.produto.id ===  itemExcluir.produto.id ) {
-            item.quantidade = item.quantidade - 1; 
+        if (item.produto.id === id) {
+            itemExcluir = item;
         }
-    });
+    })
 
-    const elementoQueVaiSerAlterado = document.getElementById("produto"+ itemExcluir.produto.id);
+    if (itemExcluir.quantidade === 1) {
+        carrinho = carrinho.filter((item) => {
+            if (item.produto.id === id) {
+                valorCarrinho = valorCarrinho - item.produto.preco;
+            }
+            return item.produto.id != id;
+        });
 
-    elementoQueVaiSerAlterado.innerHTML =   
-    "<div class='itemCarrinho' id='produto"+ itemExcluir.produto.id +"'>" +
-    "<div class='detalhesCarrinho'>"+
-    "<p>" + itemExcluir.produto.nome+  "</p>"+
-    "<p>R$ " + itemExcluir.produto.preco +  "</p>"+
-    "<p>Quantidade " + itemExcluir.quantidade +  "</p>"+
-    "</div>"+
-    "<div class='acoesCarrinho'>"+
-    "<a href='#'>"+
-    "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho("+itemExcluir.produto.id +")'></i>"+
-    "</a>"+
-    "</div>"+
-    "</div>";
+        // captura o elemento pai "UL"
+        const itensCarrinhoElement = document.getElementById("itensCarrinho");
 
+        // // limpa o conteudo html
+        itensCarrinhoElement.innerHTML = "";
 
-    valorCarrinho = valorCarrinho - itemExcluir.produto.preco;
-
-    const valorTotalCarrinhoElement = document.getElementById('valorTotalCarrinho');
-    valorTotalCarrinhoElement.textContent = valorCarrinho;
+        carrinho.map((item) => {
+            atualizaCarrinho(item, true);
+        });
 
 
-  }
+        const valorTotalCarrinhoElement = document.getElementById('valorTotalCarrinho');
+        valorTotalCarrinhoElement.textContent = valorCarrinho;
 
-  
-  mostrarQuantidadeItensCarrinho();
-    
+
+    } else {
+        carrinho.forEach((item) => {
+            if (item.produto.id === itemExcluir.produto.id) {
+                item.quantidade = item.quantidade - 1;
+            }
+        });
+
+        const elementoQueVaiSerAlterado = document.getElementById("produto" + itemExcluir.produto.id);
+
+        elementoQueVaiSerAlterado.innerHTML =
+            "<div class='itemCarrinho' id='produto" + itemExcluir.produto.id + "'>" +
+            "<div class='detalhesCarrinho'>" +
+            "<p>" + itemExcluir.produto.nome + "</p>" +
+            "<p>R$ " + itemExcluir.produto.preco + "</p>" +
+            "<p>Quantidade " + itemExcluir.quantidade + "</p>" +
+            "</div>" +
+            "<div class='acoesCarrinho'>" +
+            "<a href='#'>" +
+            "<i class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho(" + itemExcluir.produto.id + ")'></i>" +
+            "</a>" +
+            "</div>" +
+            "</div>";
+
+
+        valorCarrinho = valorCarrinho - itemExcluir.produto.preco;
+
+        const valorTotalCarrinhoElement = document.getElementById('valorTotalCarrinho');
+        valorTotalCarrinhoElement.textContent = valorCarrinho;
+
+
+    }
+
+
+    mostrarQuantidadeItensCarrinho();
+
 
 }
 
 
 const criaProduto = (nome, alt, preco, imagemURL, elemento, index) => {
-    elemento.innerHTML = elemento.innerHTML 
-    +  "<div class='produto'>"
-    + " <img src='"+imagemURL+"' alt='"+alt+"'/>"
-    + "<h2>"+ nome + "</h2>"
-    + "<p>R$ " + preco+ "</p>"
-    + "<button class='adicionarCarrinho' "
-       + "onclick='adicionarCarrinho("+ index +")'> "
-    + "Adicionar ao Carrinho</button>"
-    + "</div>";
+    elemento.innerHTML = elemento.innerHTML
+        + "<div class='produto'>"
+        + " <img src='" + imagemURL + "' alt='" + alt + "'/>"
+        + "<h2>" + nome + "</h2>"
+        + "<p>R$ " + preco + "</p>"
+        + "<button class='adicionarCarrinho' "
+        + "onclick='adicionarCarrinho(" + index + ")'> "
+        + "Adicionar ao Carrinho</button>"
+        + "</div>";
 }
 
 const buscarProdutos = async () => {
@@ -198,18 +198,18 @@ const buscarProdutos = async () => {
     fetch('http://localhost:1337/api/produtos', {
         method: "GET",
         headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                "Authorization": "bearer " + jwt
-            }
-        })
+            "Content-type": "application/json; charset=UTF-8",
+            "Authorization": "bearer " + jwt
+        }
+    })
         .then((resp1) => {
-            if(resp1.status == 401) {
+            if (resp1.status == 401) {
                 window.location.href = "../sem-acesso.html";
             } else {
                 return resp1.json();
-            }  
+            }
         })
-        .then(  (resp2) => { 
+        .then((resp2) => {
 
             resp2.data.forEach((itemDaAPI, index) => {
                 let elemento = ""
@@ -217,22 +217,22 @@ const buscarProdutos = async () => {
                 const cadaItemConvertido = {
                     "id": itemDaAPI.id,
                     "tipo": itemDaAPI.attributes.tipo,
-                    "nome" : itemDaAPI.attributes.nome,
-                    "alt" : itemDaAPI.attributes.alt,
-                    "preco" : itemDaAPI.attributes.preco,
-                    "imagemURL" : itemDaAPI.attributes.imagemURL,
-                    "preco" : itemDaAPI.attributes.preco
+                    "nome": itemDaAPI.attributes.nome,
+                    "alt": itemDaAPI.attributes.alt,
+                    "preco": itemDaAPI.attributes.preco,
+                    "imagemURL": itemDaAPI.attributes.imagemURL,
+                    "preco": itemDaAPI.attributes.preco
                 }
 
-                if(cadaItemConvertido.tipo === "capacete" ) {
-                    elemento  = document.getElementById('capacetes');
+                if (cadaItemConvertido.tipo === "capacete") {
+                    elemento = document.getElementById('capacetes');
                 } else {
-                    elemento  = document.getElementById('blusas');
+                    elemento = document.getElementById('blusas');
                 }
                 produtos.push(cadaItemConvertido);
                 produtosBKP.push(cadaItemConvertido);
-                
-                criaProduto(cadaItemConvertido.nome, cadaItemConvertido.alt,  
+
+                criaProduto(cadaItemConvertido.nome, cadaItemConvertido.alt,
                     cadaItemConvertido.preco, cadaItemConvertido.imagemURL, elemento, index);
             })
         })
@@ -240,7 +240,7 @@ const buscarProdutos = async () => {
             console.log("deu erro", erro)
         })
 
-    
+
 
 
 }
@@ -251,50 +251,50 @@ const buscarProdutos = async () => {
 // <nome> filtrarProdutosPorCategoria
 // <async> ou não.. para fazer await == esperar a solicitação de recurso
 // funcao... 
-    // (a, b, c, etc..) = Parametros... zero ou mais itens podem ser recebidos como parametros
-    // corpo da função = tudo dentro dos {}... ou no caso linha so,  tudo em frente a "=>" 
-const filtrarProdutosPorCategoria = (categoria) => { 
+// (a, b, c, etc..) = Parametros... zero ou mais itens podem ser recebidos como parametros
+// corpo da função = tudo dentro dos {}... ou no caso linha so,  tudo em frente a "=>" 
+const filtrarProdutosPorCategoria = (categoria) => {
     produtos = [];
-   if(categoria !== "todos" ) {
-    produtos = produtosBKP.filter((produto) => {
-        return produto.tipo === categoria;
-    }); 
-   } else {
-    produtos = produtosBKP;
-   }
+    if (categoria !== "todos") {
+        produtos = produtosBKP.filter((produto) => {
+            return produto.tipo === categoria;
+        });
+    } else {
+        produtos = produtosBKP;
+    }
 
 
     produtos.forEach((item, index) => {
         let elemento = ""
-        if(item.tipo === "capacete" ) {
-            elemento  = document.getElementById('capacetes');
+        if (item.tipo === "capacete") {
+            elemento = document.getElementById('capacetes');
         } else {
-            elemento  = document.getElementById('blusas');
+            elemento = document.getElementById('blusas');
         }
-        criaProduto(item.nome, item.alt,  item.preco, item.imagemURL, elemento, index);
+        criaProduto(item.nome, item.alt, item.preco, item.imagemURL, elemento, index);
     })
 }
 
 
 const filtrarProdutosPorNome = (nome) => {
     produtos = [];
-   if(nome !== "" ) {
-    produtos = produtosBKP.filter((produto) => {
-        return produto.nome.includes(nome);
-    }); 
-   } else {
-    produtos = produtosBKP;
-   }
+    if (nome !== "") {
+        produtos = produtosBKP.filter((produto) => {
+            return produto.nome.includes(nome);
+        });
+    } else {
+        produtos = produtosBKP;
+    }
 
 
     produtos.forEach((item, index) => {
         let elemento = ""
-        if(item.tipo === "capacete" ) {
-            elemento  = document.getElementById('capacetes');
+        if (item.tipo === "capacete") {
+            elemento = document.getElementById('capacetes');
         } else {
-            elemento  = document.getElementById('blusas');
+            elemento = document.getElementById('blusas');
         }
-        criaProduto(item.nome, item.alt,  item.preco, item.imagemURL, elemento, index);
+        criaProduto(item.nome, item.alt, item.preco, item.imagemURL, elemento, index);
     })
 }
 
@@ -303,23 +303,23 @@ const filtrarProdutosPorNome = (nome) => {
 const filtrarProdutosPorValor = (valorMin, valorMax) => {
     // console.log(valorMin); 
     // console.log(valorMax);
-     produtos = [];
+    produtos = [];
 
-    
+
     produtos = produtosBKP.filter((produto) => {
-        return produto.preco > valorMin && produto.preco < valorMax  
-    }); 
-    
+        return produto.preco > valorMin && produto.preco < valorMax
+    });
+
 
 
     produtos.forEach((item, index) => {
         let elemento = ""
-        if(item.tipo === "capacete" ) {
-            elemento  = document.getElementById('capacetes');
+        if (item.tipo === "capacete") {
+            elemento = document.getElementById('capacetes');
         } else {
-            elemento  = document.getElementById('blusas');
+            elemento = document.getElementById('blusas');
         }
-        criaProduto(item.nome, item.alt,  item.preco, item.imagemURL, elemento, index);
+        criaProduto(item.nome, item.alt, item.preco, item.imagemURL, elemento, index);
     })
 }
 
@@ -334,7 +334,7 @@ const limpaTela = () => {
 }
 
 const configuraEventListners = () => {
-    
+
     // obtem o elemento atravez do ID
     const botaoCapacetes = document.getElementById("link_filtrar_capacetes");
 
@@ -375,10 +375,10 @@ const configuraEventListners = () => {
         document.getElementById("textoBuscar").value = "";
     })
 
-    
+
 }
 
-const buscarPorTexto = () =>  {
+const buscarPorTexto = () => {
     const termo = document.getElementById("textoBuscar").value;
     console.log(termo);
     limpaTela();
@@ -392,13 +392,13 @@ const alterarValorRange = (element, MinOuMax) => {
 
     const valor = element.target.value;
     console.log(valor);
-    if(MinOuMax === "min") {
+    if (MinOuMax === "min") {
         const elementoValorMinimo = document.getElementById("valorMinimo");
         elementoValorMinimo.textContent = valor;
         valorMin = parseInt(valor);
     }
 
-    if(MinOuMax === "max") {
+    if (MinOuMax === "max") {
         const elementoValorMaximo = document.getElementById("valorMaximo");
         elementoValorMaximo.textContent = valor;
         valorMax = parseInt(valor);
@@ -423,42 +423,42 @@ const abrirCarrinho = () => {
 }
 
 
-const buscarDadosUsuario = () =>  {
+const buscarDadosUsuario = () => {
     console.log('aaa')
-    
+
     var jwt = window.localStorage.getItem("jwt");
-    if(jwt == null || jwt == undefined) {
+    if (jwt == null || jwt == undefined) {
         window.location.href = "../sem-acesso.html";
     } else {
         fetch('http://localhost:1337/api/users/me', {
-        method: "GET",
-        headers: {
+            method: "GET",
+            headers: {
                 "Content-type": "application/json; charset=UTF-8",
                 "Authorization": "bearer " + jwt
             }
         })
-        .then((resp1) => {
-            if(resp1.status == 401) {
-                window.location.href = "../sem-acesso.html";
-            } else {
-                return resp1.json();
-            }  
-        })
-        .then((resp2) => {
-            user = resp2;
-            const nomeUsuarioElement = document.getElementById('nomeUsuario');
-            nomeUsuarioElement.textContent = user.email;
+            .then((resp1) => {
+                if (resp1.status == 401) {
+                    window.location.href = "../sem-acesso.html";
+                } else {
+                    return resp1.json();
+                }
+            })
+            .then((resp2) => {
+                user = resp2;
+                const nomeUsuarioElement = document.getElementById('nomeUsuario');
+                nomeUsuarioElement.textContent = user.email;
 
-            buscarProdutos();
-        })
-        .catch((erro) => {
-            console.log("deu erro", erro)
-        })
+                buscarProdutos();
+            })
+            .catch((erro) => {
+                console.log("deu erro", erro)
+            })
     }
 
 }
 
-const sairDoSistema = () =>  {
+const sairDoSistema = () => {
     window.localStorage.removeItem("jwt");
     window.location.href = "../index.html";
 }
@@ -467,7 +467,7 @@ const sairDoSistema = () =>  {
 
 mostrarQuantidadeItensCarrinho();
 configuraEventListners();
-buscarDadosUsuario();
+//buscarDadosUsuario();
 
 
 

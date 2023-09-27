@@ -1,3 +1,7 @@
+<?php 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +15,9 @@
 </head>
 <body> 
     <header>
-        <div class="barra">
-            <h1>Minha Loja Online</h1>
-            <p class="wellcome">Bem vindo <span id="nomeUsuario">Nome do usuario</span> </p>
-            <a href="#" onclick="sairDoSistema()">Sair</a>
-        </div>
+        <?php
+            include 'view/barra.php'
+        ?>
         <div class="acoes">
             <a href="#" id="link_carrinho" onclick="abrirCarrinho()">Mostrar carrinho ()</a>
             <a href="#" id="link_filtrar_todos">Todos</a>
@@ -91,7 +93,7 @@
            
         </ul>
     </section>
-
+    <?php include 'view/rodape.php' ?>
     <script src="assets/js/aplicacao.js"></script>
 
 </body>

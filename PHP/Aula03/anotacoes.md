@@ -37,3 +37,12 @@ OBS: 1 * Lembrando que é necessário que o parametro  "port: 9003"   que está 
 OBS: 2 * Algumas vezes é necessário informar o IP da maquina que está executando o XAMP, podemos obter o nosso ip atravéz do comando IPCONFIG que deve ser executado em um terminal, olhar algo que seja similar a essa linha
 "Endereço IPv4. . . . . . . .  . . . . . . . : 192.168.15.4"
 
+
+
+
+
+# Importar Arquivvos PHP dentro de HTML/PHP
+
+
+Ao utilizar o comando abaixo podemos compor um php (VIEW) com partes de outro arquivo PHP, assim uma vez que alterar o arquivo que está sendo importado, todas as mensões para esete também serão alterados. 
+    <?php include 'view/rodape.php' ?>
