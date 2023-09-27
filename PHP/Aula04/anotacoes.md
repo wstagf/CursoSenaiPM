@@ -11,3 +11,7 @@ https://dbeaver.io/download/
 4. Abrir a conexão
 5. Criara um banco de dados PMGO
 6. Rodar o script de criação do nosso banco
+
+
+
+
