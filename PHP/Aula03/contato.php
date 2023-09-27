@@ -23,14 +23,18 @@
     </style>
 </head>
 <body> 
-<header>
-    <a href="index.php" id="link_filtrar_blusas">Voltar</a>
-    <?php include 'view/menu_superior.php' ?> 
+    <header>
+        <a href="index.php" id="link_filtrar_blusas">Voltar</a>
+        <?php include 'view/menu_superior.php' ?> 
     </header>  
     <div class="formContato">
         <form action="controller/form.php" method="post">
-            Nome: <input type="text" name="nome"/><br>
-            Texto: <textarea name="texto" rows="4" cols="50"></textarea><br>
+            Nome: <input type="text" name="name-do-elemento-desejado-1"/><br>
+            Texto: <textarea 
+                    name="name-do-elemento-desejado-2" 
+                    rows="4"
+                    cols="50">
+            </textarea><br>
             <div>
                 <input type="submit" value="Enviar Mensagem"> 
             </div>

@@ -1,6 +1,6 @@
 <?php
-    $nome = $_POST['nome'] ?? null;
-    $texto = $_POST['texto'] ?? null; 
+    $nome = $_POST['name-do-elemento-desejado-1'] ?? null;
+    $texto = $_POST['name-do-elemento-desejado-2'] ?? null; 
 
     if (!empty($_POST)) {
         echo "Foi recebido informação pelo POST. ";
