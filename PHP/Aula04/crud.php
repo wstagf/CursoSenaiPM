@@ -1,3 +1,7 @@
+<?php
+    include 'controller/banco.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +33,11 @@
     </style>
 </head>
 <body> 
+    <?php
+        $pdo = Banco::conectar();
+        
+
+    ?>
     <header style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center">
         <a href="index.php" id="link_filtrar_blusas">Voltar</a>
         <?php include 'view/menu_superior.php' ?> 
