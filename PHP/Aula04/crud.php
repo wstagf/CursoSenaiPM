@@ -30,14 +30,19 @@
             border: 2px solid black;
         }
 
+        .colunaBotao {
+            display: flex; flex-direction: row; justify-content: center; align-items: center;
+        }
+
+        .botao {
+            cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 10px;
+        }
+ 
+
     </style>
 </head>
 <body> 
-    <?php
-        $pdo = Banco::conectar();
-        
-
-    ?>
+   
     <header style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center">
         <a href="index.php" id="link_filtrar_blusas">Voltar</a>
         <?php include 'view/menu_superior.php' ?> 
@@ -71,33 +76,33 @@
                 </td>
             </thead>
             <tbody id="criarprodutos"> 
-                    <tr>
-                        <td width="50">
-                            1
-                        </td>
-                        <td width="250">
-                            Capacete
-                        </td>
-                        <td width="250">
-                            Capacete 1
-                        </td>
-                        <td width="100">
-                            R$ 10,00
-                        </td>
-                        <td>
-                            <img src="assets/images/blusa01.png" width="50"/>
-                        </td>
-                        <td style = " display: flex; flex-direction: row; justify-content: center; align-items: center;">
-                           <span style="cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 10px;">
-                                <i style="margin-bottom: 5px;" class='fa fa-edit' aria-hidden='true' onclick='abrirCarrinho("+item.produto.id +")'></i>
-                                Editar
-                           </span>
-                           <span style="cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center;  margin: 10px;">
-                                <i style="margin-bottom: 5px;" class='fa fa-trash' aria-hidden='true' onclick='excluirItemNoCarrinho("+item.produto.id +")'></i>
-                                Excluir
-                           </span>
-                        </td>
-                    </tr> 
+            <?php
+                $pdo = Banco::conectar();
+                $sql = 'select * from  produtos;';
+
+                foreach ($pdo->query($sql) as $key => $row) {
+                    echo (
+                        '<tr>'.
+                            '<td width="50">'.$row['id'].'</td>'.
+                            '<td width="150">'.$row['tipo'].'</td>'.
+                            '<td width="250">'.$row['nome'].'</td>'.
+                            '<td width="100">R$ '.$row['preco'].'</td>'.
+                            '<td width="50"><img src="'.$row['imagemURL'].'" width="50"/></td>'.
+                            '<td class="colunaBotao">'.
+                                '<span class="botao">'.
+                                    '<i style="margin-bottom: 5px;" class="fa fa-edit" aria-hidden="true" onclick="abrirCarrinho('.$row['id'].')"></i>'.
+                                    'Editar'.
+                                '</span>'.
+                                '<span class="botao">'.
+                                    '<i style="margin-bottom: 5px;" class="fa fa-trash" aria-hidden="true" onclick="excluirItemNoCarrinho('.$row['id'].')"></i>'.
+                                    'Excluir'.
+                                '</span>'.
+                            '</td>'.
+                        '</tr>'); 
+                }
+
+                Banco::desconectar();
+            ?>
             </tbody>
         </table>
          
