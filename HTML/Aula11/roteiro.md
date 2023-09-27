@@ -109,3 +109,26 @@ fetch('http://localhost:1337/api/produtos', {
 
 
 4. caso acontece sucesso, exibe um alerta e recarrega os itens  (Chama o metodo buscarProdutos )
+
+
+
+
+EXTRA ----
+
+
+
+Para rodar o servidor strapi, deve-se: 
+1. Entrar na pasta server
+2. executar o comando "npm i" no terminal
+3. excutar o comando "npm run develop"
+4. acessar o backend pelo link https://127.0.0.1:1337
+5. usar este usuario e senha
+    # admin
+    - user: alunos-pm-go@gmail.com
+    - password: AlunosPMGO123!@#
+
+    # usuario (postman)
+    - user: email@pmgo.com
+    - password: 123456 
+
+
