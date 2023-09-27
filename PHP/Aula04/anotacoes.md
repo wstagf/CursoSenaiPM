@@ -15,3 +15,16 @@ https://dbeaver.io/download/
 
 
 
+
+
+# PDO
+
+PHP Data Object...
+
+Com ele podemos executar conexão no banco de dados e passar os SQLs que serão executados no servidor e retornarão os dados solicitados...
+
+Escrevemos os SQLS no codigo....
+
+por exemplo o codigo  'select * from  produtos;' que é executado para listar todos os produtos
+
+
