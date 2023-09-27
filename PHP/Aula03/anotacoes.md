@@ -4,7 +4,7 @@ zend_extension = xdebug
 xdebug.mode = debug 
 xdebug.start_with_request = yes
 xdebug.discover_client_host = 192.168.15.4
-xdebug.client_port=9000
+xdebug.client_port=9003
 
 
 
