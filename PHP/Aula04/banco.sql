@@ -30,12 +30,12 @@ VALUES('blusa', 'Blusão 01', 'Isto é um Blusão, modelo 1', 'assets/images/blu
 
 INSERT INTO pmgo.produtos
 (tipo, nome, alt, imagemURL, preco)
-VALUES('Blusão', 'Blusão 02', 'Isto é um Blusão, modelo 2', 'assets/images/blusa02.png', 25);
+VALUES('blusa', 'Blusão 02', 'Isto é um Blusão, modelo 2', 'assets/images/blusa02.png', 25);
 
 
 INSERT INTO pmgo.produtos
 (tipo, nome, alt, imagemURL, preco)
-VALUES('Blusão', 'BluCapcsão 03acete', 'Isto é um Blusão, modelo 3', 'assets/images/blusa03.png', 70);
+VALUES('blusa', 'Blusão 03', 'Isto é um Blusão, modelo 3', 'assets/images/blusa03.png', 70);
 
 
 
