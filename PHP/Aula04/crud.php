@@ -1,5 +1,8 @@
 <?php
     include 'controller/banco.php';
+
+
+     
 ?>
 
 <!DOCTYPE html>
@@ -96,7 +99,7 @@
                                 '</span>'.
                                 '<span class="botao">'.
                                     '<i style="margin-bottom: 5px;" class="fa fa-trash"'.
-                                    'aria-hidden="true" onclick="excluirItemNoCarrinho('.$row['id'].')"></i>'.
+                                    'aria-hidden="true" onclick="excluirProduto('.$row['id'].')"></i>'.
                                     'Excluir'.
                                 '</span>'.
                             '</td>'.
@@ -136,5 +139,22 @@
     </div>
  
     <script src="assets/js/aplicacao.js"></script>
+
+    <script>
+        
+        const excluirProduto = (id) => {
+            console.log('a') 
+            fetch('excluir.php?id=' + id, {
+                method: "GET", 
+                headers: { "Content-type": "application/json; charset=UTF-8" }
+            }) 
+            .then(() => {
+                location.reload()
+            })
+            .catch((erro) => {
+                console.log("deu erro", erro)
+            })
+        }
+    </script>
 </body>
 </html>
