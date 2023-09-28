@@ -90,17 +90,18 @@
                             '<td width="50"><img src="'.$row['imagemURL'].'" width="50"/></td>'.
                             '<td class="colunaBotao">'.
                                 '<span class="botao">'.
-                                    '<i style="margin-bottom: 5px;" class="fa fa-edit" aria-hidden="true" onclick="abrirCarrinho('.$row['id'].')"></i>'.
+                                    '<i style="margin-bottom: 5px;" class="fa fa-edit" '.
+                                    'aria-hidden="true" onclick="abrirCarrinho('.$row['id'].')"></i>'.
                                     'Editar'.
                                 '</span>'.
                                 '<span class="botao">'.
-                                    '<i style="margin-bottom: 5px;" class="fa fa-trash" aria-hidden="true" onclick="excluirItemNoCarrinho('.$row['id'].')"></i>'.
+                                    '<i style="margin-bottom: 5px;" class="fa fa-trash"'.
+                                    'aria-hidden="true" onclick="excluirItemNoCarrinho('.$row['id'].')"></i>'.
                                     'Excluir'.
                                 '</span>'.
                             '</td>'.
                         '</tr>'); 
                 }
-
                 Banco::desconectar();
             ?>
             </tbody>
