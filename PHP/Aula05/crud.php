@@ -92,14 +92,14 @@
                             '<td width="100">R$ '.$row['preco'].'</td>'.
                             '<td width="50"><img src="'.$row['imagemURL'].'" width="50"/></td>'.
                             '<td class="colunaBotao">'.
-                                '<span class="botao">'.
+                                '<span class="botao" onclick="abrirCarrinhoPHP('.$row['id'].')">'.
                                     '<i style="margin-bottom: 5px;" class="fa fa-edit" '.
-                                    'aria-hidden="true" onclick="abrirCarrinho('.$row['id'].')"></i>'.
+                                    'aria-hidden="true" ></i>'.
                                     'Editar'.
                                 '</span>'.
-                                '<span class="botao">'.
+                                '<span class="botao" onclick="excluirProduto('.$row['id'].')">'.
                                     '<i style="margin-bottom: 5px;" class="fa fa-trash"'.
-                                    'aria-hidden="true" onclick="excluirProduto('.$row['id'].')"></i>'.
+                                    'aria-hidden="true" ></i>'.
                                     'Excluir'.
                                 '</span>'.
                             '</td>'.
@@ -113,7 +113,7 @@
         <section class="carrinho  none">
             <div class="tituloCarrinho">
                 <h1>Produto</h1>
-                <a href="#" onclick="fecharCarrinho()">X</a>
+                <a href="#" onclick="fecharCarrinhoPHP()">X</a>
             </div>
             <br/>
             <form class="formCrud">
@@ -141,7 +141,31 @@
     <script src="assets/js/aplicacao.js"></script>
 
     <script>
-        
+    const fecharCarrinhoPHP = () => { 
+        const carrinhoElement = document.getElementsByClassName('carrinho');
+        carrinhoElement[0].classList.remove('block');
+        carrinhoElement[0].classList.add('none');
+    }
+
+ 
+    const abrirCarrinhoPHP = (id) => { 
+        console.log('a') 
+        fetch('consultar.php?id=' + id, {
+            method: "GET", 
+            headers: { "Content-type": "application/json; charset=UTF-8" }
+        }) 
+        .then(() => {
+            console.log('aaa');
+            const carrinhoElement = document.getElementsByClassName('carrinho');
+            carrinhoElement[0].classList.remove('none');
+            carrinhoElement[0].classList.add('block');
+        })
+        .catch((erro) => {
+            console.log("deu erro", erro)
+        }) 
+    }
+
+
         const excluirProduto = (id) => {
             console.log('a') 
             fetch('excluir.php?id=' + id, {
