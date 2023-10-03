@@ -41,8 +41,22 @@ www.servidor.com.br:8080/XXXXXXX/YYYY/ZZZZZ
 
 
 
+#  Concatenar STRINGS...
+Já utilizamos várias vezes o "." para concatenar strings
+em php. 
+Hoje utilizamos também o "{}" que pode ser utilizado caso
+   estejamos concatenando variaveis na string...
+   ex: "mysql:host={$host}:{$port}" 
+        será concatenado como 
+        "mysql:host=$localhos:3307"
+
+
+
 # Lista de funções utilizadas
 
 isset
 var_dump
 explode
+include_once
+fetchAll
+PDO::FETCH_ASSOC
