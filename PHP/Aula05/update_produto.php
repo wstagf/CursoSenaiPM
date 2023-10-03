@@ -5,6 +5,7 @@
     $nome = $_POST['nome'] ?? null; 
     $preco = $_POST['preco'] ?? null;
     $tipo = $_POST['tipo'] ?? null; 
+    $alt = $_POST['alt'] ?? null; 
     $imagemURL = $_POST['imagemURL'] ?? null; 
 
     echo('aaa');
@@ -13,6 +14,7 @@
     $sql =  "update produtos set nome = '". $nome .
             "', preco = '". $preco .
             "', tipo = '". $tipo .
+            "', alt = '". $alt .
             "', imagemURL = '". $imagemURL .
             "' where id = ".$id;
     

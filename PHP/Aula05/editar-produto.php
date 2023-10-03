@@ -52,6 +52,10 @@
             <label>Nome do produto</label>
             <input type="text" name="nome" placeholder="Nome do produto" value="<?php echo( $resultado['nome']) ?>"  />
 
+            <label>Texto alternativo do produto</label>
+            <input type="text" name="alt" placeholder="Texto alternativo do produto" value="<?php echo( $resultado['alt']) ?>" />
+
+
             <label>Preço do produto</label>
             <input type="text" name="preco" placeholder="Preço do produto" value="<?php echo( $resultado['preco']) ?>" />
 

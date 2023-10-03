@@ -76,6 +76,9 @@
                     Nome
                 </td>
                 <td>
+                    Texto alternativo
+                </td>
+                <td>
                     Preço
                 </td>
                 <td>
@@ -94,8 +97,9 @@
                     echo (
                         '<tr>'.
                             '<td width="50">'.$row['id'].'</td>'.
-                            '<td width="150">'.$row['tipo'].'</td>'.
+                            '<td width="100">'.$row['tipo'].'</td>'.
                             '<td width="250">'.$row['nome'].'</td>'.
+                            '<td width="300">'.$row['alt'].'</td>'.
                             '<td width="100">R$ '.$row['preco'].'</td>'.
                             '<td width="50"><img src="'.$row['imagemURL'].'" width="50"/></td>'.
                             '<td class="colunaBotao">'.
