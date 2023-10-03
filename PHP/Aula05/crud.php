@@ -40,6 +40,11 @@
         .botao {
             cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 10px;
         }
+
+        .link-estilizado {
+            color: white;
+            text-decoration: none;
+        }
  
 
     </style>
@@ -47,13 +52,15 @@
 <body> 
    
     <header style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center">
-        <a href="index.php" id="link_filtrar_blusas">Voltar</a>
+        <a href="index.php" class="link-estilizado">Voltar</a>
         <?php include 'view/menu_superior.php' ?> 
         <div>
-            <span style="cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 10px;">
-                <i style="margin-bottom: 5px;" class='fa fa-plus' aria-hidden='true' onclick='abrirCarrinho()'></i>
-                Novo
-            </span>
+            <a href="criar-produto.php"  class="link-estilizado">
+                <span style="cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 10px;">
+                    <i style="margin-bottom: 5px;" class='fa fa-plus' aria-hidden='true' ></i>
+                    Novo
+                </span>
+            </a>
         </div>
     </header>  
     <div  style="display: flex;  justify-content: center; align-items: center;">
@@ -92,7 +99,8 @@
                             '<td width="100">R$ '.$row['preco'].'</td>'.
                             '<td width="50"><img src="'.$row['imagemURL'].'" width="50"/></td>'.
                             '<td class="colunaBotao">'.
-                                '<a href="editar-produto.php?id='.$row['id'].'"><span class="botao" >'.
+                                '<a style="  color: black;
+                                text-decoration: none;" href="editar-produto.php?id='.$row['id'].'"><span class="botao" >'.
                                     '<i style="margin-bottom: 5px;" class="fa fa-edit" '.
                                     'aria-hidden="true" ></i>'.
                                     'Editar'.
