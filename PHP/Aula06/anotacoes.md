@@ -60,3 +60,6 @@ explode
 include_once
 fetchAll
 PDO::FETCH_ASSOC
+fetchObject
+array_keys
+array_values
