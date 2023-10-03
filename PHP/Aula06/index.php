@@ -22,5 +22,16 @@ if(isset($_GET['caminho'])) {
 if (isset($caminho[0])) { $recurso = $caminho[0]; } else { $recurso = ''; }
 if (isset($caminho[1])) { $item = $caminho[1]; } else { $item = ''; }
 
+// $_SERVER contem varias informações sobre o servidor, 
+// e sobre a requisição... 
+// neste caso estamos buscando qual foi o metodo utilizado
+// na requisição
+$method = $_SERVER['REQUEST_METHOD']; 
 
-var_dump($recurso, $item);
+
+// faz o carregamento do arquivo php citado dentro das aspas
+include_once "controler/db/db.class.php";
+
+include_once "api/produtos/produtos.php";
+
+//var_dump($recurso, $item, $method);
