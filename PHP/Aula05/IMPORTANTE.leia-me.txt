@@ -1,0 +1,13 @@
+O nosso cronograma foi atualizadoÇ
+
+
+19/09, Aula 01:  Setup, Hello-World, Algoritmos
+21/09, Aula 02:  MVC, Laravel
+26/09, Aula 03:  Banco de dados - MVC - Form contato - CRUD 
+28/09: Aula 04:  Backend Crud - Área Administrativa
+02/10: Aula 05:  Backend Crud - Área Administrativa
+03/10: Aula 06:  Backend Crud - API Rest, CRIAR JWT
+05/10, Aula 07:  ORM + Laravel
+09/10: Aula XX:  Integração PHP + HMTL
+
+
