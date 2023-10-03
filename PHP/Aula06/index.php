@@ -5,4 +5,4 @@ header('Content-type: application/json');
 
 date_default_timezone_set("America/Sao_Paulo");
 
-var_dump($GET['caminho']);
+var_dump($_GET['caminho']);
