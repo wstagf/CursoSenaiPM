@@ -72,3 +72,20 @@ array_values
 
  documentação oficial - file_get_contents
  https://www.php.net/manual/en/features.file-upload.put-method.php
+
+
+
+# Soluçao JWt
+
+/**
+ * JSON Web Token implementation
+ *
+ * Minimum implementation used by Realtime auth, based on this spec:
+ * http://self-issued.info/docs/draft-jones-json-web-token-01.html.
+ * GIT: https://github.com/luciferous/jwt
+ *
+ * @author Neuman Vong <neuman@twilio.com>
+ */
+
+
+ 
