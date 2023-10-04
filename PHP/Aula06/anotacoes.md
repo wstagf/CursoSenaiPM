@@ -63,3 +63,12 @@ PDO::FETCH_ASSOC
 fetchObject
 array_keys
 array_values
+
+
+
+# Soluçao PUT e DELETE
+ retirada do site https://stackoverflow.com/questions/27941207/http-protocols-put-and-delete-and-their-usage-in-php/41959141#41959141 
+
+
+ documentação oficial - file_get_contents
+ https://www.php.net/manual/en/features.file-upload.put-method.php
