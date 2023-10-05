@@ -1,18 +1,25 @@
-USE `pmgo`;
+-- Caso queira excluir uma tabela é so executar o comando
+-- drop table usuarios;
 
-CREATE TABLE `usuarios` (
-	`id` INT PRIMARY KEY AUTO_INCREMENT, 
-	`nome` VARCHAR(60) NOT NULL,
-	`senha` VARCHAR(60) NOT NULL, 
-	`token` VARCHAR(500) NOT NULL
+
+
+USE pmgo;
+
+CREATE TABLE usuarios (
+	id INT PRIMARY KEY AUTO_INCREMENT, 
+	usuario VARCHAR(60) NOT NULL,
+	nome VARCHAR(60) NOT NULL,
+	senha VARCHAR(60) NOT NULL, 
+	token VARCHAR(500) NOT NULL
 );
 
 
 
 INSERT INTO pmgo.usuarios
-(nome, senha, token)
+(usuario, nome, senha, token)
 VALUES(
-  'Usuario 1',
-   '34819d7beeabb9260a5c854bc85b3e44',
+  'user1',
+	'PMGO',
+   'prcchd146UaLg3Y0dlMJeBp1TRmEg4Ig2DM3KLRjA.tO8tymFRuC',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
 )
