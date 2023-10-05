@@ -20,6 +20,6 @@ INSERT INTO pmgo.usuarios
 VALUES(
   'user1',
 	'PMGO',
-   'prcchd146UaLg3Y0dlMJeBp1TRmEg4Ig2DM3KLRjA.tO8tymFRuC',
+   '$2y$10$.prcchd146UaLg3Y0dlMJeBp1TRmEg4Ig2DM3KLRjA.tO8tymFRuC',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
 )
