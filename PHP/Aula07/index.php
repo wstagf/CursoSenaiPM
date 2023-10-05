@@ -32,6 +32,15 @@ $method = $_SERVER['REQUEST_METHOD'];
 // faz o carregamento do arquivo php citado dentro das aspas
 include_once "controler/db/db.class.php";
 
-include_once "api/produtos/produtos.php";
-
-//var_dump($recurso, $item, $method);
+switch ($recurso) {
+  case 'produtos':
+    include_once "api/produtos/produtos.php";
+    break;
+  
+  case 'login':
+      include_once "api/login/login.php";
+      break;
+  default:
+    # code...
+    break;
+}
