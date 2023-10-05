@@ -31,6 +31,12 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 // faz o carregamento do arquivo php citado dentro das aspas
 include_once "controler/db/db.class.php";
+include_once "controler/usuarios/usuarios.class.php";
+include_once "controler/jwt/jwt.class.php";
+
+
+// chave privada
+$GLOBALS['segredoJWT']="12345";
 
 switch ($recurso) {
   case 'produtos':
@@ -41,6 +47,6 @@ switch ($recurso) {
       include_once "api/login/login.php";
       break;
   default:
-    # code...
+    echo('Rota não reconhecida');
     break;
 }
