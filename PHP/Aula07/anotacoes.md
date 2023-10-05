@@ -5,6 +5,7 @@ https://www.hostinger.com.br/tutoriais/o-que-e-http-error-e-principais-codigos-h
 
 #  novas funções 
   - password_hash
+  - str_replace
 
 
 
