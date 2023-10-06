@@ -3,6 +3,7 @@
 class Usuarios
 {
   public static function login($usuario, $senha) {
+   // http_response_code(200);
     $segredo = $GLOBALS['segredoJWT'];
 
     $login_segura = addslashes(htmlspecialchars($usuario));
@@ -36,11 +37,11 @@ class Usuarios
           $db->query("UPDATE usuarios SET token = '$token' WHERE id = $obj->id");
           echo json_encode(['token' => $token, 'data' => JWT::decode($token, $GLOBALS['segredoJWT'])]);
       } else {
-        http_response_code(403);
+       // http_response_code(403);
         echo json_encode(['ERRO' => 'Usuario ou senha inválida']);
       }
     } else {
-      http_response_code(401);
+      // http_response_code(401);
       echo json_encode(['ERRO' => 'Usuario ou senha inválida']);
     }
   }
@@ -48,6 +49,7 @@ class Usuarios
 
   public static function verificar()
   {
+      // http_response_code(200);
       $headers = apache_request_headers();
       if (isset($headers['Authorization'])) {
           $token = str_replace("Bearer ", "", $headers['Authorization']);
@@ -60,7 +62,7 @@ class Usuarios
           $segredoJWT = $GLOBALS['segredoJWT']; 
       } else {
           echo json_encode(['ERRO' => 'Você não está logado, ou seu token é inválido.']);
-          http_response_code(401);
+          // http_response_code(401);
           exit;
       }
 
