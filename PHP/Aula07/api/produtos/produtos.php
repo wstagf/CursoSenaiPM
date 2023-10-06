@@ -15,7 +15,7 @@
     }
   }
 
-  
+
   if(Usuarios::verificar()) {
 
 
@@ -79,8 +79,6 @@
         echo json_encode(["dados" => 'Houve algum erro ao inseris os dados.']);
     }
 
-
-    
   }
 
 

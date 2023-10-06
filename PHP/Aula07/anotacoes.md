@@ -6,13 +6,13 @@ https://www.hostinger.com.br/tutoriais/o-que-e-http-error-e-principais-codigos-h
 #  novas funções 
   - password_hash
   - str_replace
+  - addslashes
+  - htmlspecialchars
 
 
 
 # o objeto de autenticacao é o JWT abaixo 
 
-
-<!-- 
 {
     "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6InVzZXIxIiwibmFtZSI6IlBNR08iLCJleHBpcmVzX2luIjoxNjk3MTUzMjI5fQ.rLPs5VNZSjfpffvvyzJQW-xlGBtsIQlt9ZTf7suo_Mw",
     "data": {
@@ -20,7 +20,12 @@ https://www.hostinger.com.br/tutoriais/o-que-e-http-error-e-principais-codigos-h
         "name": "PMGO",
         "expires_in": 1697153229  // 2023-10-12 20:27:09
     }
-} -->
+} 
 
 
+
+
+# SQL Injection 
+
+É a campcidade do usuario enviar códigos maliciosos para o banco de dados
 

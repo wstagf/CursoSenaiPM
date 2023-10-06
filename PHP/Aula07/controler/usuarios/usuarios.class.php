@@ -5,9 +5,12 @@ class Usuarios
   public static function login($usuario, $senha) {
     $segredo = $GLOBALS['segredoJWT'];
 
+    $login_segura = addslashes(htmlspecialchars($usuario));
+    $senha_segura = addslashes(htmlspecialchars($senha));
+
     $db = DB::connect();
     $rs = $db->prepare(
-        "SELECT * FROM usuarios WHERE usuario = '{$usuario}'"
+        "SELECT * FROM usuarios WHERE usuario = '{$login_segura}'"
     );
     $exec = $rs->execute();
     $obj = $rs->fetchObject();
@@ -15,7 +18,7 @@ class Usuarios
 
     if ($rows > 0) {
  
-      $verificacaoSenha = password_verify($senha, $obj->senha) ? true : false;
+      $verificacaoSenha = password_verify($senha_segura, $obj->senha) ? true : false;
       if($verificacaoSenha) {
         
         // calcula o tempo de uma semana convertido em segundos
