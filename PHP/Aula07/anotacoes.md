@@ -29,3 +29,20 @@ https://www.hostinger.com.br/tutoriais/o-que-e-http-error-e-principais-codigos-h
 
 É a campcidade do usuario enviar códigos maliciosos para o banco de dados
 
+
+
+
+#  Postamn + BEARER TOKEN
+
+para facilitar o uso de BEARER TOKEN no postman, podemos utilizar o codigo 
+abaixo para salvar uma variavel e utilizar em todos os requests. 
+Este codigo deve ser adicionado na aba "TESTS" da chamada postaman que faz o login
+
+
+var jsonData = JSON.parse(responseBody); 
+pm.collectionVariables.set("token", jsonData.token);
+
+
+
+
+
