@@ -42,21 +42,7 @@
           $value=substr($item, $end_key_pos+strlen($end_key), -strlen($end_value));
           $_DELETE[$key]=$value;
       }
-      $GLOBALS["_DELETE"]=$_DELETE;
-    
-    var_dump($_DELETE);
-
-    */
-
-
-    $db = DB::connect();
-    $rs = $db->prepare("DELETE FROM produtos WHERE id={$item}");
-    $exec = $rs->execute();
-
-    if ($exec) {
-        echo json_encode(["dados" => 'Dados foram excluidos com sucesso.']);
-    } else {
-        echo json_encode(["dados" => 'Houve algum erro ao excluir os dados.']);
+    if ($method=='DELETE') { 
+      Produtos::excluirProduto($item);
     }
-  }
 } 

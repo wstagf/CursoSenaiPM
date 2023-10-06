@@ -133,4 +133,16 @@ class Produtos {
         echo json_encode(["dados" => 'Houve erro ao atualizar dados.']);
     }
   }
+
+  public static function excluirProduto($id) {
+    $db = DB::connect();
+    $rs = $db->prepare("DELETE FROM produtos WHERE id={$id}");
+    $exec = $rs->execute();
+
+    if ($exec) {
+        echo json_encode(["dados" => 'Dados foram excluidos com sucesso.']);
+    } else {
+        echo json_encode(["dados" => 'Houve algum erro ao excluir os dados.']);
+    }
+  }
 }
