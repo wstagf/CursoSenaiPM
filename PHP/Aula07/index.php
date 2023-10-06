@@ -32,6 +32,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 // faz o carregamento do arquivo php citado dentro das aspas
 include_once "controler/db/db.class.php";
 include_once "controler/usuarios/usuarios.class.php";
+include_once "controler/produtos/produtos.class.php";
 include_once "controler/jwt/jwt.class.php";
 
 
