@@ -22,7 +22,7 @@ class Usuarios
         $tempoSemanaEmSegundos = 7 * 24 * 60 * 60;
 
         // calcula a data da expiração do nosso token 
-        $expiracao = time() - $tempoSemanaEmSegundos;
+        $expiracao = time() + $tempoSemanaEmSegundos;
 
         $token = JWT::encode([
             'id'         => $usuario,
@@ -65,15 +65,15 @@ class Usuarios
         $token_decodificado =  JWT::decode($obj->token, $segredoJWT);
 
         if($token_decodificado -> expires_in > time()) {
-          echo('valido');
+          //echo('valido');
           return true;
         } else {
           $db->query("UPDATE usuarios SET token = '' WHERE id = $obj->id");
-          echo('vencido');
+          //echo('vencido');
           return false;
         }
       } else {
-        echo('nao encontrado');
+        //echo('nao encontrado');
         return false;
       }
   }
