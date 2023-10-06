@@ -1,5 +1,5 @@
 <?php
-
+  if(Usuarios::verificar()) {
   if ($method=='GET' && $item == '') {
     $db = DB::connect();
     $rs = $db->prepare("SELECT * FROM produtos ");
@@ -179,3 +179,4 @@
         echo json_encode(["dados" => 'Houve algum erro ao excluir os dados.']);
     }
   }
+} 

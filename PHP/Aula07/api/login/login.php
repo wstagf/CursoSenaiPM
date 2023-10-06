@@ -6,7 +6,3 @@ if ($method=='POST') {
 
   Usuarios::login($_POST['usuario'], $_POST['senha']);
 }
-
-if ($method=='GET') { 
-  Usuarios::verificar();
-}
