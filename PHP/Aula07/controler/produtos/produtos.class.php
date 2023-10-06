@@ -81,44 +81,20 @@ class Produtos {
   }
 
 
-  public static function editarProduto($id) {
-     // obtem o que foi pasado e salva na variavel formdata
-     $form_data= json_encode(file_get_contents("php://input")); 
-      $key_size=52;
-      $key=substr($form_data, 1, $key_size);
-
-      $acc_params=explode($key,$form_data);
-      array_shift($acc_params);
-      array_pop($acc_params);
-      foreach ($acc_params as $item_hack){
-          $start_key=' name=\"';
-          $end_key='\"\r\n\r\n';
-          $start_key_pos=strpos($item_hack,$start_key)+strlen($start_key);
-          $end_key_pos=strpos($item_hack,$end_key);
-          
-          $key=substr($item_hack, $start_key_pos, ($end_key_pos-$start_key_pos));
-          
-          $end_value='\r\n';
-          $value=substr($item_hack, $end_key_pos+strlen($end_key), -strlen($end_value));
-          $_PUT[$key]=$value;
-      }
-      $GLOBALS["_PUT"]=$_PUT;
-    
-
+  public static function editarProduto($dados, $id) {
     $sql = "UPDATE produtos SET ";
 
     $contador = 1;
 
      // array_keys retorna as chaves de um array
-    foreach (array_keys($_PUT) as $indice) {
-      if (count($_PUT) > $contador) {
-        $sql .= "{$indice} = '{$_PUT[$indice]}', ";
+    foreach (array_keys($dados) as $indice) {
+      if (count($dados) > $contador) {
+        $sql .= "{$indice} = '{$dados[$indice]}', ";
       } else {
-        $sql .= "{$indice} = '{$_PUT[$indice]}' ";
+        $sql .= "{$indice} = '{$dados[$indice]}' ";
       }
       $contador++;
     }
-
 
     $sql .= " WHERE id={$id}";
 
