@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "0d7e5fe9-324f-4e5d-bd44-8672653c2a28",
+		"name": "000 senai-php",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "614112"
+	},
+	"item": [
+		{
+			"name": "produtos",
+			"item": [
+				{
+					"name": "Obter Produto Por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlBase}}/produtos/52",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"produtos",
+								"52"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Todos os Produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlBase}}/produtos",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"produtos"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir Produto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tipo",
+									"value": "Blusão",
+									"type": "text"
+								},
+								{
+									"key": "nome",
+									"value": "asdasdasd",
+									"type": "text"
+								},
+								{
+									"key": "alt",
+									"value": "Isto é um Blusão, modelo 2",
+									"type": "text"
+								},
+								{
+									"key": "imagemURL",
+									"value": "assets/images/blusa02.png",
+									"type": "text"
+								},
+								{
+									"key": "preco",
+									"value": "25",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlBase}}/produtos",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Produto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlBase}}/produtos/51",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"produtos",
+								"51"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Produto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "tipo",
+									"value": "Blusão",
+									"type": "text"
+								},
+								{
+									"key": "nome",
+									"value": "novo 51",
+									"type": "text"
+								},
+								{
+									"key": "alt",
+									"value": "Isto é um Blusão, modelo 2",
+									"type": "text"
+								},
+								{
+									"key": "imagemURL",
+									"value": "assets/images/blusa02.png",
+									"type": "text"
+								},
+								{
+									"key": "preco",
+									"value": "25000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlBase}}/produtos/51",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"produtos",
+								"51"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody); \r",
+									"pm.collectionVariables.set(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6InVzZXIxIiwibmFtZSI6IlBNR08iLCJleHBpcmVzX2luIjoxNjk1OTQ2MDU3fQ.P0e8svMuyzuwp6PymM6UKzzmm_RCWxYMfC92TINwj_I",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "usuario",
+									"value": "user1",
+									"type": "text"
+								},
+								{
+									"key": "senha",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlBase}}/login",
+							"host": [
+								"{{urlBase}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "urlBase",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
