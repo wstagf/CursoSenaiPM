@@ -1,5 +1,4 @@
 <?php
-  if(Usuarios::verificar()) {
   if ($method=='GET' && $item == '') {
     $db = DB::connect();
     $rs = $db->prepare("SELECT * FROM produtos ");
@@ -15,6 +14,10 @@
       echo json_encode(["dados" => 'Não existem dados para retornar']);
     }
   }
+
+  
+  if(Usuarios::verificar()) {
+
 
   if ($method=='GET' && $item != '') { 
     $db = DB::connect();
