@@ -1,7 +1,9 @@
 <?php
   if ($method=='GET' && $item == '') {
    Produtos::obterTodos();
-  }
+  } else {
+
+
 
   if(Usuarios::verificar()) {
 
@@ -42,4 +44,5 @@
     if ($method=='DELETE') { 
       Produtos::excluirProduto($item);
     }
+  }
 } 

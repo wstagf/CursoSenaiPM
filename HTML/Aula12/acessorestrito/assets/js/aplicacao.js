@@ -195,13 +195,13 @@ const criaProduto = (nome, alt, preco, imagemURL, elemento, index) => {
 const buscarProdutos = async () => {
     console.log('buscarProdutos')
     var jwt = window.localStorage.getItem("jwt");
-    fetch('http://localhost:1337/api/produtos', {
-        method: "GET",
-        headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                "Authorization": "bearer " + jwt
-            }
-        })
+
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+      
+      fetch("http://localhost/final/PHP/Aula07/produtos", requestOptions)
         .then((resp1) => {
             if(resp1.status == 401) {
                 window.location.href = "../sem-acesso.html";
@@ -211,17 +211,17 @@ const buscarProdutos = async () => {
         })
         .then(  (resp2) => { 
 
-            resp2.data.forEach((itemDaAPI, index) => {
+            resp2.dados.forEach((itemDaAPI, index) => {
                 let elemento = ""
 
                 const cadaItemConvertido = {
                     "id": itemDaAPI.id,
-                    "tipo": itemDaAPI.attributes.tipo,
-                    "nome" : itemDaAPI.attributes.nome,
-                    "alt" : itemDaAPI.attributes.alt,
-                    "preco" : itemDaAPI.attributes.preco,
-                    "imagemURL" : itemDaAPI.attributes.imagemURL,
-                    "preco" : itemDaAPI.attributes.preco
+                    "tipo": itemDaAPI.tipo,
+                    "nome" : itemDaAPI.nome,
+                    "alt" : itemDaAPI.alt,
+                    "preco" : itemDaAPI.preco,
+                    "imagemURL" : itemDaAPI.imagemURL,
+                    "preco" : itemDaAPI.preco
                 }
 
                 if(cadaItemConvertido.tipo === "capacete" ) {
@@ -430,30 +430,7 @@ const buscarDadosUsuario = () =>  {
     if(jwt == null || jwt == undefined) {
         window.location.href = "../sem-acesso.html";
     } else {
-        fetch('http://localhost:1337/api/users/me', {
-        method: "GET",
-        headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                "Authorization": "bearer " + jwt
-            }
-        })
-        .then((resp1) => {
-            if(resp1.status == 401) {
-                window.location.href = "../sem-acesso.html";
-            } else {
-                return resp1.json();
-            }  
-        })
-        .then((resp2) => {
-            user = resp2;
-            const nomeUsuarioElement = document.getElementById('nomeUsuario');
-            nomeUsuarioElement.textContent = user.email;
-
-            buscarProdutos();
-        })
-        .catch((erro) => {
-            console.log("deu erro", erro)
-        })
+        buscarProdutos();
     }
 
 }
