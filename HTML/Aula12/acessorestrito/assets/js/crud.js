@@ -7,33 +7,34 @@ const buscarProdutos = async () => {
     produtos = [];
     console.log('buscarProdutos')
     var jwt = window.localStorage.getItem("jwt");
-    fetch('http://localhost:1337/api/produtos', {
-        method: "GET",
-        headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                "Authorization": "bearer " + jwt
-            }
-        })
-        .then((resp1) => {
-            if(resp1.status == 401) {
-                window.location.href = "../sem-acesso.html";
-            } else {
-                return resp1.json();
-            }  
-        })
-        .then(  (resp2) => { 
 
-            resp2.data.forEach((itemDaAPI, index) => {
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+
+
+    fetch("http://localhost/final/PHP/Aula07/produtos", requestOptions)
+    .then((resp1) => {
+        if(resp1.status == 401) {
+            window.location.href = "../sem-acesso.html";
+        } else {
+            return resp1.json();
+        }  
+    })
+    .then(  (resp2) => { 
+
+            resp2.dados.forEach((itemDaAPI, index) => {
                 let elemento = ""
 
                 const cadaItemConvertido = {
                     "id": itemDaAPI.id,
-                    "tipo": itemDaAPI.attributes.tipo,
-                    "nome" : itemDaAPI.attributes.nome,
-                    "alt" : itemDaAPI.attributes.alt,
-                    "preco" : itemDaAPI.attributes.preco,
-                    "imagemURL" : itemDaAPI.attributes.imagemURL,
-                    "preco" : itemDaAPI.attributes.preco
+                    "tipo": itemDaAPI.tipo,
+                    "nome" : itemDaAPI.nome,
+                    "alt" : itemDaAPI.alt,
+                    "preco" : itemDaAPI.preco,
+                    "imagemURL" : itemDaAPI.imagemURL,
+                    "preco" : itemDaAPI.preco
                 }
 
                  
