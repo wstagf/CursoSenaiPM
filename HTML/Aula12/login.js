@@ -4,32 +4,35 @@ const login = () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    const dados =  {
-        identifier: email,
-        password: password,
-    }; 
+    // cria o cabeçalho
+    var myHeaders = new Headers();
+    
+    // cria o array com os dados que serão adicionados
+    var formdata = new FormData();
 
-    console.log("email", email);
-    console.log("password", password);
-    console.log("dados", dados); 
+    // adiciona os dados
+    formdata.append("usuario", "user1");
+    formdata.append("senha", "123456");
+    
 
-    fetch('http://localhost:1337/api/auth/local', {
-        method: "POST",
-        body: JSON.stringify(dados),
-        headers: {"Content-type": "application/json; charset=UTF-8"}
-    })
-    .then((resp1) => {
-        console.log(resp1);
-        return resp1.json();
-    })
-    .then((resp2) => {
-        console.log('converteu o objeto', resp2);
-        window.localStorage.setItem("jwt", resp2.jwt);
-        if (resp2.jwt  != undefined) {
+    // cria o objeto requestOptions com a configuração da chamada
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: formdata,
+      redirect: 'follow'
+    };
+
+    // executa a chamada
+    
+    fetch("http://localhost/final/PHP/Aula07/login", requestOptions)
+      .then(response => response.json())
+      .then((result) => {
+        console.log('converteu o objeto', result);
+        window.localStorage.setItem("jwt", result.token);
+        if (result.token  != undefined) {
             window.location.href = "acessorestrito/restrito.html";
         }
-    })
-    .catch((erro) => {
-        console.log("deu erro", erro)
-    })
+      })
+      .catch(error => console.log('error', error));
 }
