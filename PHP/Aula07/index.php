@@ -1,7 +1,14 @@
 <?php
 
+// Specify domains from which requests are allowed
 header('Access-Control-Allow-Origin: *');
-header('Content-type: application/json');
+
+// Specify which request methods are allowed
+header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
+
+// Additional headers which may be sent along with the CORS request
+header('Access-Control-Allow-Headers: X-Requested-With,Authorization,Content-Type');
+
 
 date_default_timezone_set("America/Sao_Paulo");
  
