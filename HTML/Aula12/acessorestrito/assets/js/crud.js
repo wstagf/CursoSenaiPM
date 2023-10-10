@@ -119,42 +119,43 @@ const excluirItem = (id) => {
 }
 
 const adicionarProduto  = () => { 
-    const novoProduto = {
-        "data": {
-            "tipo": document.getElementById("tipo").value,
-            "nome":  document.getElementById("nome").value, 
-            "preco":  document.getElementById("preco").value,
-            "imagemURL":  document.getElementById("imagemURL").value
-          }
-    }
-    console.log(novoProduto);
+    var formdata = new FormData();
+    formdata.append("tipo", document.getElementById("tipo").value);
+    formdata.append("nome",document.getElementById("nome").value);
+    formdata.append("preco", document.getElementById("preco").value);
+    formdata.append("alt", document.getElementById("alt").value);
+    formdata.append("imagemURL", document.getElementById("imagemURL").value);
+    
+    var jwt = window.localStorage.getItem("jwt");
 
-
-
-
- fetch('http://localhost:1337/api/produtos', {
-    method: "POST",
-    body: JSON.stringify(novoProduto),
-    headers: {
-            "Content-type": "application/json; charset=UTF-8",
-            "Authorization": "bearer " + window.localStorage.getItem("jwt")
-        }
-    })
-    .then((resp1) => {
-        if(resp1.status == 401) {
-            window.location.href = "../sem-acesso.html";
-        } else {
-            return resp1.json();
-        }  
-    })
+    var requestOptions = {
+      method: 'POST',
+      headers: {
+        "Authorization":  jwt
+      },
+      body: formdata,
+      redirect: 'follow'
+    };
+    
+    fetch("http://localhost/final/PHP/Aula07/produtos/", requestOptions)
+      .then(response => response.json())
+      .then(result => console.log(result))
     .then(  (resp2) => { 
         console.log(resp2)
         alert('Sucesso');
         buscarProdutos();
+        document.getElementById("tipo").value = "",
+        document.getElementById("nome").value = "", 
+        document.getElementById("preco").value = "",
+        document.getElementById("imagemURL").value = ""
+
+
     })
     .catch((erro) => {
         console.log("deu erro", erro)
     }) 
+
+
 }
 
 
