@@ -95,27 +95,34 @@ const excluirItem = (id) => {
     console.log(id)
 
     var jwt = window.localStorage.getItem("jwt");
-    fetch('http://localhost:1337/api/produtos/' + id, {
-        method: "DELETE",
-        headers: {
-                "Content-type": "application/json; charset=UTF-8",
-                "Authorization": "bearer " + jwt
-            }
-        })
-        .then((resp1) => {
-            if(resp1.status == 401) {
-                window.location.href = "../sem-acesso.html";
-            } else {
-                return resp1.json();
-            }  
-        })
-        .then(  (resp2) => { 
-            alert('Excluido com sucesso');
-            buscarProdutos();
-        })
-        .catch((erro) => {
-            console.log("deu erro", erro)
-        })
+
+    var requestOptions = {
+      method: 'DELETE',
+      headers: {
+        "Authorization":  jwt
+      }, 
+      redirect: 'follow'
+    };
+    
+    fetch("http://localhost/final/PHP/Aula07/produtos/" + id, requestOptions)
+      .then(response => response.json())
+      .then(result => console.log(result))
+    .then(  (resp2) => { 
+        console.log(resp2)
+        alert('Sucesso');
+        buscarProdutos();
+        document.getElementById("tipo").value = "",
+        document.getElementById("nome").value = "", 
+        document.getElementById("preco").value = "",
+        document.getElementById("imagemURL").value = ""
+
+
+    })
+    .catch((erro) => {
+        console.log("deu erro", erro)
+    }) 
+
+
 }
 
 const adicionarProduto  = () => { 
