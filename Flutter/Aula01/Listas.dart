@@ -2,6 +2,7 @@ void main(List<String> args) {
   var listaNome =
       []; // lista dinamica, não obriga a respeitar um tipo. você pode colocar o que quiser
 
+  print(listaNome.length);
   List<int> numeros =
       []; // lista tipada.. só aceita adicionar itens do tipo específico
 
