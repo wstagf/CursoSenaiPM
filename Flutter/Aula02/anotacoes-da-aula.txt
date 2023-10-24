@@ -56,3 +56,115 @@ flutter run -d <id>
 
 
 
+###   Estrutura de aqruivos.. 
+
+- android
+- ios
+- linux
+- macos
+- web
+- windows 
+
+                são pastas NATIVAS... utilizamos quando precisamos 
+                escrever algo dentro de cada plataforma especifica
+
+                por exemplo... 
+
+                ios\Runner\Info.plist - é o arquivo onde configuraremos as permissoes do app no IOS
+                android\app\src\main\AndroidManifest.xml - é o arquivo refernet a permissoes no android
+
+
+                outro exemplo de necessidade de configuracao individual é os icones do app
+
+                android\app\src\main\res     - pastas no android... 
+                ios\Runner\Assets.xcassets\AppIcon.appiconset     - pasta no ios
+
+
+- test 
+            Testes unitarios, TDD, Desenvolvimento orientado a testes. 
+
+            Obs: nós excluimos a pasta TEST pois não vamos entrar neste conteudo e a existencia dela pode atrapalhar o Desenvolvimento
+
+
+
+- build 
+
+            Contém o app compilado.. 
+            pode ser excluida a vontade pois é gerada automaticamente
+            inclusive é aconselhado que faça a exclusão desta pasta caso esteja trocando de sistema operacional
+                 Ex. Meu amigo estava desenvolvendo no Mac / Linux... E eu vou utilizar o windows para programar.. 
+                     é aconselhado que eu exclua a pasta build uma vez... 
+
+
+.dart_tool
+.idea
+
+            São pastas de configuração, não mecha..
+
+
+- lib
+            é aonde fica os fontes do nosso projeto...
+            ex. main.dart é o arquivo principal da aplicação, especie de index.html... 
+
+
+
+
+outros arquivos soltos na pasta...
+
+analysis_options.yaml - configura o LINT, qualidade de codigo.. 
+
+pubspec.yaml - 
+    configura nossas dependencias, assets (imagens, videos, etc...), fontes,  e scripts de execução rápida
+    dentre outras coisas: 
+        name: gerenciadeestados -- nome do app
+        description: A new Flutter project.   -- descricao do app
+        publish_to: 'none'  -- se vai publicar como biblioteca
+
+        version: 1.0.0+1    -- versao do app...
+                             --  a parte '1.0.0' é a parte publica, fica disponivel para o usuario, vocë pode colocar o que vocë quiser, 
+                              -- a parte + 1, o numero 1 reperesenta a versão, este número tem que ser incrementado para o app atualizar.. 
+                                -- o limite de versoes é algo proximo de 2 trilhoes... 20.000.000.000.000  exemplo:  20.231.024.200.234 não sera aceito.. 
+
+        sdk: '>=3.1.4 <4.0.0' -- versao do sdk
+
+        dependencies:  -- lista das depenncias 
+        dev_dependencies: -- dependencias de desenvolvendo
+
+        uses-material-design: true          -- configura o material design
+                                            -- para saber o layout dos componentes pode ser consultados nos links
+
+
+                                            https://m3.material.io/components/top-app-bar/overview
+                                            https://docs.flutter.dev/ui/widgets/cupertino
+
+
+
+        assets:  -- declara as pastas que estarao disponivel para assets, imagens, etc...
+            - assets/images/ 
+            - assets/icons/
+
+
+
+        fonts:    --- segue o mesmo principio, de colocar uma fonte exclusiva para o app... 
+            - family: Schyler  -- determina a familia
+            fonts:
+                - asset: fonts/Schyler-Regular.ttf   -- fonte normal
+                
+                
+                - asset: fonts/Schyler-Italic.ttf     --- fonte italica
+                style: italic
+
+
+                - asset: fonts/TrajanPro_Bold.ttf     - font bold
+                weight: 700
+
+                - asset: fonts/TrajanPro_Bold.ttf     - font italic +  bold
+                style: italic
+                weight: 700
+
+
+                isto pode ser retirado do site gogole fonts
+
+                https://fonts.google.com/
+
+                
