@@ -1,0 +1,26 @@
+utilizamos o SCRCPY para fazer acesso remeto no celular 
+android, utilizar ele com o uso do mouse 
+e visualizar na tela o celular. 
+
+
+
+https://github.com/Genymobile/scrcpy
+
+1. ir para a raiz do disco C
+2. executar o comando abaixo
+  entrar no link  e baixar o zip 
+  https://github.com/Genymobile/scrcpy/blob/master/doc/windows.md
+
+  
+3. apontar a pasta na varivel de ambiente PATH
+    c:/scrcpy
+ 
+
+ as vezes preccisa reiniciar a maquina
+
+
+
+ Você também pode revogar qualquer a autorização de depuração USB dos computadores autorizados. Basta clicar em Revogar autorizações de depuração USB nas opções do desenvolvedor. Muitas vezes no Windows ele não reconhecerá o dispositivo completamente e, devido a problemas de driver, o dispositivo não será exibido
+
+
+ 
