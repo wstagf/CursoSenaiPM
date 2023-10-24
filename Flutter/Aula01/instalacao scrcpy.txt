@@ -1,0 +1,13 @@
+utilizamos o SCRCPY para fazer acesso remeto no celular 
+android, utilizar ele com o uso do mouse 
+e visualizar na tela o celular. 
+
+
+
+https://github.com/Genymobile/scrcpy
+
+1. ir para a raiz do disco C
+1. git clone https://github.com/Genymobile/scrcpy
+3. apontar a pasta na varivel de ambiente PATH
+    c:/scrcpy
+ 

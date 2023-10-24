@@ -10,6 +10,8 @@ Instalacao padrao do flutter
 5. mudar para a branch desejada 
 6. voltar ao terminal e rodar o comando
    flutter doctor
+7. apontar a variavel de ambiente PATH 
+        c:/flutte/bin
 
 Obs.  é necessario apontar o flutter nas variaveis de ambiente
 

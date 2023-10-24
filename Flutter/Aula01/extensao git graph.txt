@@ -1,0 +1,6 @@
+
+link para instalar a extensao
+
+https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph
+
+
