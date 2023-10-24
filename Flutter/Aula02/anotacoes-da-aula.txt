@@ -168,3 +168,35 @@ pubspec.yaml -
                 https://fonts.google.com/
 
                 
+
+
+
+
+
+
+
+
+
+
+### Dois tipos de widget / paginas 
+
+
+STATELESS   - STL + tab 
+     - nao tem estado, nao gerencia variaveis internas
+
+
+STATEFULL   - STF + tab
+    -- possui um estado, pode ter variavies internas, possui como controlar o ciclo de vida... 
+
+
+
+extensão flutter:  https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
+
+
+
+
+
+
+### Importacao
+
+ Sempre escolher a improtação utilizando caminho relativo e não a importação baseada em pacote ... Ex: "package:xxxxxxxxx/aquivo.dart"
