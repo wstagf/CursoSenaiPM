@@ -1,0 +1,22 @@
+...
+
+
+ao criar a aplicação a gente tem que escolher um nome para o pacote, 
+e este noome não pode ter Leteras maiusculas, espaços, acentos
+ e caracteres especiais.
+
+Só letras minusculas... 
+
+
+
+mensagem de erro: 
+
+flutter create gerenciaDeEstados
+"gerenciaDeEstados" is not a valid Dart package name.
+
+
+
+
+#
+
+
