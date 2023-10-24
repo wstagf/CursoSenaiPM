@@ -1,0 +1,21 @@
+Instalacao padrao do flutter
+
+
+
+1. Abrir o terminal na pasta raiz do disco C;
+2. fazer o clone do git; 
+   git clone https://github.com/flutter/flutter
+3. entrar na pasta clonada
+4. abrir o VS Code nesta pasta 
+5. mudar para a branch desejada 
+6. voltar ao terminal e rodar o comando
+   flutter doctor
+
+Obs.  é necessario apontar o flutter nas variaveis de ambiente
+
+* caso não consiga, estes videos podem ajudar
+https://www.youtube.com/results?search_query=vari%C3%A1vel+de+ambiente+windows+
+
+
+
+

@@ -1,0 +1,26 @@
+O FVM serve para instalar varias versoes do flutter na
+mesma maquina, muito util quando estamos seguindo vários 
+cursos e cada professor pode estar em uma versão diferente 
+
+
+
+
+para instalar o flutter utilizando FVM 
+precisamos do CHOCO.. 
+
+
+1. abrir o POWERSHELL como administrador
+2. instalar o choco atravez do comando 
+   Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+
+obs.: verificar se o comando mudou... 
+2. https://chocolatey.org/install
+
+
+
+
+Depois de ter o choco instalado, rodar o comando para 
+instalar o FVM
+
+choco install fvm
