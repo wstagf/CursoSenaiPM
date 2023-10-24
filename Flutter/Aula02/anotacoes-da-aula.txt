@@ -36,6 +36,20 @@ obs: <emulator id> é o nome dispositivo, está na primeira coluna...
 
 
 
+# ao rodar rodar o emular pelo VSCode existe duas opções.
+A primeria é mais rapida e mantem tudo que estava aberto. 
+a segunda é mais demorada pois desliga o celular e liga novamente (cold boot), é a melhor quando querermos testar memoria ram... 
+
+
+
+
+# rodar o flutter escolhendo o celular/emulador
+
+flutter run -d <id>
+
+
+<id> é a segunda coluna do "flutter devices" 
+
 # 
 
 
