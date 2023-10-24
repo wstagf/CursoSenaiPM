@@ -1,0 +1,29 @@
+. para rodar o app utilizamos o comando 
+flutter run
+
+
+2. caso não tenhamos celular conectado, podemos utilizar o google chrome
+flutter run -d chrome
+
+
+
+
+3. podemos listar os devices cconectados atravez do comando 
+flutter devices 
+
+
+
+4. para utilizar o windows é preciso do Visual Studio Full Framework
+https://visualstudio.microsoft.com/pt-br/vs/community/
+
+
+
+
+
+
+5. HOT-RESTART e HOT-RELOAD, REBUILD
+
+Hot-restart, atualiza o app sem perder os dados, atualizar coisas que não sao novos itens, novas esturuturas
+Hot-reload, recarrega o app inteiro e traz as novas coisas adicionadas.
+REBUILD, recompila o app, desinstala completamente o anterior e instala um novo. Muito importante quando adicionamos assets (imag, video, font, etc...), alterar o manifes.xml ou build-gradle
+
