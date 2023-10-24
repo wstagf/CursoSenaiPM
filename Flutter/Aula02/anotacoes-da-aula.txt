@@ -17,6 +17,28 @@ flutter create gerenciaDeEstados
 
 
 
-#
+# Listar os emuladores existentes na maquina
+
+rode o comando abaixo para exibir
+
+flutter emulators
+
+
+
+# Executar um emulador 
+
+depois de listado os emuladores, podemos executar atravez do comando 
+
+flutter emulators --launch <emulator id>
+
+obs: <emulator id> é o nome dispositivo, está na primeira coluna...
+
+
+
+
+# 
+
+
+
 
 
