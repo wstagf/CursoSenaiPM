@@ -6,12 +6,31 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Meu primeiro app'),
-      ),
-      body: const Center(
-        child: Text(
-          'Curso PM + Senai',
+      body: Container(
+        padding: const EdgeInsets.all(25.0),
+        color: const Color(0xff33ffa1),
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              'Nosso curso no ',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.blue[800],
+                fontSize: 48,
+              ),
+            ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: Image.asset('assets/images/logo-senai.png'),
+            ),
+            const CircularProgressIndicator(
+              color: Colors.blue,
+            )
+          ],
         ),
       ),
     );
