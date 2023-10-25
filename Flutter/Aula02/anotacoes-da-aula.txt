@@ -217,3 +217,73 @@ https://www.youtube.com/@flutterdev
 Package of the Week - um pacote / biblioteca por semana 
 Widget of the Week - mostra um widget (padrões) por semana 
 
+
+
+
+Widgets da aula de hoje:
+
+- Center: Centraliza os filhos na horizontal e verticas
+- Image: Coloca uma imagem na tela, pode ser Image.network ou Image.asset...
+- Padding: Cria uma margem INTERNA
+- Container: é o principal agrupaddor de conteudo.. equivale a div no html
+- Column: é o widget que organiza os filhos na vertical
+- Row: é o widget que organiza os filhos na horizontal
+- SizedBox:  é um bloco de widget igual o container porém só possui as propriedades width e height
+
+
+
+
+        
+-- CORES Hexadecimais
+ 
+
+ no Flutter as cores são no padrao AlfaRedGrenBlue,   
+
+ .. valores variam de 00 a FF.. na base Hexadecimal, contendo 256 possobilidades
+
+
+    0x => #
+    FF => 100% opaco... 
+    33 => VErmelho    
+    ff => Green 
+    a1 => Blue
+
+    
+
+
+
+... Listas / Enuns.. previamente criados pelo flutter..
+   -> ex: 
+        Colors.
+        MainAxisAlignment
+        CrosAxisAlignment
+
+
+
+
+
+### como descobrir o tamanho da tela 
+
+MediaQuery.of(context).size.width,
+
+MediaQuery.of(context).size.height,
+
+
+
+
+
+PROBELMAS
+
+Overflow..
+é quando nossos widgets utilizam mais espaço do que a tela possui,,,,
+para corrigir na maioria das vezes incluimos o scroll
+
+
+
+
+
+
+
+
+
+
