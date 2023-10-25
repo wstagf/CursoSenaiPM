@@ -9,7 +9,11 @@ class SplashPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Meu primeiro app'),
       ),
-      body: const Text('Curso PM + Senai'),
+      body: const Center(
+        child: Text(
+          'Curso PM + Senai',
+        ),
+      ),
     );
   }
 }
