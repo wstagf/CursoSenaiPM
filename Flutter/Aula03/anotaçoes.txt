@@ -25,7 +25,23 @@ Assim como no framework do Facebook, todo aplicativo é baseado em componentes,
 
 
 --- Layout
-    Column --> Organiza os filhos na vertical
-    Row --> Organiza os filhos na horizontal
-    Scaffold
-    Stack
+    -- Single child 
+        AspectRatio --> 
+        Center --> é Um bloco onde alinhamso os filhos no centro vertical e horizontal
+        Padding --> é Um bloco onde determinamos margem interna e um filho. 
+        Sizedbox -->  é Um bloco onde determinamos somente width e height,
+        Container -->  é Um bloco simples, é o widget mais utilizado, agrupa um filho para determinar paramteros comuns
+        Expanded --> 
+        
+ 
+        SingleChildScrollView --> 
+        Safearea --> 
+        Material --> Repassar aos widgets filhos o thema da aplicação e configurações visual de estilo
+
+
+    --> Multi child
+        Column --> Organiza os filhos na vertical
+        Row --> Organiza os filhos na horizontal
+        Scaffold  --> É a estrutura principal dos apps, barra de navegação superior, barra de navegação superior, pagina, botao flutuante
+        Stack  --> Organiza os widgets filhos um emcima do outro, empilhados, como em uma mesa, o azul está emcima do vermelho
+        ListView --> 
