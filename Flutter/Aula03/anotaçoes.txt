@@ -26,7 +26,7 @@ Assim como no framework do Facebook, todo aplicativo é baseado em componentes,
 
 --- Layout
     -- Single child 
-        AspectRatio --> 
+        AspectRatio -->  é um widget que definimos o taamnho da altura e largura com uma proporção definida, ex. 16:9 tera o formato widscreen em paisagem 
         Center --> é Um bloco onde alinhamso os filhos no centro vertical e horizontal
         Padding --> é Um bloco onde determinamos margem interna e um filho. 
         Sizedbox -->  é Um bloco onde determinamos somente width e height,
@@ -34,8 +34,8 @@ Assim como no framework do Facebook, todo aplicativo é baseado em componentes,
         Expanded --> 
         
  
-        SingleChildScrollView --> 
-        Safearea --> 
+        SingleChildScrollView --> Cria uma rolagem quando os elementos filhos ocupam uma tela maior que a disponivel
+        Safearea --> Projeta a área da tela distanciando-a da barra de status que existe no top dos celulares e, caso existam, també distancia da camera no centro do app.
         Material --> Repassar aos widgets filhos o thema da aplicação e configurações visual de estilo
 
 
