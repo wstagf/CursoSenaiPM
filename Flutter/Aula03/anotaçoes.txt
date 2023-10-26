@@ -1,0 +1,31 @@
+... Aula 03
+
+
+
+# CONST.. 
+quando uma tela é construida, o interpretador cria vários ponteiros de memoria para 
+fazer a tela ficar dinamica, quando colocamos o CONST dizemos que estes nunca serão alterados.
+isto melhora a performance do app.. 
+   title: const Text("Pagina principal"),
+
+
+
+
+# WIDGETS 
+
+* Todo aplicativo Flutter é um widget.
+* Composto de outra centenas de widgets. 
+
+Portanto, entende-los é mais do que a nossa obrigação. 
+Uma coisa bacana, é que na própria documentação do Flutter, 
+eles deixam claro que a inspiração para os widgets vieram do React. 
+
+Assim como no framework do Facebook, todo aplicativo é baseado em componentes,
+ no Flutter é baseado em widgets.
+
+
+--- Layout
+    Column --> Organiza os filhos na vertical
+    Row --> Organiza os filhos na horizontal
+    Scaffold
+    Stack
