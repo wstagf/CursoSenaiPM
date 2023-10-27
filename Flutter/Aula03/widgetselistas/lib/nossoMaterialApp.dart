@@ -4,6 +4,7 @@ import 'package:widgetselistas/widgets/sizedbox.dart';
 import 'homePage.dart';
 import 'widgets/aspectRatio.dart';
 import 'widgets/center.dart';
+import 'widgets/cicloDeVida.dart';
 import 'widgets/column.dart';
 import 'widgets/container.dart';
 import 'widgets/expanded.dart';
@@ -20,10 +21,10 @@ class NossoMaterialApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: "Aula 03",
       home: Material(
-        child: ListViewPage(),
+        child: CilcoDeVida(),
       ),
     );
   }

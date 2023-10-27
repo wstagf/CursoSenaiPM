@@ -45,3 +45,28 @@ Assim como no framework do Facebook, todo aplicativo é baseado em componentes,
         Scaffold  --> É a estrutura principal dos apps, barra de navegação superior, barra de navegação superior, pagina, botao flutuante
         Stack  --> Organiza os widgets filhos um emcima do outro, empilhados, como em uma mesa, o azul está emcima do vermelho
         ListView --> Cria um widget similar ao expanded porém quando não conhecemos a quantidade de itens, e organiza os filhos como lista... faz uma for na lista e gera os widgets.. util em API
+
+
+
+-- Loading
+        CircularProgressIndicator -> Um loading redondo fazendo uma animação
+        LinearProgressIndicatior -> Uma Linha animada demonstrando que está acontecendo um processo
+
+
+
+-> State e Cilclo de vida
+
+
+1. initState: Chamado apenas 1 única vez, na criação no widget. Quando o widget é inserido na widget tree.
+
+2. build: Chamado em diferentes situações. Sempre que o widget precisar ser reconstruído ou após o initState() ou após a função setState() e até mesmo quando o widget for removido da widget tree para ser inserido em outro ponto (isto ficará mais claro quando construirmos nosso primeiro app).
+
+3. setState: Responsável por notificar nosso widget que o estado interno foi alterado. Por exemplo, ao concluir uma requisição HTTP, queremos exibir estas informações na tela. Para isso, preenchemos nossa tela com as informações recebidas e invocamos a função setState().
+
+4. didUpdateWidget: Sempre que o seu widget sofrer alterações, este método é chamado e executado antes do build(). Ou seja, sempre que chamar o setState(), este método é executado. Pode ser útil ao lidar com animações e/ou quando precisar ter acesso ao estado antigo do widget.
+
+5. dispose: Chamado quando o widget for removido da widget tree permanentemente.
+
+
+
+
