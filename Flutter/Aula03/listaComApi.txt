@@ -1,0 +1,68 @@
+import 'package:flutter/material.dart';
+
+class ListViewPage extends StatefulWidget {
+  const ListViewPage({super.key});
+
+  @override
+  State<ListViewPage> createState() => _ListViewPageState();
+}
+
+class _ListViewPageState extends State<ListViewPage> {
+  List<String> materias = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadData();
+  }
+
+  void loadData() async {
+    print('vai no servidor');
+    await Future.delayed(const Duration(seconds: 4));
+    print('voltou do servidor');
+    setState(() {
+      materias = [
+        'HTML',
+        'CSS',
+        'JAVASCRIPT',
+        'PHP',
+        'LARAVEL',
+        'WORDPRESS',
+        'WOOCOMMERCE',
+        'FLUTTER'
+      ];
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // ao invez de colocar cada item desta maneira
+    //   return SafeArea(
+    //     child: Column(
+    //       children: [
+    //         Text(
+    //           materias[0],
+    //         ),
+    //         Text(
+    //           materias[1],
+    //         ),
+    //         Text(
+    //           materias[2],
+    //         )
+    //       ],
+    //     ),
+    //   );
+    // }
+
+    // utilizamos com o list view
+    return materias.isNotEmpty
+        ? ListView.builder(
+            itemCount: materias.length,
+            itemBuilder: (ctx, index) {
+              return Text(materias[index]);
+            },
+          )
+        : Center(child: Text('Nao ha itens Listados'));
+  }
+}

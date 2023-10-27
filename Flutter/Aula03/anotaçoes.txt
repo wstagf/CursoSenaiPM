@@ -34,7 +34,7 @@ Assim como no framework do Facebook, todo aplicativo é baseado em componentes,
         Expanded --> 
         
  
-        SingleChildScrollView --> Cria uma rolagem quando os elementos filhos ocupam uma tela maior que a disponivel
+        SingleChildScrollView --> Cria uma roASDASDASagem quando os elementos filhos ocupam uma tela maior que a disponivel
         Safearea --> Projeta a área da tela distanciando-a da barra de status que existe no top dos celulares e, caso existam, també distancia da camera no centro do app.
         Material --> Repassar aos widgets filhos o thema da aplicação e configurações visual de estilo
 
@@ -44,4 +44,4 @@ Assim como no framework do Facebook, todo aplicativo é baseado em componentes,
         Row --> Organiza os filhos na horizontal
         Scaffold  --> É a estrutura principal dos apps, barra de navegação superior, barra de navegação superior, pagina, botao flutuante
         Stack  --> Organiza os widgets filhos um emcima do outro, empilhados, como em uma mesa, o azul está emcima do vermelho
-        ListView --> 
+        ListView --> Cria um widget similar ao expanded porém quando não conhecemos a quantidade de itens, e organiza os filhos como lista... faz uma for na lista e gera os widgets.. util em API

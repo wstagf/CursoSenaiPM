@@ -7,6 +7,7 @@ import 'widgets/center.dart';
 import 'widgets/column.dart';
 import 'widgets/container.dart';
 import 'widgets/expanded.dart';
+import 'widgets/listview.dart';
 import 'widgets/padding.dart';
 import 'widgets/row.dart';
 import 'widgets/safeArea.dart';
@@ -22,7 +23,7 @@ class NossoMaterialApp extends StatelessWidget {
     return const MaterialApp(
       title: "Aula 03",
       home: Material(
-        child: ExpendedPage(),
+        child: ListViewPage(),
       ),
     );
   }
