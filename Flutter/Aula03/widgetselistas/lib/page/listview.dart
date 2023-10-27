@@ -40,11 +40,14 @@ class _ListViewPageState extends State<ListViewPage> {
     // }
 
     // utilizamos com o list view
-    return ListView.builder(
-      itemCount: materias.length,
-      itemBuilder: (ctx, index) {
-        return Text(materias[index]);
-      },
+    return Scaffold(
+      appBar: AppBar(),
+      body: ListView.builder(
+        itemCount: materias.length,
+        itemBuilder: (ctx, index) {
+          return Text(materias[index]);
+        },
+      ),
     );
   }
 }
