@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/produto_widget.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -10,8 +12,30 @@ class HomePage extends StatelessWidget {
         title: const Text('Loja dos Motoqueiros'),
       ),
       backgroundColor: Colors.greenAccent,
-      body: Column(
-        children: [],
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            ProdutoWidget(),
+            Text('aaa'),
+            ProdutoWidget(),
+            Text('aaa'),
+            ProdutoWidget(),
+            Text('aaa'),
+            ProdutoWidget(),
+            Text('aaa'),
+            ProdutoWidget(),
+            Text('aaa'),
+            ProdutoWidget(),
+            Text('aaa'),
+            ProdutoWidget(),
+            Text('aaa'),
+            ProdutoWidget(),
+            Text('aaa'),
+            ProdutoWidget(),
+            Text('aaa'),
+            ProdutoWidget(),
+          ],
+        ),
       ),
     );
   }
