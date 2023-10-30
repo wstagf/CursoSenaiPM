@@ -1,0 +1,7 @@
+A adicção das bibliotecas aconte adicionando o nome dela e a versão no pubspec.yaml
+
+  ex.: Foi adicionado a linha  'shared_preferences: ^2.2.2' nesta aula....
+
+
+
+  
