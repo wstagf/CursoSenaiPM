@@ -4,4 +4,29 @@ A adicção das bibliotecas aconte adicionando o nome dela e a versão no pubspe
 
 
 
-  
+** ELVIS OPERATOR  (??)
+ 
+ - Caso a varavel seja null é atribuido o segundo elemento da expressao 
+ -- ex:  
+        
+        contador = prefs.getInt('minhachave') ?? 0;
+
+
+
+        equivale a :
+
+
+
+        if (x != null) {
+            contador = x;
+        } else {
+            contador = 0;
+        }
+
+      
+
+
+
+      
+      
+
