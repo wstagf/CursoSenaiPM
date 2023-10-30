@@ -50,5 +50,10 @@ https://chrome.google.com/webstore/detail/dart-debug-extension/eljbmlghnomdjgdjm
 
 
 
+dica de performance: 
 
+SEMPRE que estiver fazendo o layout da tela, 
+alterando algum dado dentro do build, 
+rodar o app com debug.. 
+porque o HOT-RESTART vai ser executado assim que o arquivo or salvo
 
