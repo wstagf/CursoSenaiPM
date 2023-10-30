@@ -9,11 +9,9 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Loja dos Motoqueiros'),
       ),
-      body: Center(
-        child: Container(
-          height: 50,
-          color: Colors.red,
-        ),
+      backgroundColor: Colors.greenAccent,
+      body: Column(
+        children: [],
       ),
     );
   }

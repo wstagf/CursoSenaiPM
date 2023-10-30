@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciadeestados/home.dart';
+import 'package:gerenciadeestados/page/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashPage extends StatefulWidget {
