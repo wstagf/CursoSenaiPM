@@ -43,4 +43,12 @@ o gradle é executado, nele acontece algumas coisas...:
 
 
       
+*** para debugar no google chrome é necessario uma extensao, 
+pode ser instalada na url abaixo
+https://chrome.google.com/webstore/detail/dart-debug-extension/eljbmlghnomdjgdjmbdekegdkbabckhm
+
+
+
+
+
 
