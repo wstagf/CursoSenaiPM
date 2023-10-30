@@ -27,6 +27,20 @@ A adicção das bibliotecas aconte adicionando o nome dela e a versão no pubspe
 
 
 
-      
+
+Durante o desenvolvimento depois de executarmos o app, 
+o gradle é executado, nele acontece algumas coisas...:
+
+* é feito downloads de libs natitivas
+* é compilado o app na plataforma nativa
+* é oferecido a opção para reutilizarmos o app compilado 
+    somente adicionando novas classes  ( HotRestart)
+    e recompilando as existentes (Hot-Reload)
+
+
+
+
+
+
       
 
