@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gerenciadeestados/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashPage extends StatefulWidget {
@@ -16,6 +17,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     carregarDados();
+    navegarParaHome();
   }
 
   Future<void> carregarDados() async {
@@ -39,6 +41,15 @@ class _SplashPageState extends State<SplashPage> {
       contador = contador + 1;
 
       prefs.setInt('minhachave', contador);
+    });
+  }
+
+  void navegarParaHome() {
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (ctx) => const HomePage()),
+      );
     });
   }
 
