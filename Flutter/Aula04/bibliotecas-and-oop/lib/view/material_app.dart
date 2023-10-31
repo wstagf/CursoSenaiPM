@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+
+import 'page/splash_page.dart';
 
 class NossaMaterialApp extends StatelessWidget {
   const NossaMaterialApp({super.key});
