@@ -44,8 +44,25 @@ class _HomePageState extends State<HomePage> {
                   height: 4,
                 ),
           (isLoading == false && repository.produtos.isEmpty)
-              ? const Center(
-                  child: Text('Não já produtos cadastrados'),
+              ? Center(
+                  child: Column(
+                    children: [
+                      Text('Não já produtos cadastrados'),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isLoading = true;
+                            repository.recarregarProdutos().then((value) {
+                              setState(() {
+                                isLoading = false;
+                              });
+                            });
+                          });
+                        },
+                        child: Text('Recarregar novamente'),
+                      ),
+                    ],
+                  ),
                 )
               : Expanded(
                   child: RefreshIndicator(
