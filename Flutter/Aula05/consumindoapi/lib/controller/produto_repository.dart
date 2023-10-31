@@ -37,8 +37,16 @@ class ProdutoRepository {
         tipo: "Capacete",
       ),
     ];
+  }
 
-    print(produtos);
+  Future<void> recarregarProdutos() async {
+    // ... vai na api..
+
+    produtos = [];
+
+    await Future.delayed(const Duration(seconds: 1));
+
+    await buscarProdutos();
   }
 }
 

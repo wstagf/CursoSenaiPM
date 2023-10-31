@@ -48,12 +48,24 @@ class _HomePageState extends State<HomePage> {
                   child: Text('Não já produtos cadastrados'),
                 )
               : Expanded(
-                  child: ListView.builder(
-                    itemCount: repository.produtos.length,
-                    itemBuilder: (ctx, index) {
-                      var item = repository.produtos[index];
-                      return ProdutoWidget(produto: item);
+                  child: RefreshIndicator(
+                    onRefresh: () async {
+                      setState(() {
+                        isLoading = true;
+                        repository.recarregarProdutos().then((value) {
+                          setState(() {
+                            isLoading = false;
+                          });
+                        });
+                      });
                     },
+                    child: ListView.builder(
+                      itemCount: repository.produtos.length,
+                      itemBuilder: (ctx, index) {
+                        var item = repository.produtos[index];
+                        return ProdutoWidget(produto: item);
+                      },
+                    ),
                   ),
                 ),
         ],
