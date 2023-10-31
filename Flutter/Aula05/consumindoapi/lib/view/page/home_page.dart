@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> carregarProdutos() async {
+    await repository.buscarProdutos();
     await Future.delayed(const Duration(seconds: 2));
     setState(() {
       isLoading = false;
