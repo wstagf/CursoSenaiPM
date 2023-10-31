@@ -11,7 +11,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isLoading = true;
+
   ProdutoRepository repository = ProdutoRepository();
+
+  @override
+  void initState() {
+    super.initState();
+    carregarProdutos();
+  }
+
+  Future<void> carregarProdutos() async {
+    await Future.delayed(const Duration(seconds: 2));
+    setState(() {
+      isLoading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,26 +35,27 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Loja dos Motoqueiros'),
       ),
       backgroundColor: Colors.greenAccent,
-      body: ListView.builder(
-        itemCount: repository.produtos.length,
-        itemBuilder: (ctx, index) {
-          var item = repository.produtos[index];
-          return ProdutoWidget(produto: item);
-        },
-        // child: Column(
-        //   children: [
-        //
-        //     ProdutoWidget(),
-        //     ProdutoWidget(),
-        //     ProdutoWidget(),
-        //     ProdutoWidget(),
-        //     ProdutoWidget(),
-        //     ProdutoWidget(),
-        //     ProdutoWidget(),
-        //     ProdutoWidget(),
-        //     ProdutoWidget(),
-        //   ],
-        // ),
+      body: Column(
+        children: [
+          isLoading == true
+              ? const LinearProgressIndicator()
+              : const SizedBox(
+                  height: 4,
+                ),
+          (isLoading == false && repository.produtos.isEmpty)
+              ? const Center(
+                  child: Text('Não já produtos cadastrados'),
+                )
+              : Expanded(
+                  child: ListView.builder(
+                    itemCount: repository.produtos.length,
+                    itemBuilder: (ctx, index) {
+                      var item = repository.produtos[index];
+                      return ProdutoWidget(produto: item);
+                    },
+                  ),
+                ),
+        ],
       ),
     );
   }

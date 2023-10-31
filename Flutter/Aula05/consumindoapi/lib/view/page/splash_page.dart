@@ -12,38 +12,22 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-  int contador = 0;
-
   @override
   void initState() {
     super.initState();
-    carregarDados();
     navegarParaHome();
+    //carregarDados(); // aula 06
   }
 
-  Future<void> carregarDados() async {
-    final SharedPreferences prefs = await _prefs;
-    setState(() {
-      var x = prefs.getInt('minhachave');
-      if (x != null) {
-        contador = x;
-      } else {
-        contador = 0;
-      }
+  //  // aula 06
+  //Future<void> carregarDados() async {
+  //   final SharedPreferences prefs = await _prefs;
+  //   setState(() {
+  //     var x = prefs.getString('usuario');
+  //   });
 
-      contador = prefs.getInt('minhachave') ?? 0;
-    });
-  }
-
-  void increment() async {
-    final SharedPreferences prefs = await _prefs;
-
-    setState(() {
-      contador = contador + 1;
-
-      prefs.setInt('minhachave', contador);
-    });
-  }
+  //
+  // }
 
   void navegarParaHome() {
     Future.delayed(const Duration(seconds: 5), () {
@@ -67,13 +51,6 @@ class _SplashPageState extends State<SplashPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              contador.toString(),
-              style: TextStyle(
-                color: Colors.blue[800],
-                fontSize: 36,
-              ),
-            ),
-            Text(
               'Nosso curso no ',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -81,14 +58,9 @@ class _SplashPageState extends State<SplashPage> {
                 fontSize: 48,
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                increment();
-              },
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.8,
-                child: Image.asset('assets/images/logo-senai.png'),
-              ),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: Image.asset('assets/images/logo-senai.png'),
             ),
             const CircularProgressIndicator(
               color: Colors.blue,
