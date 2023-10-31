@@ -93,3 +93,12 @@ dentro de uma string não é possivel adicionar o caracter $,
 
     Ex.: 
  "R\$ 89,99",
+
+
+
+
+
+ macetes
+
+ #     .toStringAsFixed(2) --> converte numero em string colocando duas casas decimais
+ #      .replaceAll(".", ",") -> faz a troca do caracter '.' para o caracter ','
