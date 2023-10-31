@@ -57,3 +57,39 @@ alterando algum dado dentro do build,
 rodar o app com debug.. 
 porque o HOT-RESTART vai ser executado assim que o arquivo or salvo
 
+
+
+
+# extensão para gerar classes automatica
+
+
+https://marketplace.visualstudio.com/items?itemName=hzgood.dart-data-class-generator
+
+
+
+
+digita os parametros da classe.. EX: 
+class ProdutoModel {
+  int id;
+  String tipo;
+  String nome;
+  String alt;
+  double preco;
+  String imagemURL;
+
+
+  
+}
+
+
+control + shift  + p
+escolhe a opção gerar DATA CLASS
+
+
+
+
+dentro de uma string não é possivel adicionar o caracter $,
+ para contornar isto devemos escapa-lo atravez do uso do caracter \ 
+
+    Ex.: 
+ "R\$ 89,99",
