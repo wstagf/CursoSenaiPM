@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "gerenciadeestados" "\0"
+            VALUE "FileDescription", "bibliotecaoop" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "gerenciadeestados" "\0"
+            VALUE "InternalName", "bibliotecaoop" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "gerenciadeestados.exe" "\0"
-            VALUE "ProductName", "gerenciadeestados" "\0"
+            VALUE "OriginalFilename", "bibliotecaoop.exe" "\0"
+            VALUE "ProductName", "bibliotecaoop" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

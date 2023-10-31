@@ -1,6 +1,6 @@
 {
-    "name": "gerenciadeestados",
-    "short_name": "gerenciadeestados",
+    "name": "bibliotecaoop",
+    "short_name": "bibliotecaoop",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:gerenciadeestados/page/splash_page.dart';
+import 'package:flutter/material.dart'; 
 
 class NossaMaterialApp extends StatelessWidget {
   const NossaMaterialApp({super.key});
