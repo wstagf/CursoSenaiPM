@@ -1,7 +1,9 @@
+import 'package:bibliotecaoop/model/produto_model.dart';
 import 'package:flutter/material.dart';
 
 class ProdutoWidget extends StatelessWidget {
-  const ProdutoWidget({super.key});
+  final ProdutoModel produto;
+  const ProdutoWidget({super.key, required this.produto});
 
   @override
   Widget build(BuildContext context) {
@@ -16,34 +18,33 @@ class ProdutoWidget extends StatelessWidget {
           children: [
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.3,
-              child: Image.network(
-                  'https://logodownload.org/wp-content/uploads/2019/08/senai-logo-1.png'),
+              child: Image.network(produto.imagemURL),
             ),
             Expanded(
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.3,
-                child: const Column(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Nome do produto",
-                      style: TextStyle(
+                      produto.nome,
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 16,
                       ),
                     ),
                     Text(
-                      "Descrição sussinta do produto",
-                      style: TextStyle(
+                      produto.alt,
+                      style: const TextStyle(
                         color: Colors.black,
                         fontSize: 12,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
-                      "Valor do produto",
+                      "R\$ ${produto.preco.toStringAsFixed(2).replaceAll(".", ",")}",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 12,
