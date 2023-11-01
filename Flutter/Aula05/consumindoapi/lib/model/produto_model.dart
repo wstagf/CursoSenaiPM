@@ -8,6 +8,7 @@ class ProdutoModel {
   String alt;
   double preco;
   String imagemURL;
+
   ProdutoModel({
     required this.id,
     required this.tipo,
@@ -48,11 +49,11 @@ class ProdutoModel {
 
   factory ProdutoModel.fromMap(Map<String, dynamic> map) {
     return ProdutoModel(
-      id: map['id'] as int,
+      id: 0, // map['id'] as int,
       tipo: map['tipo'] as String,
       nome: map['nome'] as String,
       alt: map['alt'] as String,
-      preco: map['preco'] as double,
+      preco: double.parse(map['preco'].toString()),
       imagemURL: map['imagemURL'] as String,
     );
   }
