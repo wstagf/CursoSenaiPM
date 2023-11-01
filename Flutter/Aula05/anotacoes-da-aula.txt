@@ -5,7 +5,15 @@
 Widgets da aula..
 
 - RefreshIndicator => Serve para habilitar ao usuario poder fazer o swipe para baixo e recarregar os dados na api.
+- fluttertoast => Mostra uma mensagem na tela 
+- http => faz requests na rede
 
 
 
 
+
+padrao de assinatura do backend
+
+
+- camelCase === meuObjetoDaClasseProdudo  ==>  Progamação , Javascript, Dart, Java, 
+- snake_case === meu_objeto_da_classe_produdo  ==>  * banco de dados... * backend
