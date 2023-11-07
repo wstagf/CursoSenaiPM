@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "produtos",
+  "info": {
+    "singularName": "produto",
+    "pluralName": "produtos",
+    "displayName": "produto"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tipo": {
+      "type": "string"
+    },
+    "nome": {
+      "type": "string"
+    },
+    "alt": {
+      "type": "string"
+    },
+    "imagemURL": {
+      "type": "string"
+    },
+    "preco": {
+      "type": "decimal"
+    }
+  }
+}
