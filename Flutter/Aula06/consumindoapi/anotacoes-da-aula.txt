@@ -1,4 +1,3 @@
-usuaruio e senha strapi
 
 
 ## Para executar o backend.
