@@ -29,7 +29,32 @@ dados de acesso de administrador:
 
 
 
+## Novas coisas apreentadas hoje
 
+
+ actions: widgets que podem ser adicionados a direita do titulo na barra
+
+  leading: UM UNICO widget que podem ser adicionado a esqueda do titulo na barra... 
+        observação 1: Lembrando que quando este lugar é reservado para o botao voltar... nao devemos utilizar quando existe a opcao de voltar para a tela anterior
+        
+        observação2: apesar de receber só UM wdiget, isto pode ser contornado caso coloquemos um row ou column 
+
+
+  appBar: AppBar(
+        title: const Text('Loja dos Motoqueiros'),
+        leading: Text('a'),
+        actions: [  
+          Text('b'), 
+          Text('c'),
+        ],
+      ),
+
+
+
+
+
+# lista de icones disponiveis no flutter NATIVAMENTE
+https://fonts.google.com/icons
 
 
 saber mais sobre o arquivo .md
