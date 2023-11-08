@@ -2,10 +2,12 @@ import 'package:bibliotecaoop/model/produto_model.dart';
 import 'package:flutter/material.dart';
 
 class ProdutoWidget extends StatelessWidget {
+  final String origem;
   final ProdutoModel produto;
   final dynamic acaoComprar;
   const ProdutoWidget({
     super.key,
+    required this.origem,
     required this.produto,
     required this.acaoComprar,
   });
@@ -62,33 +64,39 @@ class ProdutoWidget extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                GestureDetector(
-                  onTap: acaoComprar,
-                  child: Container(
-                    color: Colors.green[700],
-                    height: 50,
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    child: const Center(
-                      child: Text(
-                        'COMPRAR',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          letterSpacing: 1.5,
-                        ),
+            origem == "home"
+                ? Column(
+                    children: [
+                      const SizedBox(
+                        height: 20,
                       ),
-                    ),
-                  ),
-                )
-              ],
-            )
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          GestureDetector(
+                            onTap: acaoComprar,
+                            child: Container(
+                              color: Colors.green[700],
+                              height: 50,
+                              width: MediaQuery.of(context).size.width * 0.4,
+                              child: const Center(
+                                child: Text(
+                                  'COMPRAR',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    letterSpacing: 1.5,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  )
+                : const SizedBox()
           ],
         ),
       ),

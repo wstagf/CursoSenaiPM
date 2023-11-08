@@ -125,6 +125,7 @@ class _HomePageState extends State<HomePage> {
                       itemBuilder: (ctx, index) {
                         var item = repository.produtos[index];
                         return ProdutoWidget(
+                          origem: "home",
                           produto: item,
                           acaoComprar: () {
                             setState(() {

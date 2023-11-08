@@ -84,6 +84,7 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
                       var item = widget
                           .carrinhoRecebidoPorParametro.carrinho[index].produto;
                       return ProdutoWidget(
+                        origem: "carrinho",
                         produto: item,
                         acaoComprar: () {},
                       );
