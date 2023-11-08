@@ -36,10 +36,39 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Loja dos Motoqueiros'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Icon(Icons.shopping_cart),
+                Text(carrinhoRepository.carrinho.length.toString()),
+              ],
+            ),
+          ),
+        ],
       ),
       backgroundColor: Colors.greenAccent,
       body: Column(
         children: [
+          // Container(
+          //   color: Colors.white,
+          //   width: MediaQuery.of(context).size.width,
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.end,
+          //     children: [
+          //       Padding(
+          //         padding: const EdgeInsets.all(8.0),
+          //         child: Row(
+          //           children: [
+          //             Icon(Icons.shopping_cart),
+          //             Text('1'),
+          //           ],
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
           isLoading == true
               ? const LinearProgressIndicator()
               : const SizedBox(
@@ -85,7 +114,9 @@ class _HomePageState extends State<HomePage> {
                         return ProdutoWidget(
                           produto: item,
                           acaoComprar: () {
-                            carrinhoRepository.adicionar(novoProduto: item);
+                            setState(() {
+                              carrinhoRepository.adicionar(novoProduto: item);
+                            });
                           },
                         );
                       },
