@@ -7,7 +7,7 @@
 3. executar o comando 'npm run develop'
 
 
-dados de acesso:  
+dados de acesso de administrador:  
     usuario: alunos@cursosenaipm.com.br
     Senha: AlunosPMGO123#@!
 
