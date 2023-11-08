@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../controller/carrinho_repository.dart';
 import '../../controller/produto_repository.dart';
 import '../widgets/produto_widget.dart';
 
@@ -14,6 +15,7 @@ class _HomePageState extends State<HomePage> {
   bool isLoading = true;
 
   ProdutoRepository repository = ProdutoRepository();
+  CarrinhoRepository carrinhoRepository = CarrinhoRepository();
 
   @override
   void initState() {
@@ -80,7 +82,12 @@ class _HomePageState extends State<HomePage> {
                       itemCount: repository.produtos.length,
                       itemBuilder: (ctx, index) {
                         var item = repository.produtos[index];
-                        return ProdutoWidget(produto: item);
+                        return ProdutoWidget(
+                          produto: item,
+                          acaoComprar: () {
+                            carrinhoRepository.adicionar(novoProduto: item);
+                          },
+                        );
                       },
                     ),
                   ),

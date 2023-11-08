@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 
 class ProdutoWidget extends StatelessWidget {
   final ProdutoModel produto;
-  const ProdutoWidget({super.key, required this.produto});
+  final dynamic acaoComprar;
+  const ProdutoWidget({
+    super.key,
+    required this.produto,
+    required this.acaoComprar,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +69,7 @@ class ProdutoWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: () {
-                    print('Clicou ' + produto.id.toString());
-                  },
+                  onTap: acaoComprar,
                   child: Container(
                     color: Colors.green[700],
                     height: 50,
