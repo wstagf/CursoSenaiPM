@@ -35,7 +35,7 @@ class ProdutoRepository {
 
     produtos = [];
 
-    await Future.delayed(const Duration(seconds: 0));
+    await Future.delayed(const Duration(seconds: 2));
 
     await buscarProdutos();
   }
