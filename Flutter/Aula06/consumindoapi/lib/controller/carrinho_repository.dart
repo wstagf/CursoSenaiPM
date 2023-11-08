@@ -15,4 +15,18 @@ class CarrinhoRepository {
   void remover({required ProdutoModel produto}) {
     print('removendo o produto');
   }
+
+  double calcularTotalCarrinho() {
+    double valor = 0.0;
+
+    carrinho.forEach((element) {
+      valor = valor + (element.quantidade * element.produto.preco);
+    });
+
+    return valor;
+  }
+
+  String retornaValorTotalCarrinhoFormatado() {
+    return "R\$ ${calcularTotalCarrinho().toStringAsFixed(2).replaceAll(".", ",")}";
+  }
 }

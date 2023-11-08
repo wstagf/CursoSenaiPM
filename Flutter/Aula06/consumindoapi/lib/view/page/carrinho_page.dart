@@ -25,13 +25,16 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Carrinho de compras'),
-        actions: const [
+        actions: [
           Padding(
             padding: EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Icon(Icons.monetization_on),
-                Text("R\$ 2500,00"),
+                const Icon(Icons.monetization_on),
+                Text(
+                  widget.carrinhoRecebidoPorParametro
+                      .retornaValorTotalCarrinhoFormatado(),
+                ),
               ],
             ),
           ),
