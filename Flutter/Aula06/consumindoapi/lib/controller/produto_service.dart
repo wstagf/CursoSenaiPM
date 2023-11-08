@@ -9,10 +9,20 @@ class ProdutoService {
     try {
       var url = Uri.parse('http://192.168.15.5:1337/api/produtos/');
       var response = await http.get(url);
+      var data = json.decode(response.body)['data'];
 
-      lista = (json.decode(response.body) as List)
-          .map((i) => ProdutoModel.fromMap(i))
-          .toList();
+      for (var i = 0; i < data.length; i++) {
+        ProdutoModel p = ProdutoModel(
+          id: data[i]['id'],
+          tipo: data[i]['attributes']['tipo'],
+          nome: data[i]['attributes']['nome'],
+          alt: data[i]['attributes']['alt'],
+          preco: double.parse(data[i]['attributes']['preco'].toString()),
+          imagemURL: data[i]['attributes']['imagemURL'],
+        );
+
+        lista.add(p);
+      }
 
       return lista;
     } catch (e) {
