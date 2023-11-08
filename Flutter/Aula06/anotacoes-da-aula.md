@@ -53,6 +53,59 @@ dados de acesso de administrador:
 
 
 
+# navegação... 
+ Navigator.push -> Navega com opção de voltar para a pagina anterior... Empilha as paginas.. a pagina antiga fica embaixo e a pagina nova fica em cima... Isto tambémn acontece quando querermo mostrar uma janela modal.
+
+ 
+Navigator.pop  -> Retira a pagina ativa da lista.. voltar para a anterior.. 
+
+
+     Navigator.pushReplacement -> Navega SUBSTITUINDO a ultima pagina.. 
+    
+     
+
+
+
+estamos no app... 
+    - pagina 1.. 
+
+
+
+ao navegar da pagina 1 para a pagina 2 foi utilizado o push;
+ao navegar da pagina 2 para a pagina 3 foi utilizado o push;
+
+ ficando assim
+
+     - pagina 3... 
+    - pagina 2..
+    - pagina 1.. 
+
+
+
+
+ao navegar da pagina 3 para a pagina 4 foi utilizado o pushReplacement ficando assim
+
+
+    - pagina 4... 
+    - pagina 2..
+    - pagina 1.. 
+
+
+
+ao utilizar o .pop fica assim... 
+
+    - pagina 2..
+    - pagina 1.. 
+
+
+
+
+    
+
+
+
+
+
 # lista de icones disponiveis no flutter NATIVAMENTE
 https://fonts.google.com/icons
 
