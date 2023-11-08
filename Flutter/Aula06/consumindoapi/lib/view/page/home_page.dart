@@ -1,3 +1,4 @@
+import 'package:bibliotecaoop/view/page/carrinho_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../controller/carrinho_repository.dart';
@@ -37,13 +38,21 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Loja dos Motoqueiros'),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Icon(Icons.shopping_cart),
-                Text(carrinhoRepository.carrinho.length.toString()),
-              ],
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (ctx) => const CarrinhoPage()),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Icon(Icons.shopping_cart),
+                  Text(carrinhoRepository.carrinho.length.toString()),
+                ],
+              ),
             ),
           ),
         ],
