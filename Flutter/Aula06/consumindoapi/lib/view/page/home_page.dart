@@ -42,7 +42,11 @@ class _HomePageState extends State<HomePage> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (ctx) => const CarrinhoPage()),
+                MaterialPageRoute(
+                  builder: (ctx) => CarrinhoPage(
+                    carrinhoRecebidoPorParametro: carrinhoRepository,
+                  ),
+                ),
               );
             },
             child: Padding(

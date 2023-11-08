@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import 'package:flutter/material.dart';
 
 import '../../controller/carrinho_repository.dart';
@@ -5,15 +7,14 @@ import '../../controller/produto_repository.dart';
 import '../widgets/produto_widget.dart';
 
 class CarrinhoPage extends StatefulWidget {
-  const CarrinhoPage({super.key});
+  CarrinhoRepository carrinhoRecebidoPorParametro = CarrinhoRepository();
+  CarrinhoPage({super.key, required this.carrinhoRecebidoPorParametro});
 
   @override
   State<CarrinhoPage> createState() => _CarrinhoPageState();
 }
 
 class _CarrinhoPageState extends State<CarrinhoPage> {
-  CarrinhoRepository carrinhoRepository = CarrinhoRepository();
-
   @override
   void initState() {
     super.initState();
@@ -58,7 +59,7 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
           //   ),
           // ),
 
-          carrinhoRepository.carrinho.isEmpty
+          widget.carrinhoRecebidoPorParametro.carrinho.isEmpty
               ? Center(
                   child: Column(
                     children: [
@@ -74,9 +75,11 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
                 )
               : Expanded(
                   child: ListView.builder(
-                    itemCount: carrinhoRepository.carrinho.length,
+                    itemCount:
+                        widget.carrinhoRecebidoPorParametro.carrinho.length,
                     itemBuilder: (ctx, index) {
-                      var item = carrinhoRepository.carrinho[index].produto;
+                      var item = widget
+                          .carrinhoRecebidoPorParametro.carrinho[index].produto;
                       return ProdutoWidget(
                         produto: item,
                         acaoComprar: () {},
