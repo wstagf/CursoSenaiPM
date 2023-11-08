@@ -9,6 +9,6 @@ usuaruio e senha strapi
 
 
 dados de acesso:  
-    usuario: AlunosPMGO123#@!
+    usuario: alunos@cursosenaipm.com.br
     Senha: AlunosPMGO123#@!
 
