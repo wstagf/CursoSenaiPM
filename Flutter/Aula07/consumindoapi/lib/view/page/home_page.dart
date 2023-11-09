@@ -44,8 +44,10 @@ class _HomePageState extends State<HomePage> {
                 context,
                 MaterialPageRoute(
                   builder: (ctx) => CarrinhoPage(
-                    carrinhoRecebidoPorParametro: carrinhoRepository,
-                  ),
+                      carrinhoRecebidoPorParametro: carrinhoRepository,
+                      funcaoRecarregar: () {
+                        setState(() {});
+                      }),
                 ),
               );
             },

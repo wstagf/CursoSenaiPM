@@ -12,8 +12,15 @@ class CarrinhoRepository {
     carrinho.add(item);
   }
 
-  void remover({required ProdutoModel produto}) {
+  void remover({required ProdutoModel produtoQueDesejamosExcluir}) {
     print('removendo o produto');
+    carrinho = carrinho.where((element) {
+      if (produtoQueDesejamosExcluir.id != element.produto.id) {
+        return true;
+      } else {
+        return false;
+      }
+    }).toList();
   }
 
   double calcularTotalCarrinho() {

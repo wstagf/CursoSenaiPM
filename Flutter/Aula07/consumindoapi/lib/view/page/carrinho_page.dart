@@ -1,14 +1,16 @@
-import 'dart:isolate';
-
 import 'package:flutter/material.dart';
 
 import '../../controller/carrinho_repository.dart';
-import '../../controller/produto_repository.dart';
 import '../widgets/produto_widget.dart';
 
 class CarrinhoPage extends StatefulWidget {
   CarrinhoRepository carrinhoRecebidoPorParametro = CarrinhoRepository();
-  CarrinhoPage({super.key, required this.carrinhoRecebidoPorParametro});
+  Function funcaoRecarregar;
+  CarrinhoPage({
+    super.key,
+    required this.carrinhoRecebidoPorParametro,
+    required this.funcaoRecarregar,
+  });
 
   @override
   State<CarrinhoPage> createState() => _CarrinhoPageState();
@@ -83,10 +85,33 @@ class _CarrinhoPageState extends State<CarrinhoPage> {
                     itemBuilder: (ctx, index) {
                       var item = widget
                           .carrinhoRecebidoPorParametro.carrinho[index].produto;
-                      return ProdutoWidget(
-                        origem: "carrinho",
-                        produto: item,
-                        acaoComprar: () {},
+                      return Stack(
+                        alignment: AlignmentDirectional.topEnd,
+                        children: [
+                          ProdutoWidget(
+                            origem: "carrinho",
+                            produto: item,
+                            acaoComprar: () {},
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                widget.carrinhoRecebidoPorParametro.remover(
+                                  produtoQueDesejamosExcluir: item,
+                                );
+                              });
+                              widget.funcaoRecarregar();
+                            },
+                            child: Container(
+                              margin: const EdgeInsets.all(8),
+                              height: 50,
+                              width: 50,
+                              child: const Icon(
+                                Icons.close,
+                              ),
+                            ),
+                          ),
+                        ],
                       );
                     },
                   ),
