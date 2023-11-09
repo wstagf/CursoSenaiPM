@@ -1,0 +1,12 @@
+{
+    "id": 1,
+    "attributes": {
+        "tipo": "capacete",
+        "nome": "Capacete 1",
+        "alt": "Isto é um capacete, modelo 1",
+        "imagemURL": "assets/images/capacete01.png",
+        "preco": 50,
+        "createdAt": "2023-11-08T00:15:26.247Z",
+        "updatedAt": "2023-11-08T00:16:48.647Z"
+    }
+}
