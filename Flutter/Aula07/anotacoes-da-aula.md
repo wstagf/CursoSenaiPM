@@ -105,3 +105,45 @@ Container(
 ),
 
 
+
+
+
+Modais... 
+
+São telas que sobrepe as outras para dar enfaze a um elemento
+por exemplo quando estamosno whatsapp e vamos compartilhar uma informacao
+
+comoo na imagem  modal-sheet.jpg
+
+
+ showModalBottomSheet(
+                context: context,
+                builder: (BuildContext ctx) {
+                  return Text('a'); // aqui vai o seu WIDGET... pode-ser colocado qualquer coisa...
+                });
+
+
+
+
+                return Container(
+                    padding: EdgeInsets.all(15),
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    color: Colors.white,
+                    child: Column(children: [
+                      Text(
+                        'Login',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        'Usuario',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      TextFormField(),
+                      Text(
+                        'Senha',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      TextFormField(),
+                    ]),
+                  );
