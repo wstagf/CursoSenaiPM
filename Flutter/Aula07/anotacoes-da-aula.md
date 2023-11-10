@@ -123,27 +123,3 @@ comoo na imagem  modal-sheet.jpg
                 });
 
 
-
-
-                return Container(
-                    padding: EdgeInsets.all(15),
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    color: Colors.white,
-                    child: Column(children: [
-                      Text(
-                        'Login',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      Text(
-                        'Usuario',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      TextFormField(),
-                      Text(
-                        'Senha',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      TextFormField(),
-                    ]),
-                  );
