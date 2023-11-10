@@ -89,4 +89,8 @@ class ProdutoModel {
         preco.hashCode ^
         imagemURL.hashCode;
   }
+
+  String get precoFormatado {
+    return 'R\$' + preco.toStringAsFixed(2).replaceAll(".", ",");
+  }
 }
