@@ -1,4 +1,5 @@
 import 'package:bibliotecaoop/view/page/carrinho_page.dart';
+import 'package:bibliotecaoop/view/page/login_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../controller/carrinho_repository.dart';
@@ -33,6 +34,30 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void navegarAreaAdministrativa() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (ctx) => AreaAdministrativaPage(
+          repositoryRecebidoPorParametro: repository,
+          funcaoRecarregar: () {
+            // recarregar a lista com os produtos alterados;;;incluidos..excluidos
+            setState(() {});
+          },
+        ),
+      ),
+    );
+  }
+
+  void navegarLogin() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (ctx) => LoginPage(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,17 +65,40 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Loja dos Motoqueiros'),
         leading: GestureDetector(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (ctx) => AreaAdministrativaPage(
-                  repositoryRecebidoPorParametro: repository,
-                  funcaoRecarregar: () {
-                    // recarregar a lista com os produtos alterados;;;incluidos..excluidos
-                    setState(() {});
-                  },
-                ),
-              ),
+            showModalBottomSheet(
+              context: context,
+              builder: (BuildContext ctx) {
+                return Container(
+                  padding: EdgeInsets.all(15),
+                  width: MediaQuery.of(context).size.width,
+                  height: 200,
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      Text(
+                        'Essa área é para o adminsitrativo da loja cadastrar produtos',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                          navegarLogin();
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'Fazer Login',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
             );
           },
           child: Padding(
