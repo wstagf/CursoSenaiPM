@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../controller/carrinho_repository.dart';
 import '../../controller/produto_repository.dart';
 import '../widgets/produto_widget.dart';
+import 'area_administrativa.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -37,6 +38,26 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Loja dos Motoqueiros'),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (ctx) => AreaAdministrativaPage(
+                  repositoryRecebidoPorParametro: repository,
+                  funcaoRecarregar: () {
+                    // recarregar a lista com os produtos alterados;;;incluidos..excluidos
+                    setState(() {});
+                  },
+                ),
+              ),
+            );
+          },
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: Icon(Icons.settings),
+          ),
+        ),
         actions: [
           GestureDetector(
             onTap: () {

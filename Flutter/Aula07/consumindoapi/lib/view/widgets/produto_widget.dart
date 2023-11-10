@@ -35,7 +35,7 @@ class ProdutoWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "R\$ ${produto.preco.toStringAsFixed(2).replaceAll(".", ",")}",
+                          "R\$ ${produto.precoFormatado}",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 24,
