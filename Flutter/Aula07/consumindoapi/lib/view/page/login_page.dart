@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
 
-  InputDecoration estilo = const InputDecoration(
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool isVisiblePassword = false;
+
+  InputDecoration estiloTexto = const InputDecoration(
     enabledBorder: OutlineInputBorder(
       borderSide: BorderSide(
         color: Color.fromRGBO(46, 125, 50, 1),
@@ -13,8 +20,35 @@ class LoginPage extends StatelessWidget {
     border: OutlineInputBorder(),
     labelStyle: TextStyle(color: Colors.green),
   );
+
   @override
   Widget build(BuildContext context) {
+    InputDecoration estiloSenha = InputDecoration(
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Color.fromRGBO(46, 125, 50, 1),
+            width: 2.0,
+          ),
+        ),
+        border: const OutlineInputBorder(),
+        labelStyle: const TextStyle(color: Colors.green),
+        suffix: GestureDetector(
+          onTap: () {
+            setState(() {
+              isVisiblePassword = !isVisiblePassword;
+            });
+          },
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Icon(
+              isVisiblePassword == false
+                  ? Icons.visibility_off
+                  : Icons.visibility,
+              color: Colors.black,
+            ),
+          ),
+        ));
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Login'),
@@ -43,7 +77,7 @@ class LoginPage extends StatelessWidget {
                 'Usuario',
                 style: TextStyle(fontSize: 16),
               ),
-              TextFormField(decoration: estilo),
+              TextFormField(decoration: estiloTexto),
               const SizedBox(
                 height: 20,
               ),
@@ -51,7 +85,10 @@ class LoginPage extends StatelessWidget {
                 'Senha',
                 style: TextStyle(fontSize: 16),
               ),
-              TextFormField(decoration: estilo),
+              TextFormField(
+                decoration: estiloSenha,
+                obscureText: isVisiblePassword,
+              ),
               const SizedBox(
                 height: 50,
               ),
