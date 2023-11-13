@@ -1,13 +1,27 @@
+import 'package:bibliotecaoop/view/page/area_administrativa.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+import '../../controller/login_service.dart';
+import '../../controller/produto_repository.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({super.key});
+  Function funcaoRecarregar;
+  ProdutoRepository repositoryRecebidoPorParametro = ProdutoRepository();
+
+  LoginPage({
+    super.key,
+    required this.funcaoRecarregar,
+    required this.repositoryRecebidoPorParametro,
+  });
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  LoginService loginService = LoginService();
+
   bool isVisiblePassword = false;
 
   InputDecoration estiloTexto = const InputDecoration(
@@ -92,15 +106,50 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 50,
               ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                color: Colors.green[800],
-                padding: const EdgeInsets.all(25),
-                child: const Center(
-                    child: Text(
-                  'Login',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
-                )),
+              GestureDetector(
+                onTap: () {
+                  loginService
+                      .efetuarLogin(
+                    usuario: "teste",
+                    senha: "senha",
+                  )
+                      .then((value) {
+                    if (value) {
+                      // caso seja sucesso o login vamos redirecionar para area administrativa
+                      print(value);
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (ctx) => AreaAdministrativaPage(
+                                  funcaoRecarregar: widget.funcaoRecarregar,
+                                  repositoryRecebidoPorParametro:
+                                      widget.repositoryRecebidoPorParametro,
+                                )),
+                      );
+                    } else {
+                      // caso haja erro vamos mostrar mensagem de erro
+                      Fluttertoast.showToast(
+                        msg: "Houve um erro ao fazer o login",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 18.0,
+                      );
+                    }
+                  });
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.green[800],
+                  padding: const EdgeInsets.all(25),
+                  child: const Center(
+                      child: Text(
+                    'Login',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  )),
+                ),
               )
             ],
           ),

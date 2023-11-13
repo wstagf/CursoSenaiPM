@@ -7,7 +7,7 @@ class ProdutoService {
   Future<List<ProdutoModel>> buscaProdutosNaAPI() async {
     List<ProdutoModel> lista = [];
     try {
-      var url = Uri.parse('http://192.168.15.5:1337/api/produtos/');
+      var url = Uri.parse('http://192.168.15.4:1337/api/produtos/');
       var response = await http.get(url);
       var data = json.decode(response.body)['data'];
 

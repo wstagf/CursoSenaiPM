@@ -53,7 +53,13 @@ class _HomePageState extends State<HomePage> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (ctx) => LoginPage(),
+        builder: (ctx) => LoginPage(
+          repositoryRecebidoPorParametro: repository,
+          funcaoRecarregar: () {
+            // recarregar a lista com os produtos alterados;;;incluidos..excluidos
+            setState(() {});
+          },
+        ),
       ),
     );
   }
