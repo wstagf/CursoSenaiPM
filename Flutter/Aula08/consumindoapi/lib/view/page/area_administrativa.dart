@@ -1,8 +1,10 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../controller/crud_service.dart';
 import '../../controller/produto_repository.dart';
 
 class AreaAdministrativaPage extends StatefulWidget {
@@ -20,6 +22,8 @@ class AreaAdministrativaPage extends StatefulWidget {
 }
 
 class _AreaAdministrativaPageState extends State<AreaAdministrativaPage> {
+  CrudService service = CrudService();
+
   Future<void> verificarDados() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     print(prefs.get("JWT"));
@@ -116,7 +120,37 @@ class _AreaAdministrativaPageState extends State<AreaAdministrativaPage> {
                                   ),
                                 ),
                                 child: GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    print('Vamos Excluir o produto ' +
+                                        item.id.toString());
+                                    service.excluirProduto().then((value) {
+                                      if (value) {
+                                        Fluttertoast.showToast(
+                                          msg: "Produto excluido",
+                                          toastLength: Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.CENTER,
+                                          timeInSecForIosWeb: 1,
+                                          backgroundColor: Colors.green,
+                                          textColor: const Color.fromARGB(
+                                              255, 0, 0, 0),
+                                          fontSize: 18.0,
+                                        );
+
+                                        widget.funcaoRecarregar();
+                                      } else {
+                                        Fluttertoast.showToast(
+                                          msg:
+                                              "Houve um erro ao excluir o produto",
+                                          toastLength: Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.CENTER,
+                                          timeInSecForIosWeb: 1,
+                                          backgroundColor: Colors.red,
+                                          textColor: Colors.white,
+                                          fontSize: 18.0,
+                                        );
+                                      }
+                                    });
+                                  },
                                   child: Padding(
                                     padding: EdgeInsets.all(8),
                                     child: Icon(Icons.delete),
