@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../controller/produto_repository.dart';
 
@@ -19,11 +20,20 @@ class AreaAdministrativaPage extends StatefulWidget {
 }
 
 class _AreaAdministrativaPageState extends State<AreaAdministrativaPage> {
+  Future<void> verificarDados() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    print(prefs.get("JWT"));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Área administrativa'),
+        title: GestureDetector(
+            onTap: () {
+              verificarDados();
+            },
+            child: Text('Área administrativa')),
         actions: [
           Container(
             margin: EdgeInsets.only(right: 10),

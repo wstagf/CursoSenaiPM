@@ -15,3 +15,10 @@ dados de acesso de administrador:
 
 aula 08
 
+
+
+
+Biblioteca para armazenar o JWT do usuario..
+
+https://pub.dev/packages/shared_preferences
+

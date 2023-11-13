@@ -21,6 +21,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   LoginService loginService = LoginService();
+  TextEditingController controladorUsuario = TextEditingController();
+  TextEditingController controladorSenha = TextEditingController();
 
   bool isVisiblePassword = false;
 
@@ -91,7 +93,10 @@ class _LoginPageState extends State<LoginPage> {
                 'Usuario',
                 style: TextStyle(fontSize: 16),
               ),
-              TextFormField(decoration: estiloTexto),
+              TextFormField(
+                decoration: estiloTexto,
+                controller: controladorUsuario,
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -102,6 +107,7 @@ class _LoginPageState extends State<LoginPage> {
               TextFormField(
                 decoration: estiloSenha,
                 obscureText: isVisiblePassword,
+                controller: controladorSenha,
               ),
               const SizedBox(
                 height: 50,
@@ -110,8 +116,8 @@ class _LoginPageState extends State<LoginPage> {
                 onTap: () {
                   loginService
                       .efetuarLogin(
-                    usuario: "teste",
-                    senha: "senha",
+                    usuario: controladorUsuario.text,
+                    senha: controladorSenha.text,
                   )
                       .then((value) {
                     if (value) {
