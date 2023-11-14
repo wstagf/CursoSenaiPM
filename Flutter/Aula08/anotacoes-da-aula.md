@@ -11,14 +11,3 @@ dados de acesso de administrador:
     usuario: alunos@cursosenaipm.com.br
     Senha: AlunosPMGO123#@!
 
-
-
-aula 08
-
-
-
-
-Biblioteca para armazenar o JWT do usuario..
-
-https://pub.dev/packages/shared_preferences
-
