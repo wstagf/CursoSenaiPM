@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+import '../../controller/crud_service.dart';
 
 class ModalCrudProduto extends StatefulWidget {
   const ModalCrudProduto({super.key});
@@ -13,6 +16,7 @@ class _ModalCrudProdutoState extends State<ModalCrudProduto> {
   TextEditingController controladorPreco = TextEditingController();
   TextEditingController controladorTipo = TextEditingController();
   TextEditingController controladorImagemURL = TextEditingController();
+  CrudService service = CrudService();
 
   InputDecoration estiloTexto = const InputDecoration(
     enabledBorder: OutlineInputBorder(
@@ -97,6 +101,32 @@ class _ModalCrudProdutoState extends State<ModalCrudProduto> {
                   GestureDetector(
                     onTap: () {
                       print('vamos adicionar');
+                      service
+                          .inserirProduto(
+                              alt: controladorAlt.text,
+                              imagemURL: controladorImagemURL.text,
+                              nome: controladorNome.text,
+                              preco: double.parse(controladorPreco.text),
+                              tipo: controladorTipo.text)
+                          .then((value) {
+                        if (value) {
+                          Fluttertoast.showToast(
+                            msg: "Produto Adicionado",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.green,
+                            textColor: const Color.fromARGB(255, 0, 0, 0),
+                            fontSize: 18.0,
+                          );
+
+                          controladorNome.text = "";
+                          controladorAlt.text = "";
+                          controladorPreco.text = "";
+                          controladorTipo.text = "";
+                          controladorImagemURL.text = "";
+                        }
+                      });
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width,

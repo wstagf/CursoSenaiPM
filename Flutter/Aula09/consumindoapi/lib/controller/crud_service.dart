@@ -4,7 +4,13 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CrudService {
-  Future<bool> inserirProduto() async {
+  Future<bool> inserirProduto({
+    required String tipo,
+    required String nome,
+    required double preco,
+    required String alt,
+    required String imagemURL,
+  }) async {
     try {
       await Future.delayed(Duration(seconds: 2));
       // aqui vamos colocar a chamada da api
@@ -21,11 +27,11 @@ class CrudService {
 
       Map novoProduto = {
         "data": {
-          "tipo": "capacete",
-          "nome": "novo Capacete",
-          "alt": "novo Capacete",
-          "preco": 1,
-          "imagemURL": "assets/images/capacete01.png"
+          "tipo": tipo,
+          "nome": nome,
+          "alt": alt,
+          "preco": preco,
+          "imagemURL": imagemURL
         }
       };
 

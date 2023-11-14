@@ -1,10 +1,7 @@
-import 'dart:ffi';
-
 import 'package:bibliotecaoop/model/produto_model.dart';
 import 'package:bibliotecaoop/view/page/modal_crud_produto.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../controller/crud_service.dart';
 import '../../controller/produto_repository.dart';
@@ -54,22 +51,6 @@ class _AreaAdministrativaPageState extends State<AreaAdministrativaPage> {
                   context,
                   MaterialPageRoute(builder: (ctx) => ModalCrudProduto()),
                 );
-
-                // service.inserirProduto().then((value) {
-                //   if (value) {
-                //     Fluttertoast.showToast(
-                //       msg: "Produto Adicionado",
-                //       toastLength: Toast.LENGTH_SHORT,
-                //       gravity: ToastGravity.CENTER,
-                //       timeInSecForIosWeb: 1,
-                //       backgroundColor: Colors.green,
-                //       textColor: const Color.fromARGB(255, 0, 0, 0),
-                //       fontSize: 18.0,
-                //     );
-                //     verificarProdutos();
-                //     widget.funcaoRecarregar();
-                //   }
-                // });
               },
               child: Container(
                 width: 50,
