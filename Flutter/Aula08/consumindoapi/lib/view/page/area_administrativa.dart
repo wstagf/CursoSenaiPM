@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:bibliotecaoop/model/produto_model.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,20 +25,26 @@ class AreaAdministrativaPage extends StatefulWidget {
 class _AreaAdministrativaPageState extends State<AreaAdministrativaPage> {
   CrudService service = CrudService();
 
-  Future<void> verificarDados() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    print(prefs.get("JWT"));
+  List<ProdutoModel> lista = [];
+
+  @override
+  void initState() {
+    lista = widget.repositoryRecebidoPorParametro.produtos;
+    super.initState();
+  }
+
+  Future<void> verificarProdutos() async {
+    lista = await widget.repositoryRecebidoPorParametro.service
+        .buscaProdutosNaAPI();
+
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: GestureDetector(
-            onTap: () {
-              verificarDados();
-            },
-            child: Text('Área administrativa')),
+        title: Text('Área administrativa'),
         actions: [
           Container(
             margin: EdgeInsets.only(right: 10),
@@ -66,9 +73,9 @@ class _AreaAdministrativaPageState extends State<AreaAdministrativaPage> {
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.all(10),
         child: ListView.builder(
-          itemCount: widget.repositoryRecebidoPorParametro.produtos.length,
+          itemCount: lista.length,
           itemBuilder: (ctx, index) {
-            var item = widget.repositoryRecebidoPorParametro.produtos[index];
+            var item = lista[index];
             return Container(
               color: Colors.grey[300],
               width: double.infinity,
@@ -138,7 +145,7 @@ class _AreaAdministrativaPageState extends State<AreaAdministrativaPage> {
                                               255, 0, 0, 0),
                                           fontSize: 18.0,
                                         );
-
+                                        verificarProdutos();
                                         widget.funcaoRecarregar();
                                       } else {
                                         Fluttertoast.showToast(
