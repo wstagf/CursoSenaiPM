@@ -46,22 +46,39 @@ class _AreaAdministrativaPageState extends State<AreaAdministrativaPage> {
       appBar: AppBar(
         title: Text('Área administrativa'),
         actions: [
-          Container(
-            margin: EdgeInsets.only(right: 10),
-            decoration: BoxDecoration(
-              color: Colors.orange[200],
-              border: Border.all(
-                  color: const Color.fromRGBO(255, 167, 38, 1),
-                  width: 1.0,
-                  style: BorderStyle.solid), //Border.all
-              borderRadius: BorderRadius.all(
-                Radius.circular(100),
-              ),
-            ),
+          Center(
             child: GestureDetector(
-              onTap: () {},
-              child: Padding(
-                padding: EdgeInsets.all(8),
+              onTap: () {
+                service.inserirProduto().then((value) {
+                  if (value) {
+                    Fluttertoast.showToast(
+                      msg: "Produto Adicionado",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.green,
+                      textColor: const Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 18.0,
+                    );
+                    verificarProdutos();
+                    widget.funcaoRecarregar();
+                  }
+                });
+              },
+              child: Container(
+                width: 50,
+                height: 50,
+                margin: EdgeInsets.only(right: 10),
+                decoration: BoxDecoration(
+                  color: Colors.orange[200],
+                  border: Border.all(
+                      color: const Color.fromRGBO(255, 167, 38, 1),
+                      width: 1.0,
+                      style: BorderStyle.solid), //Border.all
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(100),
+                  ),
+                ),
                 child: Icon(Icons.add),
               ),
             ),
