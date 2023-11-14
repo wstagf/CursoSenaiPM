@@ -50,7 +50,10 @@ class _AreaAdministrativaPageState extends State<AreaAdministrativaPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (ctx) => ModalCrudProduto()),
-                );
+                ).then((value) {
+                  verificarProdutos();
+                  widget.funcaoRecarregar();
+                });
               },
               child: Container(
                 width: 50,
@@ -190,34 +193,17 @@ class _AreaAdministrativaPageState extends State<AreaAdministrativaPage> {
                                   onTap: () {
                                     print('Vamos Editar o produto ' +
                                         item.id.toString());
-                                    service
-                                        .editarProduto(item.id.toString())
-                                        .then((value) {
-                                      if (value) {
-                                        Fluttertoast.showToast(
-                                          msg: "Produto editado",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.CENTER,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.green,
-                                          textColor: const Color.fromARGB(
-                                              255, 0, 0, 0),
-                                          fontSize: 18.0,
-                                        );
-                                        verificarProdutos();
-                                        widget.funcaoRecarregar();
-                                      } else {
-                                        Fluttertoast.showToast(
-                                          msg:
-                                              "Houve um erro ao editar o produto",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.CENTER,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 18.0,
-                                        );
-                                      }
+
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (ctx) => ModalCrudProduto(
+                                          produtoAtual: item,
+                                        ),
+                                      ),
+                                    ).then((value) {
+                                      verificarProdutos();
+                                      widget.funcaoRecarregar();
                                     });
                                   },
                                   child: Padding(

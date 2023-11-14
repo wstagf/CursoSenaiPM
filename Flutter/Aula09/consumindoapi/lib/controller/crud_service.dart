@@ -74,7 +74,14 @@ class CrudService {
     }
   }
 
-  Future<bool> editarProduto(String produtoID) async {
+  Future<bool> editarProduto({
+    required String produtoID,
+    required String tipo,
+    required String nome,
+    required double preco,
+    required String alt,
+    required String imagemURL,
+  }) async {
     try {
       await Future.delayed(Duration(seconds: 2));
       // aqui vamos colocar a chamada da api
@@ -91,11 +98,11 @@ class CrudService {
 
       Map produtoEditado = {
         "data": {
-          "tipo": "capacete",
-          "nome": "novo " + produtoID,
-          "alt": "novo Capacete",
-          "preco": 99,
-          "imagemURL": "assets/images/capacete01.png"
+          "tipo": tipo,
+          "nome": nome,
+          "alt": alt,
+          "preco": preco,
+          "imagemURL": imagemURL,
         }
       };
 

@@ -40,28 +40,33 @@ class _HomePageState extends State<HomePage> {
       MaterialPageRoute(
         builder: (ctx) => AreaAdministrativaPage(
           repositoryRecebidoPorParametro: repository,
-          funcaoRecarregar: () {
-            // recarregar a lista com os produtos alterados;;;incluidos..excluidos
+          funcaoRecarregar: () async {
+            await repository.buscarProdutos();
             setState(() {});
           },
         ),
       ),
-    );
+    ).then((value) async {
+      await repository.buscarProdutos();
+      setState(() {});
+    });
   }
 
   void navegarLogin() {
     Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (ctx) => LoginPage(
-          repositoryRecebidoPorParametro: repository,
-          funcaoRecarregar: () {
-            // recarregar a lista com os produtos alterados;;;incluidos..excluidos
-            setState(() {});
-          },
-        ),
-      ),
-    );
+        context,
+        MaterialPageRoute(
+          builder: (ctx) => LoginPage(
+            repositoryRecebidoPorParametro: repository,
+            funcaoRecarregar: () async {
+              await repository.buscarProdutos();
+              setState(() {});
+            },
+          ),
+        )).then((value) async {
+      await repository.buscarProdutos();
+      setState(() {});
+    });
   }
 
   @override
