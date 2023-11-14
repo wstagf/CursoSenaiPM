@@ -200,7 +200,39 @@ class _AreaAdministrativaPageState extends State<AreaAdministrativaPage> {
                                   ),
                                 ),
                                 child: GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    print('Vamos Editar o produto ' +
+                                        item.id.toString());
+                                    service
+                                        .editarProduto(item.id.toString())
+                                        .then((value) {
+                                      if (value) {
+                                        Fluttertoast.showToast(
+                                          msg: "Produto editado",
+                                          toastLength: Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.CENTER,
+                                          timeInSecForIosWeb: 1,
+                                          backgroundColor: Colors.green,
+                                          textColor: const Color.fromARGB(
+                                              255, 0, 0, 0),
+                                          fontSize: 18.0,
+                                        );
+                                        verificarProdutos();
+                                        widget.funcaoRecarregar();
+                                      } else {
+                                        Fluttertoast.showToast(
+                                          msg:
+                                              "Houve um erro ao editar o produto",
+                                          toastLength: Toast.LENGTH_SHORT,
+                                          gravity: ToastGravity.CENTER,
+                                          timeInSecForIosWeb: 1,
+                                          backgroundColor: Colors.red,
+                                          textColor: Colors.white,
+                                          fontSize: 18.0,
+                                        );
+                                      }
+                                    });
+                                  },
                                   child: Padding(
                                     padding: EdgeInsets.all(8),
                                     child: Icon(Icons.edit),

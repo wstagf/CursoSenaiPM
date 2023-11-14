@@ -68,13 +68,41 @@ class CrudService {
     }
   }
 
-  Future<bool> editarProduto() async {
-    await Future.delayed(Duration(seconds: 2));
-    // aqui vamos colocar a chamada da api
-    var sucesso = true;
-    if (sucesso) {
-      return true;
-    } else {
+  Future<bool> editarProduto(String produtoID) async {
+    try {
+      await Future.delayed(Duration(seconds: 2));
+      // aqui vamos colocar a chamada da api
+      var url = Uri.parse('http://192.168.15.4:1337/api/produtos/' + produtoID);
+
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+      var jwt = prefs.getString("JWT") ?? "";
+
+      var auth = {
+        "Authorization": "bearer " + jwt,
+        "Content-Type": "application/json",
+      };
+
+      Map produtoEditado = {
+        "data": {
+          "tipo": "capacete",
+          "nome": "novo " + produtoID,
+          "alt": "novo Capacete",
+          "preco": 99,
+          "imagemURL": "assets/images/capacete01.png"
+        }
+      };
+
+      var response = await http.put(url,
+          headers: Map.from(auth), body: json.encode(produtoEditado));
+
+      if (response.statusCode != 200) {
+        return false;
+      } else {
+        return true;
+      }
+    } catch (e) {
+      print(e);
       return false;
     }
   }
