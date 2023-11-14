@@ -20,6 +20,14 @@ class _ModalCrudProdutoState extends State<ModalCrudProduto> {
   TextEditingController controladorImagemURL = TextEditingController();
   CrudService service = CrudService();
 
+  List<String> tipos = <String>[
+    'Selecione um tipo',
+    'capacete',
+    'blusa',
+  ];
+
+  String tipoSelecionado = 'Selecione um tipo';
+
   @override
   void initState() {
     if (widget.produtoAtual != null) {
@@ -29,6 +37,7 @@ class _ModalCrudProdutoState extends State<ModalCrudProduto> {
       controladorPreco.text = widget.produtoAtual!.preco.toString();
       controladorTipo.text = widget.produtoAtual!.tipo;
       controladorImagemURL.text = widget.produtoAtual!.imagemURL;
+      tipoSelecionado = widget.produtoAtual!.tipo;
     }
 
     super.initState();
@@ -173,6 +182,7 @@ class _ModalCrudProdutoState extends State<ModalCrudProduto> {
                     height: 10,
                   ),
                   TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: estiloTexto,
                     controller: controladorPreco,
                   ),
@@ -183,10 +193,36 @@ class _ModalCrudProdutoState extends State<ModalCrudProduto> {
                   SizedBox(
                     height: 10,
                   ),
-                  TextFormField(
-                    decoration: estiloTexto,
-                    controller: controladorTipo,
+                  DropdownButton<String>(
+                    value: tipoSelecionado,
+                    icon: const Icon(Icons.arrow_downward),
+                    elevation: 16,
+                    isExpanded: true,
+                    underline: Container(
+                      height: 2,
+                      color: widget.produtoAtual == null
+                          ? Colors.orange[800]
+                          : Colors.green[800],
+                    ),
+                    onChanged: (String? value) {
+                      // This is called when the user selects an item.
+                      setState(() {
+                        tipoSelecionado = value!;
+                        controladorTipo.text = value;
+                      });
+                    },
+                    items: tipos.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
                   ),
+
+                  // TextFormField(
+                  //   decoration: estiloTexto,
+                  //   controller: controladorTipo,
+                  // ),
                   SizedBox(
                     height: 20,
                   ),
