@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'page/splash_page.dart';
+import 'page/modal_crud_produto.dart';
 
 class NossaMaterialApp extends StatelessWidget {
   const NossaMaterialApp({super.key});
