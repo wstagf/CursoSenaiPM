@@ -123,7 +123,10 @@ class _AreaAdministrativaPageState extends State<AreaAdministrativaPage> {
                                   onTap: () {
                                     print('Vamos Excluir o produto ' +
                                         item.id.toString());
-                                    service.excluirProduto().then((value) {
+                                    service
+                                        .excluirProduto(
+                                            produtoID: item.id.toString())
+                                        .then((value) {
                                       if (value) {
                                         Fluttertoast.showToast(
                                           msg: "Produto excluido",

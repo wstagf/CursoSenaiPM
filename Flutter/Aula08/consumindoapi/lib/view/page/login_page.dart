@@ -21,7 +21,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   LoginService loginService = LoginService();
-  TextEditingController controladorUsuario = TextEditingController();
+  TextEditingController controladorUsuario =
+      TextEditingController(text: 'aluno3@pmgo.com.br');
   TextEditingController controladorSenha = TextEditingController();
 
   bool isVisiblePassword = false;
