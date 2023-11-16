@@ -1,0 +1,7 @@
+Neste repositorio foi utilizado imagens de propriedade da ALURA para explicar o processo de compilação. 
+
+
+
+https://www.alura.com.br/artigos/jvm-conhecendo-processo-execucao-de-codigo
+
+
