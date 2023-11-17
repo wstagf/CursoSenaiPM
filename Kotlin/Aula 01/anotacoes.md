@@ -57,7 +57,7 @@
 4. Rodar o InteliJ
 
 
-5. Escrever nosso primeiro app com Kotlin
+5. Escrever nosso primeiro programa com Kotlin
     - https://www.jetbrains.com/help/idea/create-your-first-kotlin-app.html
 
     
