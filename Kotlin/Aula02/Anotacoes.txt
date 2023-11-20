@@ -1,0 +1,60 @@
+gradle.properties - Configuracao do compilador
+
+
+app/build.gradle  - Configuracao do compilador 
+
+
+AndroidManifest.xml - configuracao do app como um todo,
+			é no android manifest que adicionamos as pemissoes utilizando uses-permission
+
+
+	activity - São as telas, é necessario pelo menos 	uma activity para o app. Quando querermos fazer que 	um app abra o nosso app e navegue para uma tela 	especifica devemos criar esta tela como segunda 	activity e adicionar no android manifest.
+
+
+
+
+
+
+
+a pasta res contem os recursos..
+-> drwables = ICONES, IMAGENS.
+-> MipMap = ICONES, IMAGENS - responsivas automaticamente
+	Mais detalhes sobre o sitema MIPMAP e a 
+	compatibilidade de telas
+
+	https://developer.android.com/training/multiscreen/screendensities?hl=pt-br
+	
+-> xml = pasta com dados para serem utilizados no app
+-> values = pasta contem os arquuivos as CONSTANTES para serem utilizados no app
+
+
+
+
+
+
+Mais informaçoes sobre o jet pack - material a ser estudado posteriormente 
+
+https://developer.android.com/jetpack?hl=pt-br
+
+https://www.youtube.com/watch?v=-WyA-VsScD8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
