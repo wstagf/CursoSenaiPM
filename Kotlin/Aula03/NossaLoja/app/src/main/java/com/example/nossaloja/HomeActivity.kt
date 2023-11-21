@@ -1,5 +1,4 @@
 package com.example.nossaloja
-
 import android.os.Bundle
 import android.view.Menu
 import com.google.android.material.snackbar.Snackbar
@@ -15,31 +14,43 @@ import com.example.nossaloja.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
 
+
+    // declara a variavel nome appBarConfiguration do tipo "AppBarConfiguration", para administrar a appbar
     private lateinit var appBarConfiguration: AppBarConfiguration
+
+
+    // delcara a variavel nome binding do tipo "ActivityHomeBinding" , para administrar a pagina com um todo
     private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
+        // atribuição na variavel BINDING o resultado da função inflate
+     binding = ActivityHomeBinding.inflate(layoutInflater)
+     setContentView(binding.root)
 
         setSupportActionBar(binding.appBarHome.toolbar)
 
+
+        // cria a função que vai ser chamada caso cliquemos no botao flutuante
         binding.appBarHome.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            Snackbar.make(view, "Exemplo de botão flutuante", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
         }
+
+
+        // Cria o menu declarando variaveis de controle...
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_home)
+
+
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
-            ), drawerLayout
-        )
+        appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.nav_home, R.id.nav_settings,), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
