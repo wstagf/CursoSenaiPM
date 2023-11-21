@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            // será direcionado para a tela NossaTela
-            var i = Intent(this, NossaTela::class.java)
+            // será direcionado para a tela HOME
+            var i = Intent(this, HomeActivity::class.java)
             startActivity(i)
             finish()
         }, 5000)

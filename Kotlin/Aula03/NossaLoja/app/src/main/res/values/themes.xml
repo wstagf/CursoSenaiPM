@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.NossaLoja" parent="Base.Theme.NossaLoja"/>
+    <style name="Theme.NossaLoja.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.NossaLoja.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.NossaLoja.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 </resources>
