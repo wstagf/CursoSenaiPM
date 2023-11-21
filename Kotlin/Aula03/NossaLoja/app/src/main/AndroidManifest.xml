@@ -13,6 +13,9 @@
             android:theme="@style/Theme.NossaLoja"
             tools:targetApi="31">
         <activity
+                android:name=".NossaTela"
+                android:exported="false"/>
+        <activity
                 android:name=".MainActivity"
                 android:exported="true">
             <intent-filter>
