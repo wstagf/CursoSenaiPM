@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">NossaLoja</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Abrir menu</string>
+    <string name="navigation_drawer_close">Fechar menu</string>
+    <string name="nav_header_title">Curso Kotlin Nativo</string>
+    <string name="nav_header_subtitle">Senai Fasteg</string>
+    <string name="nav_header_desc">Navegação</string>
+    <string name="action_settings">Configurações</string>
+
+    <string name="menu_home">Pagina Inicial</string>
+    <string name="menu_admin">Área Administrativa</string>
+</resources>
