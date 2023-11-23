@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.nossaloja.databinding.FragmentHomeBinding
 import com.google.android.material.snackbar.Snackbar
+import okhttp3.*
+import java.io.IOException
+
 
 class HomeFragment : Fragment() {
 
@@ -33,6 +36,22 @@ private var _binding: FragmentHomeBinding? = null
     // decalrado a lista
       val listaProdutos = ArrayList<ProdutoModel>()
 
+
+    val client = OkHttpClient()
+
+    val request = Request.Builder().url("http://192.168.1.71:3000/products").build();
+
+    client.newCall(request).enqueue(object: Callback {
+      override fun onResponse(call: Call, response: Response) {
+        var str_response = response.body!!.string()
+        println(str_response)
+      }
+
+      override fun onFailure(call: Call, e: IOException) {
+        TODO("Not yet implemented")
+        println(e)
+      }
+    })
 
     // atribui valores na lista.. é aqui que vamos carregar os dados vindo da api
       listaProdutos.add(
