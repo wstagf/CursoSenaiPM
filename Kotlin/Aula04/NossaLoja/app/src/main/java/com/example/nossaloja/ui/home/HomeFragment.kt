@@ -1,12 +1,11 @@
 package com.example.nossaloja.ui.home
 
+import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.nossaloja.databinding.FragmentHomeBinding
@@ -32,22 +31,32 @@ private var _binding: FragmentHomeBinding? = null
 
 
     // decalrado a lista
-      val listaNumeros = ArrayList<Int>()
+      val listaProdutos = ArrayList<ProdutoModel>()
 
 
     // atribui valores na lista.. é aqui que vamos carregar os dados vindo da api
-      listaNumeros.add(1)
-      listaNumeros.add(2)
-      listaNumeros.add(6)
-      listaNumeros.add(56)
-      listaNumeros.add(123)
-      listaNumeros.add(467)
-      listaNumeros.add(26)
-      listaNumeros.add(71)
+      listaProdutos.add(
+          ProdutoModel(
+            1,
+            "Capacete",
+            "Capacete 01",
+            "texto alternativo",
+            50.32,
+            "imagem"
+          )
+      )
+
+
 
      // declaramos um adapter
       val adapter =
-          ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, listaNumeros)
+          ArrayAdapter(requireContext(), R.layout.simple_list_item_1, listaProdutos)
+
+//
+//    // declaramos o custom  adapter
+//    val adapter =
+//      ProdutoAdapter(requireActivity(), listaProdutos )
+
 
 
     // fazemos a conexao do adapter com o listview atravez do binding
@@ -59,7 +68,7 @@ private var _binding: FragmentHomeBinding? = null
     binding.listViewHome.setOnItemClickListener { parent, view, position, id ->
       Snackbar.make(view,
         "Clicou no item de posição " + position
-                + " com o valor " + listaNumeros.get(position)
+                + " com o valor " + listaProdutos.get(position)
         , Snackbar.LENGTH_LONG)
         .setAction("Action", null).show()
     }
