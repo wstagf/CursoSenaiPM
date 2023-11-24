@@ -2,12 +2,14 @@ package com.example.nossaloja.ui.home
 
 
 public class ProdutoModel {
-    var id: Int;
-    var tipo: String;
-    var nome: String;
-    var alt: String;
-    var preco: Double;
-    var imageURL: String;
+    var id: Int = 0;
+    var tipo: String = "";
+    var nome: String = "";
+    var alt: String= "";
+    var preco: Double = 0.0;
+    var imageURL: String = "";
+
+    constructor()
 
     constructor(
         id: Int,

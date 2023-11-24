@@ -11,6 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.nossaloja.databinding.FragmentHomeBinding
 import com.google.android.material.snackbar.Snackbar
 import okhttp3.*
+import org.json.JSONArray
+import org.json.JSONObject
 import java.io.IOException
 
 
@@ -39,12 +41,32 @@ private var _binding: FragmentHomeBinding? = null
 
     val client = OkHttpClient()
 
-    val request = Request.Builder().url("http://192.168.1.71:3000/products").build();
+    val request = Request.Builder().url("https://run.mocky.io/v3/e013bf96-a966-4b42-966c-2ece7b181917").build();
 
     client.newCall(request).enqueue(object: Callback {
       override fun onResponse(call: Call, response: Response) {
         var str_response = response.body!!.string()
-        println(str_response)
+        //creating json object
+        val listaRetorno:JSONArray = JSONArray(str_response)
+        var i:Int = 0
+        var size:Int = listaRetorno.length()
+        for (i in 0.. size-1) {
+          var json_objectdetail:JSONObject=listaRetorno.getJSONObject(i)
+          var produto:ProdutoModel = ProdutoModel();
+          produto.id = json_objectdetail.getInt("id")
+          produto.alt = json_objectdetail.getString("alt")
+          produto.nome = json_objectdetail.getString("nome")
+          produto.imageURL = json_objectdetail.getString("imagemURL")
+          produto.tipo = json_objectdetail.getString("tipo")
+          produto.preco = json_objectdetail.getDouble("preco")
+
+          listaProdutos.add(produto)
+
+        }
+
+
+          // aqui vamos fazer atualizar a tela
+
       }
 
       override fun onFailure(call: Call, e: IOException) {
@@ -53,7 +75,9 @@ private var _binding: FragmentHomeBinding? = null
       }
     })
 
-    // atribui valores na lista.. é aqui que vamos carregar os dados vindo da api
+
+
+     //atribui valores na lista.. é aqui que vamos carregar os dados vindo da api
       listaProdutos.add(
           ProdutoModel(
             1,
@@ -67,19 +91,19 @@ private var _binding: FragmentHomeBinding? = null
 
 
 
-     // declaramos um adapter
-      val adapter =
-          ArrayAdapter(requireContext(), R.layout.simple_list_item_1, listaProdutos)
-
 //
 //    // declaramos o custom  adapter
 //    val adapter =
 //      ProdutoAdapter(requireActivity(), listaProdutos )
 
 
+    // declaramos um adapter
+    val adapter =
+      ArrayAdapter(requireContext(), R.layout.simple_list_item_1, listaProdutos)
+
 
     // fazemos a conexao do adapter com o listview atravez do binding
-      binding.listViewHome.adapter = adapter
+    binding.listViewHome.adapter = adapter
 
 
 
