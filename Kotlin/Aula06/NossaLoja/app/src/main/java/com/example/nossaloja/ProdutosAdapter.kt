@@ -18,6 +18,9 @@ internal class ProdutosAdapter(  var itemsList: ArrayList<ProdutoModel>) :
             var itemPrecoProdutoTextView: TextView = view.findViewById(R.id.precoProduto)
 
             var itemImageProduto: ImageView = view.findViewById(R.id.imgProduto)
+            var botaoComprar: ImageView = view.findViewById(R.id.botaoComprar)
+
+
         }
 
         @NonNull
@@ -36,6 +39,11 @@ internal class ProdutosAdapter(  var itemsList: ArrayList<ProdutoModel>) :
             holder.itemPrecoProdutoTextView.text = item.preco.toString();
 
             holder.itemImageProduto.setImageResource(item.imageURL)
+
+            holder.botaoComprar.setOnClickListener {
+                println(item)
+            }
+
         }
 
         override fun getItemCount(): Int {
