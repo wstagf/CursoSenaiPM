@@ -1,26 +1,16 @@
 package com.example.nossaloja
 
-import androidx.appcompat.app.AppCompatActivity
+import android.R.attr.name
+import android.content.res.Resources
 import android.os.Bundle
 import android.os.StrictMode
 import android.os.StrictMode.ThreadPolicy
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nossaloja.ui.home.ProdutoModel
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.snackbar.Snackbar
 import okhttp3.*
-import okhttp3.internal.notify
-import org.json.JSONArray
 import org.json.JSONObject
-import java.io.IOException
 
 
 class HomeActivity : AppCompatActivity() {
@@ -43,7 +33,7 @@ class HomeActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(applicationContext)
 
 
-        val request = Request.Builder().url("https://run.mocky.io/v3/e013bf96-a966-4b42-966c-2ece7b181917").build();
+        val request = Request.Builder().url("http://192.168.15.12:1337/api/produtos/").build();
         val call = client.newCall(request)
         val response = call.execute()
 
@@ -53,20 +43,34 @@ class HomeActivity : AppCompatActivity() {
             var str_response = response.body!!.string()
 
             //creating json object
-            val listaRetorno: JSONArray = JSONArray(str_response)
+
+            val jsonObj = JSONObject(str_response.substring(str_response.indexOf("{"), str_response.lastIndexOf("}") + 1))
+            val data = jsonObj.getJSONArray("data")
+
             var i:Int = 0
-            var size:Int = listaRetorno.length()
+            var size:Int = data.length()
             for (i in 0.. size-1) {
-                var json_objectdetail:JSONObject=listaRetorno.getJSONObject(i)
+                var json_objectdetail:JSONObject=data.getJSONObject(i)
+                println(json_objectdetail)
+
                 var produto:ProdutoModel = ProdutoModel();
                 produto.id = json_objectdetail.getInt("id")
-                produto.alt = json_objectdetail.getString("alt")
-                produto.nome = json_objectdetail.getString("nome")
-                produto.imageURL =  R.drawable.capacete01 //json_objectdetail.getString("imagemURL")
-                produto.tipo = json_objectdetail.getString("tipo")
-                produto.preco = json_objectdetail.getDouble("preco")
+                produto.alt = json_objectdetail.getJSONObject("attributes").getString("alt")
+                produto.nome = json_objectdetail.getJSONObject("attributes").getString("nome")
+                val imageURL = json_objectdetail.getJSONObject("attributes").getString("imagemURL")
+                val resources: Resources = baseContext.getResources()
+                val resourceId = resources.getIdentifier(
+                    imageURL, "drawable",
+                    baseContext.getPackageName()
+                )
+
+                produto.imageURL = resourceId //json_objectdetail.getString("imagemURL")
+                produto.tipo = json_objectdetail.getJSONObject("attributes").getString("tipo")
+                produto.preco = json_objectdetail.getJSONObject("attributes").getDouble("preco")
                 listaProdutos.add(produto)
             }
+
+            println(listaProdutos)
 
 
         }
