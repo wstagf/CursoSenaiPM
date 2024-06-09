@@ -15,7 +15,7 @@
 
 
 ```shell
-npm init
+$ npm init
 
 ```
 
