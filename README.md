@@ -14,7 +14,7 @@
 > Advises about risks or negative outcomes of certain actions.
 
 
-```javascript
+```shell
 function test() {
 console.log("notice the blank line before this function?");
 
